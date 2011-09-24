@@ -48,6 +48,10 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
      */
     @Override
     public boolean verificaSeUsuarioExiste(String usuarioNomeLogin) {
-        return (buscarUsuarioPeloNomeLogin(usuarioNomeLogin) != null) ? true : false;
+        if (buscarUsuarioPeloNomeLogin(usuarioNomeLogin) != null) {
+            return true;
+        }
+
+        return false;
     }
 }

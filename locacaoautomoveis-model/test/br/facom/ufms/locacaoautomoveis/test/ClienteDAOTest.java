@@ -70,6 +70,26 @@ public class ClienteDAOTest {
         clienteDAO.create(clienteJuridico02);
     }
 
+    @Test
+    public void testeBuscarClienteFisico() {
+        String cpf = "12345678902";
+        ClienteFisico clienteFisico = clienteDAO.buscarClienteFisico(cpf);
+
+        System.out.println("----------------------------------------------");
+        System.out.println("CPF Cliente buscado: " + cpf);
+        System.out.println("CPF Cliente encontrado: " + clienteFisico);
+    }
+
+    @Test
+    public void testeBuscarClienteJuridico() {
+        String cnpj = "12345678900001";
+        ClienteJuridico clienteJuridico = clienteDAO.buscarClienteJuridico(cnpj);
+
+        System.out.println("----------------------------------------------");
+        System.out.println("CNPJ Cliente buscado: " + cnpj);
+        System.out.println("CNPJ Cliente encontrado: " + clienteJuridico);
+    }
+
     public void printLista(List<Cliente> clienteList) {
         System.out.println("----------------------------------------------");
         for (Iterator<Cliente> it = clienteList.iterator(); it.hasNext();) {

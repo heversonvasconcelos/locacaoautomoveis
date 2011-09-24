@@ -107,6 +107,6 @@ public class Usuario implements Serializable {
      */
     @Override
     public String toString() {
-        return (getId() + " - " + getNomeLogin());
+        return "Usuario{" + "id=" + id + ", nomeLogin=" + nomeLogin + '}';
     }
 }

@@ -9,6 +9,7 @@ import br.facom.ufms.locacaoautomoveis.persistence.daoimpl.UsuarioDAOImpl;
 import br.facom.ufms.locacaoautomoveis.persistence.entities.Usuario;
 import java.util.Iterator;
 import java.util.List;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -26,7 +27,7 @@ public class UsuarioDAOTest {
         printLista(userList);
     }
 
-//    @Test
+    @Test
     public void testeSalvarUsuario() {
         Usuario usuario00 = new Usuario();
         usuario00.setNomeLogin("joana");
@@ -44,6 +45,16 @@ public class UsuarioDAOTest {
         usuarioDAO.create(usuario02);
 
 
+    }
+
+    @Test
+    public void testeBuscarUsuarioPeloNomeLogin() {
+        String nomeLogin = "joao";
+        Usuario usuario = usuarioDAO.buscarUsuarioPeloNomeLogin(nomeLogin);
+
+        System.out.println("----------------------------------------------");
+        System.out.println("Usuario buscado: " + nomeLogin);
+        System.out.println("Usuario encontrado: " + usuario);
     }
 
     public void printLista(List<Usuario> userList) {

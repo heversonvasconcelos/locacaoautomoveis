@@ -6,6 +6,8 @@ package br.facom.ufms.locacaoautomoveis.persistence.daoimpl;
 
 import br.facom.ufms.locacaoautomoveis.persistence.dao.ClienteDAO;
 import br.facom.ufms.locacaoautomoveis.persistence.entities.Cliente;
+import br.facom.ufms.locacaoautomoveis.persistence.entities.ClienteFisico;
+import br.facom.ufms.locacaoautomoveis.persistence.entities.ClienteJuridico;
 import br.facom.ufms.locacaoautomoveis.utils.EntityManagerUtil;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -22,15 +24,26 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente, Long> implements Cli
     }
 
     @Override
-    public Cliente buscarClientePeloCPFCNPJ(String cpfcnpj) {
-        Query query = EntityManagerUtil.createNamedQuery("Cliente.buscarClientePeloCPFCNPJ");
-        query.setParameter("clienteCPFCNPJ", cpfcnpj);
+    public ClienteFisico buscarClienteFisico(String cpf) {
+        Query query = EntityManagerUtil.createNamedQuery("Cliente.buscarClientePeloCPF");
+        query.setParameter("cpf", cpf);
 
         try {
-            return (Cliente) query.getSingleResult();
+            return (ClienteFisico) query.getSingleResult();
         } catch (NoResultException nre) {
             return null;
         }
     }
-    
+
+    @Override
+    public ClienteJuridico buscarClienteJuridico(String cnpj) {
+        Query query = EntityManagerUtil.createNamedQuery("Cliente.buscarClientePeloCNPJ");
+        query.setParameter("cnpj", cnpj);
+
+        try {
+            return (ClienteJuridico) query.getSingleResult();
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
 }

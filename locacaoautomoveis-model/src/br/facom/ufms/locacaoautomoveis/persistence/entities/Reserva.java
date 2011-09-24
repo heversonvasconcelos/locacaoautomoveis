@@ -6,6 +6,7 @@ package br.facom.ufms.locacaoautomoveis.persistence.entities;
 
 import br.facom.ufms.locacaoautomoveis.persistence.types.Status;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
@@ -13,8 +14,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -47,7 +46,7 @@ public class Reserva implements Serializable {
     @Column
     private String observacoes;
     @OneToMany(mappedBy = "reserva")
-    private List<ItemReserva> itensReserva;
+    private List<ItemReserva> itensReserva = new ArrayList<ItemReserva>();
 
     public Cliente getCliente() {
         return cliente;

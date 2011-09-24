@@ -5,14 +5,15 @@
 package br.facom.ufms.locacaoautomoveis.persistence.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -21,6 +22,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "TB_MARCA_AUTOMOVEL")
+@NamedQuery(name = "MarcaAutomovel.buscarMarcaAutomovelPelaDescricao",
+query = "SELECT marcauto FROM MarcaAutomovel AS marcauto WHERE marcauto.descricao = :descricao")
 public class MarcaAutomovel implements Serializable {
 
     @Id
@@ -29,7 +32,7 @@ public class MarcaAutomovel implements Serializable {
     @Column(nullable = false, unique = true)
     private String descricao;
     @OneToMany(mappedBy = "marca")
-    private List<ModeloAutomovel> modelos;
+    private List<ModeloAutomovel> modelos = new ArrayList<ModeloAutomovel>();
 
     public String getDescricao() {
         return descricao;

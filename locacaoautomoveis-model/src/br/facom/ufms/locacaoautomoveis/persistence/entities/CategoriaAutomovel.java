@@ -5,6 +5,7 @@
 package br.facom.ufms.locacaoautomoveis.persistence.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,9 +37,9 @@ public class CategoriaAutomovel implements Serializable {
     @Column(nullable = false)
     private double valorKM;
     @OneToMany(mappedBy = "categoria")
-    private List<Automovel> automoveis;
+    private List<Automovel> automoveis = new ArrayList<Automovel>();
     @Column(nullable = false)
-    private int qtdAutomoveisDisponiveis;
+    private int qtdAutomoveisDisponiveis = 0;
 
     public List<Automovel> getAutomoveis() {
         return automoveis;

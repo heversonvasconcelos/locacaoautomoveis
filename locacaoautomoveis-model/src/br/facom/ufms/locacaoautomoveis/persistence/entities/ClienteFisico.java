@@ -6,12 +6,15 @@ package br.facom.ufms.locacaoautomoveis.persistence.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author heverson
  */
 @Entity(name = "ClienteFisico")
+@NamedQuery(name = "Cliente.buscarClientePeloCPF",
+query = "SELECT c FROM Cliente AS c WHERE c.cpf = :cpf")
 public class ClienteFisico extends Cliente {
 
     @Column(length = 11, unique = true)
