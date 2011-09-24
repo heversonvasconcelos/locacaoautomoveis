@@ -28,13 +28,13 @@ public class CategoriaAutomovel implements Serializable {
     private Integer id;
     @Column(nullable = false, unique = true)
     private String descricao;
-    @Column(nullable = false)
+    @Column(scale = 10, precision = 2, nullable = false)
     private double valorDiario;
-    @Column(nullable = false)
+    @Column(scale = 10, precision = 2, nullable = false)
     private double valorSemanal;
-    @Column(nullable = false)
+    @Column(scale = 10, precision = 2, nullable = false)
     private double valorMensal;
-    @Column(nullable = false)
+    @Column(scale = 10, precision = 2, nullable = false)
     private double valorKM;
     @OneToMany(mappedBy = "categoria")
     private List<Automovel> automoveis = new ArrayList<Automovel>();

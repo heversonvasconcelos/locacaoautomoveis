@@ -9,7 +9,6 @@ import br.facom.ufms.locacaoautomoveis.persistence.daoimpl.UsuarioDAOImpl;
 import br.facom.ufms.locacaoautomoveis.persistence.entities.Usuario;
 import java.util.Iterator;
 import java.util.List;
-import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -27,7 +26,7 @@ public class UsuarioDAOTest {
         printLista(userList);
     }
 
-    @Test
+//    @Test
     public void testeSalvarUsuario() {
         Usuario usuario00 = new Usuario();
         usuario00.setNomeLogin("joana");
