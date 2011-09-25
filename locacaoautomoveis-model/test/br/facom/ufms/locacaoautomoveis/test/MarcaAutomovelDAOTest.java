@@ -20,7 +20,7 @@ public class MarcaAutomovelDAOTest {
     private MarcaAutomovelDAO marcaAutomovelDAO = new MarcaAutomovelDAOImpl();
 
     @Test
-    public void tesetListaTodosMarcaAutomovels() {
+    public void testeListaTodasMarcaAutomovel() {
         List<MarcaAutomovel> marcaAutomovelList = marcaAutomovelDAO.list();
 
         printLista(marcaAutomovelList);

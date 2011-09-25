@@ -22,7 +22,7 @@ public class ClienteDAOTest {
     private ClienteDAO clienteDAO = new ClienteDAOImpl();
 
     @Test
-    public void tesetListaTodosClientes() {
+    public void testeListaTodosClientes() {
         List<Cliente> clienteList = clienteDAO.list();
 
         printLista(clienteList);

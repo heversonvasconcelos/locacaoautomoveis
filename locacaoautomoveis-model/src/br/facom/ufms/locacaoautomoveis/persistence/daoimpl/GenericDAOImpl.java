@@ -5,6 +5,7 @@ import br.facom.ufms.locacaoautomoveis.utils.EntityManagerUtil;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PreDestroy;
+import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
@@ -13,7 +14,7 @@ import javax.persistence.Query;
  *
  * @author heverson.vasconcelos
  */
-public abstract class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T, ID> {
+public abstract class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T, ID>, Serializable {
 
     /**
      * Metodo para retornar a classe do parametro T
@@ -21,6 +22,10 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements Gene
      * @return Classe especificada por T
      */
     public abstract Class<T> getDomainClass();
+
+    public EntityManager getEntityManager() {
+        return EntityManagerUtil.getEntityManager();
+    }
 
     @Override
     public void create(T obj) {
@@ -30,7 +35,7 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements Gene
 
     @Override
     public T retrieve(ID id) {
-        return (T) EntityManagerUtil.getEntityManager().find(getDomainClass(), id);
+        return (T) getEntityManager().find(getDomainClass(), id);
 
     }
 
@@ -64,6 +69,16 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements Gene
         }
 
         return objReturn;
+    }
+
+    @Override
+    public Query createQuery(String query) {
+        return EntityManagerUtil.createQuery(query);
+    }
+
+    @Override
+    public Query createNamedQuery(String query) {
+        return EntityManagerUtil.createNamedQuery(query);
     }
 
     @PreDestroy

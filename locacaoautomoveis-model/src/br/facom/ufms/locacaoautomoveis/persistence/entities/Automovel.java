@@ -25,14 +25,14 @@ public class Automovel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 7)
     private String placa;
-    @Column(nullable = false, unique = true)
-    private int renavam;
+    @Column(nullable = false, unique = true, length = 9)
+    private String renavam;
     @ManyToOne
     @JoinColumn(name = "MODELO_FK")
     private ModeloAutomovel modelo;
-    @Column
+    @Column(scale = 4)
     private int ano;
     @Column
     private String cor;
@@ -98,11 +98,11 @@ public class Automovel implements Serializable {
         this.placa = placa;
     }
 
-    public int getRenavam() {
+    public String getRenavam() {
         return renavam;
     }
 
-    public void setRenavam(int renavam) {
+    public void setRenavam(String renavam) {
         this.renavam = renavam;
     }
 
@@ -121,7 +121,7 @@ public class Automovel implements Serializable {
         if ((this.placa == null) ? (other.placa != null) : !this.placa.equals(other.placa)) {
             return false;
         }
-        if (this.renavam != other.renavam) {
+        if ((this.renavam == null) ? (other.renavam != null) : !this.renavam.equals(other.renavam)) {
             return false;
         }
         return true;
@@ -129,10 +129,10 @@ public class Automovel implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + (this.id != null ? this.id.hashCode() : 0);
-        hash = 67 * hash + (this.placa != null ? this.placa.hashCode() : 0);
-        hash = 67 * hash + this.renavam;
+        int hash = 5;
+        hash = 79 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 79 * hash + (this.placa != null ? this.placa.hashCode() : 0);
+        hash = 79 * hash + (this.renavam != null ? this.renavam.hashCode() : 0);
         return hash;
     }
 

@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -20,6 +21,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "TB_MODELO_AUTOMOVEL")
+@NamedQuery(name = "ModeloAutomovel.buscarModeloAutomovelPelaDescricao",
+query = "SELECT modelauto FROM ModeloAutomovel AS modelauto WHERE modelauto.descricao = :descricao")
 public class ModeloAutomovel implements Serializable {
 
     @Id

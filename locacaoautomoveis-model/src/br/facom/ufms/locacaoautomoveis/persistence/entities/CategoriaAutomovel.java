@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,6 +22,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "TB_CATEGORIA_AUTOMOVEL")
+@NamedQuery(name = "CategoriaAutomovel.buscarCategoriaAutomovelPelaDescricao",
+query = "SELECT categauto FROM CategoriaAutomovel AS categauto WHERE categauto.descricao = :descricao")
 public class CategoriaAutomovel implements Serializable {
 
     @Id

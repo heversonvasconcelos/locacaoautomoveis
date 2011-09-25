@@ -2,6 +2,7 @@ package br.facom.ufms.locacaoautomoveis.persistence.dao;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Query;
 
 /**
  * DAO - Data Access Object <br>
@@ -44,6 +45,10 @@ public interface GenericDAO<T, ID extends Serializable> {
      * @return Lista contendo objetos do tipo T.
      */
     public List<T> list();
+
+    public Query createQuery(String query);
+
+    public Query createNamedQuery(String query);
 
     public void finalizeAccess();
 }
