@@ -15,7 +15,7 @@
     </application>
     <!-- Listeners -->
     <lifecycle>
-        <phase-listener>sampleapp.numberquiz.listener.LoggedInCheck</phase-listener>
+        <phase-listener>br.facom.ufms.locacaoautomoveis.ui.listener.LoggedInCheck</phase-listener>
     </lifecycle>
     
 </faces-config>

@@ -17,27 +17,26 @@
         </h:head>
 
         <h:body>
-            <div id="page">
-                <!-- PAGE TOP -->
-                <div id="top" class="topBottomConfig">
-                    <ui:insert name="top">
-                        <ui:include src="/resources/sections/top.xhtml"/>
-                    </ui:insert>
-                </div>
+            <div id="outer">
+                <div id="wrapper">
+                    <div id="body-bot">
 
-                <!-- PAGE CONTENT -->
-                <div id="content">
-                    <ui:insert name="content">
-                    </ui:insert>
-                </div>
+                        <!-- PAGE TOP -->
+                        <div id="body-top">
+                            <div id="logo">
+                                <h1>#{msgs.title}</h1>
+                                <ui:insert name="menu">
+                                </ui:insert>
+                            </div>
+                            <!-- PAGE CONTENT -->
+                            <ui:insert name="content">
+                            </ui:insert>
 
-                <!-- PAGE BOTTOM -->
-                <div id="bottom" class="topBottomConfig">
-                    <ui:insert name="bottom">
-                        <ui:include src="/resources/sections/bottom.xhtml"/>
-                    </ui:insert>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div id="copyright"><p>#{msgs.copyright}</p></div>
         </h:body>
     </f:view>
 
