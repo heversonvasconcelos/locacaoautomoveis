@@ -6,7 +6,7 @@ package br.facom.ufms.locacaoautomoveis.model.daoimpl;
 
 import br.facom.ufms.locacaoautomoveis.model.dao.AutomovelDAO;
 import br.facom.ufms.locacaoautomoveis.model.entities.Automovel;
-import br.facom.ufms.locacaoautomoveis.model.types.NamedQueryParameter;
+import br.facom.ufms.locacaoautomoveis.model.types.QueryParameter;
 import java.util.List;
 
 /**
@@ -23,7 +23,7 @@ public class AutomovelDAOImpl extends GenericDAOImpl<Automovel, Integer> impleme
     @Override
     public List<Automovel> buscarAutomoveisPelaDisponibilidade(boolean disponibilidade) {
         String namedQuery = "Automovel.buscarAutomoveisPelaDisponibilidade";
-        NamedQueryParameter parameter = new NamedQueryParameter("disponibilidade", disponibilidade);
+        QueryParameter parameter = new QueryParameter("disponibilidade", disponibilidade);
         List<Automovel> resultList = executeNamedQuery(namedQuery, parameter);
 
         return resultList;

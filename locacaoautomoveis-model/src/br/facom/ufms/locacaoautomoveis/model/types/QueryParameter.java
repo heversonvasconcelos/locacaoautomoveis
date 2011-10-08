@@ -8,12 +8,12 @@ package br.facom.ufms.locacaoautomoveis.model.types;
  *
  * @author heverson
  */
-public class NamedQueryParameter {
+public class QueryParameter {
 
     private String name;
     private Object value;
 
-    public NamedQueryParameter(String name, Object value) {
+    public QueryParameter(String name, Object value) {
         this.name = name;
         this.value = value;
     }
