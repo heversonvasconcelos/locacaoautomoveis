@@ -5,3 +5,5 @@
 /locacaoautomoveis-model/build/
 /locacaoautomoveis-model/nbproject/private/
 /locacaoautomoveis-model/resources/*.bak
+/locacaoautomoveis-model/src/META-INF/persistence.xml
+
