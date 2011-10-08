@@ -7,8 +7,6 @@ package br.facom.ufms.locacaoautomoveis.model.test;
 import br.facom.ufms.locacaoautomoveis.model.dao.ClienteDAO;
 import br.facom.ufms.locacaoautomoveis.model.daoimpl.ClienteDAOImpl;
 import br.facom.ufms.locacaoautomoveis.model.entities.Cliente;
-import br.facom.ufms.locacaoautomoveis.model.entities.ClienteFisico;
-import br.facom.ufms.locacaoautomoveis.model.entities.ClienteJuridico;
 import br.facom.ufms.locacaoautomoveis.model.test.utils.PrintList;
 import java.util.List;
 import junit.framework.Assert;
@@ -31,48 +29,48 @@ public class ClienteDAOTest extends PrintList {
 
 //    @Test
     public void testeSalvarClienteFisico() {
-        ClienteFisico clienteFisico00 = new ClienteFisico();
+        Cliente clienteFisico00 = new Cliente();
         clienteFisico00.setNome("Mario João Bandeiras");
         clienteFisico00.setEmail("mario.bandeiras@email.com.br");
-        clienteFisico00.setCpf("12345678900");
+        clienteFisico00.setCpfcnpj("12345678900");
         clienteDAO.create(clienteFisico00);
         Assert.assertNotNull(clienteFisico00);
 
-        ClienteFisico clienteFisico01 = new ClienteFisico();
+        Cliente clienteFisico01 = new Cliente();
         clienteFisico01.setNome("Antônio Carlos Moura");
         clienteFisico01.setEmail("antonio.moura@email.com.br");
-        clienteFisico01.setCpf("12345678901");
+        clienteFisico01.setCpfcnpj("12345678901");
         clienteDAO.create(clienteFisico01);
         Assert.assertNotNull(clienteFisico01);
 
-        ClienteFisico clienteFisico02 = new ClienteFisico();
+        Cliente clienteFisico02 = new Cliente();
         clienteFisico02.setNome("Gustavo Gomes Ferreira");
         clienteFisico02.setEmail("gustavo.ferreira@email.com.br");
-        clienteFisico02.setCpf("12345678902");
+        clienteFisico02.setCpfcnpj("12345678902");
         clienteDAO.create(clienteFisico02);
         Assert.assertNotNull(clienteFisico02);
     }
 
 //    @Test
     public void testeSalvarClienteJuridico() {
-        ClienteJuridico clienteJuridico00 = new ClienteJuridico();
+        Cliente clienteJuridico00 = new Cliente();
         clienteJuridico00.setNome("Construtora Bandeiras");
         clienteJuridico00.setEmail("construtorabandeiras@construtorabandeiras.com.br");
-        clienteJuridico00.setCnpj("12345678900000");
+        clienteJuridico00.setCpfcnpj("12345678900000");
         clienteDAO.create(clienteJuridico00);
         Assert.assertNotNull(clienteJuridico00);
 
-        ClienteJuridico clienteJuridico01 = new ClienteJuridico();
+        Cliente clienteJuridico01 = new Cliente();
         clienteJuridico01.setNome("Nexus Ltda");
         clienteJuridico01.setEmail("nexus@nexus.com.br");
-        clienteJuridico01.setCnpj("12345678900001");
+        clienteJuridico01.setCpfcnpj("12345678900001");
         clienteDAO.create(clienteJuridico01);
         Assert.assertNotNull(clienteJuridico01);
 
-        ClienteJuridico clienteJuridico02 = new ClienteJuridico();
+        Cliente clienteJuridico02 = new Cliente();
         clienteJuridico02.setNome("Jardel AutoCentro");
         clienteJuridico02.setEmail("jardelautocentro@jardelautocentro.com.br");
-        clienteJuridico02.setCnpj("12345678900002");
+        clienteJuridico02.setCpfcnpj("12345678900002");
         clienteDAO.create(clienteJuridico02);
         Assert.assertNotNull(clienteJuridico02);
     }
@@ -80,7 +78,7 @@ public class ClienteDAOTest extends PrintList {
     @Test
     public void testeBuscarClienteFisico() {
         String cpf = "12345678902";
-        ClienteFisico clienteFisico = clienteDAO.buscarClienteFisico(cpf);
+        Cliente clienteFisico = clienteDAO.buscarClientePeloCPFCNPJ(cpf);
 
         System.out.println("----------------------------------------------");
         System.out.println("CPF Cliente buscado: " + cpf);
@@ -90,7 +88,7 @@ public class ClienteDAOTest extends PrintList {
     @Test
     public void testeBuscarClienteJuridico() {
         String cnpj = "12345678900001";
-        ClienteJuridico clienteJuridico = clienteDAO.buscarClienteJuridico(cnpj);
+        Cliente clienteJuridico = clienteDAO.buscarClientePeloCPFCNPJ(cnpj);
 
         System.out.println("----------------------------------------------");
         System.out.println("CNPJ Cliente buscado: " + cnpj);

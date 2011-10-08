@@ -6,7 +6,7 @@ package br.facom.ufms.locacaoautomoveis.model.daoimpl;
 
 import br.facom.ufms.locacaoautomoveis.model.dao.LocacaoDAO;
 import br.facom.ufms.locacaoautomoveis.model.entities.Locacao;
-import br.facom.ufms.locacaoautomoveis.model.types.NamedQueryParameter;
+import br.facom.ufms.locacaoautomoveis.model.types.QueryParameter;
 import br.facom.ufms.locacaoautomoveis.model.types.Status;
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class LocacaoDAOImpl extends GenericDAOImpl<Locacao, Long> implements Loc
     @Override
     public List<Locacao> buscarLocacoesPeloStatus(Status status) {
         String namedQuery = "Locacao.buscarLocacoesPeloStatus";
-        NamedQueryParameter parameter = new NamedQueryParameter("status", status);
+        QueryParameter parameter = new QueryParameter("status", status);
         List<Locacao> resultList = executeNamedQuery(namedQuery, parameter);
 
         return resultList;
@@ -33,7 +33,7 @@ public class LocacaoDAOImpl extends GenericDAOImpl<Locacao, Long> implements Loc
     @Override
     public List<Locacao> buscarLocacoesStatusFechadoPagamentoNaoRealizado() {
         String namedQuery = "Locacao.buscarLocacoesStatusFechadoPagamentoNaoRealizado";
-        NamedQueryParameter parameter = new NamedQueryParameter("statusFechado", Status.FECHADO);
+        QueryParameter parameter = new QueryParameter("statusFechado", Status.FECHADO);
         List<Locacao> resultList = executeNamedQuery(namedQuery, parameter);
 
         return resultList;

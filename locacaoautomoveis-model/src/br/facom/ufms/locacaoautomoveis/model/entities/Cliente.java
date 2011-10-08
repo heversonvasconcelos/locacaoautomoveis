@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -19,19 +20,30 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "TB_CLIENTE")
-public abstract class Cliente implements Serializable {
+@NamedQuery(name = "Cliente.buscarClientePeloCPFCNPJ", query = "SELECT c FROM Cliente AS c WHERE c.cpfcnpj = :cpfcnpj")
+public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
     @Column
     protected String nome;
+    @Column(length = 14, unique = true)
+    private String cpfcnpj;
     @Column
     protected String endereco;
     @Column
     protected String telefone;
     @Column
     protected String email;
+
+    public String getCpfcnpj() {
+        return cpfcnpj;
+    }
+
+    public void setCpfcnpj(String cpfcnpj) {
+        this.cpfcnpj = cpfcnpj;
+    }
 
     public String getEmail() {
         return email;
@@ -71,5 +83,32 @@ public abstract class Cliente implements Serializable {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cliente other = (Cliente) obj;
+        if ((this.cpfcnpj == null) ? (other.cpfcnpj != null) : !this.cpfcnpj.equals(other.cpfcnpj)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + (this.cpfcnpj != null ? this.cpfcnpj.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "id=" + id + ", nome=" + nome + ", cpfcnpj=" + cpfcnpj + '}';
     }
 }

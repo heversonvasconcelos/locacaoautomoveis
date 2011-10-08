@@ -1,6 +1,6 @@
 package br.facom.ufms.locacaoautomoveis.model.dao;
 
-import br.facom.ufms.locacaoautomoveis.model.types.NamedQueryParameter;
+import br.facom.ufms.locacaoautomoveis.model.types.QueryParameter;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Query;
@@ -51,9 +51,11 @@ public interface GenericDAO<T, ID extends Serializable> {
 
     public Query createNamedQuery(String query);
 
-    public List<T> executeNamedQuery(String namedQuery, NamedQueryParameter parameter);
+    public T executeSingleResultQuery(QueryParameter parameter);
 
-    public T executeNamedQuerySingleResult(String namedQuery, NamedQueryParameter parameter);
+    public List<T> executeNamedQuery(String namedQuery, QueryParameter parameter);
+
+    public T executeNamedQuerySingleResult(String namedQuery, QueryParameter parameter);
 
     public void finalizeAccess();
 }

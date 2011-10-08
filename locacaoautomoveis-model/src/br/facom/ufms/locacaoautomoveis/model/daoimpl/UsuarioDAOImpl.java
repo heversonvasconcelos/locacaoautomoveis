@@ -2,7 +2,7 @@ package br.facom.ufms.locacaoautomoveis.model.daoimpl;
 
 import br.facom.ufms.locacaoautomoveis.model.dao.UsuarioDAO;
 import br.facom.ufms.locacaoautomoveis.model.entities.Usuario;
-import br.facom.ufms.locacaoautomoveis.model.types.NamedQueryParameter;
+import br.facom.ufms.locacaoautomoveis.model.types.QueryParameter;
 
 /**
  * Classe concreta que sera utilizada na execucao de todas as operacoes de
@@ -28,7 +28,7 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
     @Override
     public Usuario buscarUsuarioPeloNomeLogin(String usuarioNomeLogin) {
         String namedQuery = "Usuario.buscarUsuarioPeloNomeLogin";
-        NamedQueryParameter parameter = new NamedQueryParameter("usuarioNomeLogin", usuarioNomeLogin);
+        QueryParameter parameter = new QueryParameter("usuarioNomeLogin", usuarioNomeLogin);
         Usuario usuario = (Usuario) executeNamedQuerySingleResult(namedQuery, parameter);
 
         return usuario;

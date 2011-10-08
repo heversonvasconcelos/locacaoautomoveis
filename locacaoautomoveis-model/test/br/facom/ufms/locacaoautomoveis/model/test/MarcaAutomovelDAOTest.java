@@ -28,7 +28,7 @@ public class MarcaAutomovelDAOTest extends PrintList {
         printList(marcaAutomovelList, "TodasMarcasAutomovel");
     }
 
-//    @Test
+    @Test
     public void testeSalvarMarcaAutomovel() {
         MarcaAutomovel marcaAutomovel00 = new MarcaAutomovel();
         marcaAutomovel00.setDescricao("FIAT");

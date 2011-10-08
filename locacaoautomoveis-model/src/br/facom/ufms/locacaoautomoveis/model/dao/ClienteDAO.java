@@ -5,8 +5,6 @@
 package br.facom.ufms.locacaoautomoveis.model.dao;
 
 import br.facom.ufms.locacaoautomoveis.model.entities.Cliente;
-import br.facom.ufms.locacaoautomoveis.model.entities.ClienteFisico;
-import br.facom.ufms.locacaoautomoveis.model.entities.ClienteJuridico;
 
 /**
  *
@@ -14,7 +12,5 @@ import br.facom.ufms.locacaoautomoveis.model.entities.ClienteJuridico;
  */
 public interface ClienteDAO extends GenericDAO<Cliente, Long> {
 
-    public ClienteFisico buscarClienteFisico(String cpf);
-
-    public ClienteJuridico buscarClienteJuridico(String cnpj);
+    public Cliente buscarClientePeloCPFCNPJ(String cpfcnpj);
 }

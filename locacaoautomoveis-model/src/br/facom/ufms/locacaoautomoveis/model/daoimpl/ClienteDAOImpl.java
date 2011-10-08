@@ -6,9 +6,7 @@ package br.facom.ufms.locacaoautomoveis.model.daoimpl;
 
 import br.facom.ufms.locacaoautomoveis.model.dao.ClienteDAO;
 import br.facom.ufms.locacaoautomoveis.model.entities.Cliente;
-import br.facom.ufms.locacaoautomoveis.model.entities.ClienteFisico;
-import br.facom.ufms.locacaoautomoveis.model.entities.ClienteJuridico;
-import br.facom.ufms.locacaoautomoveis.model.types.NamedQueryParameter;
+import br.facom.ufms.locacaoautomoveis.model.types.QueryParameter;
 
 /**
  *
@@ -22,20 +20,11 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente, Long> implements Cli
     }
 
     @Override
-    public ClienteFisico buscarClienteFisico(String cpf) {
-        String namedQuery = "Cliente.buscarClientePeloCPF";
-        NamedQueryParameter parameter = new NamedQueryParameter("cpf", cpf);
-        ClienteFisico clienteFisico = (ClienteFisico) executeNamedQuerySingleResult(namedQuery, parameter);
+    public Cliente buscarClientePeloCPFCNPJ(String cpfcnpj) {
+        String namedQuery = "Cliente.buscarClientePeloCPFCNPJ";
+        QueryParameter parameter = new QueryParameter("cpfcnpj", cpfcnpj);
+        Cliente clienteFisico = (Cliente) executeNamedQuerySingleResult(namedQuery, parameter);
 
         return clienteFisico;
-    }
-
-    @Override
-    public ClienteJuridico buscarClienteJuridico(String cnpj) {
-        String namedQuery = "Cliente.buscarClientePeloCNPJ";
-        NamedQueryParameter parameter = new NamedQueryParameter("cnpj", cnpj);
-        ClienteJuridico clienteJuridico = (ClienteJuridico) executeNamedQuerySingleResult(namedQuery, parameter);
-
-        return clienteJuridico;
     }
 }

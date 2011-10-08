@@ -6,7 +6,7 @@ package br.facom.ufms.locacaoautomoveis.model.daoimpl;
 
 import br.facom.ufms.locacaoautomoveis.model.dao.CategoriaAutomovelDAO;
 import br.facom.ufms.locacaoautomoveis.model.entities.CategoriaAutomovel;
-import br.facom.ufms.locacaoautomoveis.model.types.NamedQueryParameter;
+import br.facom.ufms.locacaoautomoveis.model.types.QueryParameter;
 
 /**
  *
@@ -22,7 +22,7 @@ public class CategoriaAutomovelDAOImpl extends GenericDAOImpl<CategoriaAutomovel
     @Override
     public CategoriaAutomovel buscarCategoriaAutomovelPelaDescricao(String descricao) {
         String namedQuery = "CategoriaAutomovel.buscarCategoriaAutomovelPelaDescricao";
-        NamedQueryParameter parameter = new NamedQueryParameter("descricao", descricao);
+        QueryParameter parameter = new QueryParameter("descricao", descricao);
         CategoriaAutomovel categoriaAutomovel = executeNamedQuerySingleResult(namedQuery, parameter);
 
         return categoriaAutomovel;

@@ -1,7 +1,7 @@
 package br.facom.ufms.locacaoautomoveis.model.daoimpl;
 
 import br.facom.ufms.locacaoautomoveis.model.dao.GenericDAO;
-import br.facom.ufms.locacaoautomoveis.model.types.NamedQueryParameter;
+import br.facom.ufms.locacaoautomoveis.model.types.QueryParameter;
 import br.facom.ufms.locacaoautomoveis.model.utils.EntityManagerUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -81,9 +81,23 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements Gene
     public Query createNamedQuery(String query) {
         return EntityManagerUtil.createNamedQuery(query);
     }
+    
+    @Override
+    public T executeSingleResultQuery(QueryParameter parameter) {
+        String sql = "SELECT o FROM " + getDomainClass().getSimpleName()
+                + "AS o WHERE o." + parameter.getName() + " = :" + parameter.getValue();
+        Query query = createQuery(sql);
+        query.setParameter(parameter.getName(), parameter.getValue());
+
+        try {
+            return (T) query.getSingleResult();
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
 
     @Override
-    public List<T> executeNamedQuery(String namedQuery, NamedQueryParameter parameter) {
+    public List<T> executeNamedQuery(String namedQuery, QueryParameter parameter) {
         Query query = createNamedQuery(namedQuery);
         query.setParameter(parameter.getName(), parameter.getValue());
 
@@ -95,7 +109,7 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements Gene
     }
 
     @Override
-    public T executeNamedQuerySingleResult(String namedQuery, NamedQueryParameter parameter) {
+    public T executeNamedQuerySingleResult(String namedQuery, QueryParameter parameter) {
         Query query = createNamedQuery(namedQuery);
         query.setParameter(parameter.getName(), parameter.getValue());
 
