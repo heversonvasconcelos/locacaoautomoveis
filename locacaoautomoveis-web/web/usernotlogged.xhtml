@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <!--
-    NumberQuizJSF2
     @author heverson.vasconcelos
 
     Pagina onde sera apresentada uma mensagem alertando o usuario que ele nao
@@ -11,7 +10,6 @@
 -->
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:p="http://primefaces.prime.com.tr/ui"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="/resources/template/template.xhtml">
 
@@ -19,10 +17,8 @@
     <ui:define name="content">
         <h:form>
             <div class="aligncenter" style="width: 70%; padding: 50px">
-                <p:panel>
-                    <h3> #{msgs.userIsNotLogged}</h3>
-                    <p> <p:commandButton  value="#{msgs.login}" action="index" ajax="false"/> </p>
-                </p:panel>
+                <h3> #{msgs.userIsNotLogged}</h3>
+                <h:commandButton  value="#{msgs.login}" action="index"/>
             </div>
         </h:form>
     </ui:define>

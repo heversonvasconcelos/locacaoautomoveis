@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/resources/template/template.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="content">
+        <div id="gbox">
+            <div id="page-content">
+                <h2>Lista de Clientes</h2>
+                <h:dataTable border="1" var="cliente" value="#{clienteBean.listaClientes}">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="CPF/CNPJ"/>
+                        </f:facet>
+                        <h:outputText value="#{cliente.cpfcnpj}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nome"/>
+                        </f:facet>
+                        <h:outputText value="#{cliente.nome}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Telefone"/>
+                        </f:facet>
+                        <h:outputText value="#{cliente.telefone}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Email"/>
+                        </f:facet>
+                        <h:outputText value="#{cliente.email}"/>
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

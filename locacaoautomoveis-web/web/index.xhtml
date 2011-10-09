@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
@@ -9,12 +9,12 @@
     <!-- Pagina de login nao tem acesso ao menu -->
     <ui:define name="menu"/>
 
-    <!-- CENTER -->
     <ui:define name="content">
         <div id="gbox">
             <div id="gbox-top"> </div>
             <div id="gbox-bg">
                 <div id="gbox-grd">
+                    <!-- CENTER -->
                     <h2>#{msgs.welcome}</h2>
                     <p>#{msgs.systemInfo} <br/> #{msgs.loginMessage}</p>
                     <div id="features">
@@ -33,13 +33,11 @@
                             <h:commandButton value="#{msgs.toLogin}" action="#{loginBean.login()}"/>
                             <h:messages />
                         </h:form>
-                        <div class="clear"> </div>
                     </div>
                 </div>
                 <div id="gbox-bot"> </div>
             </div>
         </div>
-
     </ui:define>
 
 </ui:composition>

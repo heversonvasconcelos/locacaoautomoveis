@@ -10,6 +10,8 @@ public class Constants {
     /* Constantes com o endereco das paginas (relativos a raiz) */
     public static final String PAGE_INDEX = "index";
     public static final String PAGE_LOCACOES = "locacoes";
+    public static final String PAGE_USUARIOS = "usuarios";
+    public static final String PAGE_CLIENTES = "clientes";
     public static final String PAGE_USER_NOT_LOGGED = "usernotlogged.xhtml";
     /* Mensagens de erro */
     public static final String MSG_INVALID_USER = "Usuário inválido";
