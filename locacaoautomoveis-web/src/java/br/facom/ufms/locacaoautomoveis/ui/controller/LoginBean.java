@@ -3,6 +3,7 @@ package br.facom.ufms.locacaoautomoveis.ui.controller;
 import br.facom.ufms.locacaoautomoveis.model.dao.UsuarioDAO;
 import br.facom.ufms.locacaoautomoveis.model.daoimpl.UsuarioDAOImpl;
 import br.facom.ufms.locacaoautomoveis.model.entities.Usuario;
+import br.facom.ufms.locacaoautomoveis.model.utils.StringUtil;
 import br.facom.ufms.locacaoautomoveis.ui.util.Constants;
 import br.facom.ufms.locacaoautomoveis.ui.util.FacesUtil;
 import br.facom.ufms.locacaoautomoveis.ui.util.SessionUtil;
@@ -69,7 +70,9 @@ public class LoginBean {
      * @return True caso a senha esteja correta.
      */
     private boolean verificarSenha() {
-        if ((usuarioAutenticado.getSenha().compareTo(usuario.getSenha()) == 0)) {
+        String senhaCriptografada = StringUtil.encrypt(usuario.getSenha());
+
+        if ((usuarioAutenticado.getSenha().compareTo(senhaCriptografada) == 0)) {
             return true;
         }
 

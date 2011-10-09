@@ -37,7 +37,7 @@ public class Usuario implements Serializable {
     /**
      * Senha do usuário
      */
-    @Column(length = 10, nullable = false)
+    @Column(length = 64, nullable = false)
     private String senha;
 
     /*
