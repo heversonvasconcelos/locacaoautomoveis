@@ -49,7 +49,7 @@ public class AutomovelDAOTest extends PrintList {
         printList(automovelList, "TodosAutomoveisLocados");
     }
 
-//    @Test
+    @Test
     public void testeSalvarAutomovel() {
         String descricaoModeloAutomovel;
         ModeloAutomovel modeloAutomovel;

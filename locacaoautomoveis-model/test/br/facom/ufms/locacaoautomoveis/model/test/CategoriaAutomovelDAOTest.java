@@ -27,7 +27,7 @@ public class CategoriaAutomovelDAOTest extends PrintList {
         printList(categoriaAutomovelList, "TodasCategoriasAutomovel");
     }
 
-//    @Test
+    @Test
     public void testeSalvarCategoriaAutomovel() {
         CategoriaAutomovel categoriaAutomovel00 = new CategoriaAutomovel();
         categoriaAutomovel00.setDescricao("Básico");
