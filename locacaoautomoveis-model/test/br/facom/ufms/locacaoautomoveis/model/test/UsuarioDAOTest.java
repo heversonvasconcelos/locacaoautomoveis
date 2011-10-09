@@ -53,7 +53,7 @@ public class UsuarioDAOTest extends PrintList {
 
     @Test
     public void testeBuscarUsuarioPeloNomeLogin() {
-        String nomeLogin = "mario";
+        String nomeLogin = "joao";
         Usuario usuario = usuarioDAO.buscarUsuarioPeloNomeLogin(nomeLogin);
 
         System.out.println("----------------------------------------------");
