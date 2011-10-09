@@ -10,7 +10,8 @@
     <ui:define name="content">
         <div id="gbox">
             <div id="page-content">
-                <h2>Lista de Clientes</h2>
+                <h2>#{msgs.clients}</h2>
+                <br/>
                 <h:dataTable border="1" var="cliente" value="#{clienteBean.listaClientes}">
                     <h:column>
                         <f:facet name="header">

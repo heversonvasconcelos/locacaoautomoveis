@@ -3,6 +3,7 @@ package br.facom.ufms.locacaoautomoveis.model.daoimpl;
 import br.facom.ufms.locacaoautomoveis.model.dao.UsuarioDAO;
 import br.facom.ufms.locacaoautomoveis.model.entities.Usuario;
 import br.facom.ufms.locacaoautomoveis.model.types.QueryParameter;
+import br.facom.ufms.locacaoautomoveis.model.utils.StringUtil;
 
 /**
  * Classe concreta que sera utilizada na execucao de todas as operacoes de
@@ -48,5 +49,21 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
         }
 
         return false;
+    }
+
+    @Override
+    public void create(Usuario obj) {
+        String senhaCriptografada = StringUtil.encrypt(obj.getSenha());
+        obj.setSenha(senhaCriptografada);
+
+        super.create(obj);
+    }
+
+    @Override
+    public Usuario update(Usuario obj) {
+        String senhaCriptografada = StringUtil.encrypt(obj.getSenha());
+        obj.setSenha(senhaCriptografada);
+        
+        return super.update(obj);
     }
 }

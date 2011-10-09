@@ -30,15 +30,15 @@ public class UsuarioDAOTest extends PrintList {
 //    @Test
     public void testeSalvarUsuario() {
         Usuario usuario00 = new Usuario();
-        usuario00.setNomeLogin("joana");
-        usuario00.setSenha("joana");
+        usuario00.setNomeLogin("joao");
+        usuario00.setSenha("joao");
         usuarioDAO.create(usuario00);
         Assert.assertNotNull(usuario00.getId());
 
 
         Usuario usuario01 = new Usuario();
-        usuario01.setNomeLogin("joao");
-        usuario01.setSenha("joao");
+        usuario01.setNomeLogin("joana");
+        usuario01.setSenha("joana");
         usuarioDAO.create(usuario01);
         Assert.assertNotNull(usuario01.getId());
 
@@ -53,7 +53,7 @@ public class UsuarioDAOTest extends PrintList {
 
     @Test
     public void testeBuscarUsuarioPeloNomeLogin() {
-        String nomeLogin = "joao";
+        String nomeLogin = "mario";
         Usuario usuario = usuarioDAO.buscarUsuarioPeloNomeLogin(nomeLogin);
 
         System.out.println("----------------------------------------------");
