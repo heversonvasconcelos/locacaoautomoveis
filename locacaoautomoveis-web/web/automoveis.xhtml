@@ -7,7 +7,7 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="/resources/template/template.xhtml"
                 xmlns:f="http://java.sun.com/jsf/core">
-  
+
     <ui:define name="content">
         <script>
         $(document).ready(function() {
@@ -27,7 +27,7 @@
                 });        
             });
         });  
-</script>
+        </script>
         <div id="gbox">
             <div id="page-content">
                 <h2>Lista de Automóveis</h2>
@@ -35,11 +35,11 @@
                     <a href="#" id="new-car-button">Novo Veículo</a>
                 </div>
                 <h:dataTable border="1" var="automovel" value="#{automovelBean.listaAutomoveis}">
-                     <h:column>
+                    <h:column>
                         <f:facet name="header">
                             <h:outputText value="Modelo"/>
                         </f:facet>
-                         <h:outputText value="#{automovel.modelo.descricao}"/>
+                        <h:outputText value="#{automovel.modelo.descricao}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
@@ -47,45 +47,46 @@
                         </f:facet>
                         <h:outputText value="#{automovel.placa}"/>
                     </h:column>
-                      <h:column>
+                    <h:column>
                         <f:facet name="header">
                             <h:outputText value="Ano"/>
                         </f:facet>
-                          <h:outputText value="#{automovel.ano}"/>
+                        <h:outputText value="#{automovel.ano}"/>
                     </h:column>
-                      <h:column>
+                    <h:column>
                         <f:facet name="header">
                             <h:outputText value="Cor"/>
                         </f:facet>
-                          <h:outputText value="#{automovel.cor}"/>
+                        <h:outputText value="#{automovel.cor}"/>
                     </h:column>
-                     <h:column>
+                    <h:column>
                         <f:facet name="header">
                             <h:outputText value="Disponibilidade"/>
                         </f:facet>
-                         <h:outputText value="#{automovel.disponivel}"/>
+                        <h:outputText value="#{automovel.disponivel}"/>
                     </h:column>
-                   
+
                 </h:dataTable>
             </div>
         </div>
- <div class="new-car-dialog hidden">
-      <h3>Novo Veículo</h3>
-  <h:form>
-    <h:panelGrid columns="2">
-        <h:outputText value="Modelo: "/>
-        <h:inputText required="true"
-                     requiredMessage="Informe um modelo"
-                     value="#{automovel.cor}" />
-        <h:outputText value="Ano: "/>
-        <h:inputText required="true" requiredMessage="Informe o ano" value="#{automovel.ano}"/>
-    </h:panelGrid>
-    <br/>
-    <h:commandButton value="Enviar" action="#{automovelBean.create()}"/>
-    <h:messages />
-  </h:form>
-     
- </div>
+        <div class="new-car-dialog hidden">
+            <h3>Novo Veículo</h3>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="Modelo: "/>
+                    <h:selectOneMenu required="true"  requiredMessage="" value="#{automovelBean.automovel.modelo}" >
+                        <f:selectItems value="#{automovelBean.listaModelos}" />
+                    </h:selectOneMenu>>
+                    <h:outputText value="Ano: "/>
+                    <h:inputText required="true" requiredMessage="" value="#{automovelBean.automovel.ano}"/>
+
+                </h:panelGrid>
+                <br/>
+                <h:commandButton value="Enviar" action="#{automovelBean.create()}"/>
+                <h:messages />
+            </h:form>
+
+        </div>
     </ui:define>
 </ui:composition>
 
