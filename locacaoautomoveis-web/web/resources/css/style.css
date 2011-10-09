@@ -196,3 +196,7 @@ body {
     color: #fff;
     margin-top: 60px;
 }
+
+.hidden {
+    display: none;
+}

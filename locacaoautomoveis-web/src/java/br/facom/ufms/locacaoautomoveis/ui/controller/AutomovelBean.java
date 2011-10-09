@@ -8,7 +8,7 @@ import br.facom.ufms.locacaoautomoveis.model.daoimpl.AutomovelDAOImpl;
 import br.facom.ufms.locacaoautomoveis.model.entities.Automovel;
 import java.io.Serializable;
 import java.util.List;
-import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ViewScoped;
 
@@ -36,5 +36,14 @@ public class AutomovelBean implements Serializable{
     public List<Automovel> getListaAutomoveis() {
         return automovelDao.list();
     } 
+    
+    public void create() {
+          if (automovel.getId() == null) {
+            automovelDao.create(automovel);
+        } else {
+            automovelDao.create(automovel);
+        }
+          
+    }
     
 }
