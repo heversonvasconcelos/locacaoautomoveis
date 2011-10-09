@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
+
+
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/resources/template/template.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="content">
+        <div id="gbox">
+            <div id="page-content">
+                <h2>Lista de Automóveis</h2>
+                <h:dataTable border="1" var="automovel" value="#{automovelB}">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Placa"/>
+                        </f:facet>
+                        <h:outputText value="#{automovel.placa}"/>
+                    </h:column>
+                   
+                </h:dataTable>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>
