@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
     Arquivo exemplo de configuracao de acesso ao banco. 
     Nao modifique o conteudo desse template. Simplesmente copie e renomeie o arquivo para "persistence.xml".
@@ -8,7 +9,7 @@
     e modifique a propriedade hibernate.hbm2ddl.auto com o valor create:
     <property name="hibernate.hbm2ddl.auto" value="create"/>
 -->
-<?xml version="1.0" encoding="UTF-8"?>
+
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
     <persistence-unit name="locacaoautomoveis-pu" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
