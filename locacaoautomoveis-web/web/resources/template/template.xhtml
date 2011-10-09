@@ -1,43 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <!--
         @author heverson.vasconcelos
 
         Template de definicao do layout padrao das paginas da aplicacao.
     -->
-    <f:view contentType="text/html" encoding="utf-8">
-        <h:head>
-            <title>#{msgs.title}</title>
-            <h:outputStylesheet library="css" name="style.css"/>
-            <f:loadBundle basename="br.facom.ufms.locacaoautomoveis.ui.bundle.messages" var="msgs"/>
-        </h:head>
+    <h:head>
+        <title>#{msgs.title}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
+    </h:head>
 
-        <h:body>
-            <div id="outer">
-                <div id="wrapper">
-                    <div id="body-bot">
+    <h:body>
+        <div id="outer">
+            <div id="wrapper">
+                <div id="body-bot">
 
-                        <!-- PAGE TOP -->
-                        <div id="body-top">
-                            <div id="logo">
-                                <h1>#{msgs.title}</h1>
-                                <ui:insert name="menu">
-                                </ui:insert>
-                            </div>
-                            <!-- PAGE CONTENT -->
-                            <ui:insert name="content">
+                    <!-- PAGE TOP -->
+                    <div id="body-top">
+                        <div id="logo">
+                            <h1>#{msgs.title}</h1>
+                            <ui:insert name="menu">
                             </ui:insert>
-
                         </div>
+
+                        <!-- PAGE CONTENT -->
+                        <ui:insert name="content">
+                        </ui:insert>
                     </div>
                 </div>
             </div>
-            <div id="copyright"><p>#{msgs.copyright}</p></div>
-        </h:body>
-    </f:view>
+        </div>
+        <div id="copyright"><p>#{msgs.copyright}</p></div>
+    </h:body>
 
 </html>

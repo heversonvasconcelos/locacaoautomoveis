@@ -31,7 +31,7 @@ public class ModeloAutomovelDAOTest extends PrintList {
         printList(modeloAutomovelList, "TodosModelosAutomovel");
     }
 
-//    @Test
+    @Test
     public void testeSalvarMarcaModeloAutomovel() {
         //FIAT
         MarcaAutomovel marcaAutomovel00 = marcaAutomovelDAO.buscarMarcaAutomovelPelaDescricao("FIAT");

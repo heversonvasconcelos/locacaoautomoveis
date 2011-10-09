@@ -63,7 +63,7 @@ public class LocacaoServiceTest extends PrintList {
         printList(locacaoList, "LocacoesFechadasPagamentoNaoRealizado");
     }
 
-//    @Test
+    @Test
     public void testeAbrirLocacao() {
         boolean locacaoSalvaComSucesso;
 

@@ -36,11 +36,12 @@ public class LoginBean {
      * Variavel utilizada nos metodos que irao inserir ou consultar alguma
      * informacao relativa aos usuarios.
      */
-    private UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
+    private UsuarioDAO usuarioDAO;
 
     @PostConstruct
     public void init() {
         usuario = new Usuario();
+        usuarioDAO = new UsuarioDAOImpl();
     }
 
     public Usuario getUsuario() {

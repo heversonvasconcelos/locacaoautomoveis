@@ -27,7 +27,7 @@ public class ClienteDAOTest extends PrintList {
         printList(clienteList, "TodosClientes");
     }
 
-//    @Test
+    @Test
     public void testeSalvarClienteFisico() {
         Cliente clienteFisico00 = new Cliente();
         clienteFisico00.setNome("Mario João Bandeiras");
@@ -51,7 +51,7 @@ public class ClienteDAOTest extends PrintList {
         Assert.assertNotNull(clienteFisico02);
     }
 
-//    @Test
+    @Test
     public void testeSalvarClienteJuridico() {
         Cliente clienteJuridico00 = new Cliente();
         clienteJuridico00.setNome("Construtora Bandeiras");
