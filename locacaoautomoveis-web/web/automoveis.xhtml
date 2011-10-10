@@ -9,31 +9,6 @@
 		xmlns:f="http://java.sun.com/jsf/core">
 
     <ui:define name="content">
-        <script>
-	    $(document).ready(function() {
-		$("#new-car-button").click(function() {
-		    $.ajax({
-			url: "/locacaoautomoveis/getdata.xhtml",
-			success: function (data) {
-			    $("#view-car").html(data);
-			}
-		    });
-		
-                 $("div.new-car-dialog").dialog({
-                    height: 300,
-                    width: 350,
-                    modal: true,
-                    buttons: {},
-                    Cancel: function() {
-                        $( this ).dialog( "close" );
-                    },
-                    close: function() {
-                        $( this ).dialog( "close" );
-                    }
-                });        
-            });
-        });  
-        </script>
         <div id="gbox">
             <div id="page-content">
                 <h2>Lista de Automóveis</h2>
@@ -77,26 +52,11 @@
                         </f:facet>
                         <h:outputText value="#{automovel.categoria.descricao}"/>
                     </h:column>
-
+		    <h:commandButton value="Editar" action="automovelform">
+			<f:setPropertyActionListener value="#{automovel}" target="#{automovelBean.automovel}" />
+		    </h:commandButton>
                 </h:dataTable>
             </div>
-        </div>
-        <div id="view-car hidden"></div>
-        <div class="new-car-dialog hidden">
-            <h3>Novo Veículo</h3>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="Modelo: "/>
-                    <h:selectOneMenu required="true"  requiredMessage="selecione o modelo" value="#{automovelBean.automovel.modelo}"  converter="modeloAutomovelConverter" >
-                        <f:selectItems value="#{automovelBean.listaModelos}" var="modelo" itemValue="#{modelo}" itemLabel="#{modelo.descricao}" />
-                    </h:selectOneMenu>  
-                    <h:outputText value="Ano: "/>
-                    <h:inputText required="true" requiredMessage="informe o ano" value="#{automovelBean.automovel.ano}"/>
-                </h:panelGrid>
-                <br/>
-                <h:commandButton value="Enviar" action="#{automovelBean.salvarAutomovel()}"/>
-                <h:messages />
-            </h:form>
         </div>
     </ui:define>
 </ui:composition>

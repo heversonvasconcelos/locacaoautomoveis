@@ -12,7 +12,7 @@ import br.facom.ufms.locacaoautomoveis.model.daoimpl.ModeloAutomovelDAOImpl;
 import br.facom.ufms.locacaoautomoveis.model.entities.Automovel;
 import br.facom.ufms.locacaoautomoveis.model.entities.CategoriaAutomovel;
 import br.facom.ufms.locacaoautomoveis.model.entities.ModeloAutomovel;
-import br.facom.ufms.locacaoautomoveis.ui.util.Constants;
+import br.facom.ufms.locacaoautomoveis.ui.util.Constantes;
 import com.sun.corba.se.impl.orbutil.closure.Constant;
 import java.io.Serializable;
 import java.util.List;
