@@ -4,18 +4,55 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="/resources/template/template.xhtml"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template/template.xhtml">
 
     <ui:define name="content">
         <div id="gbox">
             <div id="page-content">
-                <h2>#{msgs.rentals}</h2>
-                <br/>
-                <h3>TODO</h3>
+                <div class="cabecalhoListagem">
+                    <h2 class="tituloListagem">#{msgs.rentals}</h2>
+                    <h:commandButton styleClass="right" value="Nova locacao" action="#{locacaoBean.novaLocacao()}"/>
+                </div>
+                <div>
+                    <h:dataTable value="#{locacaoBean.listaLocacoes}" var="locacao" border="1">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Id"/>
+                            </f:facet>
+                            <h:outputText value="#{locacao.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Cliente"/>
+                            </f:facet>
+                            <h:outputText value="#{locacao.cliente.nome}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="DataHoraAbertura"/>
+                            </f:facet>
+                            <h:outputText value="#{locacao.dataHoraAbertura}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="DataHoraFechamento"/>
+                            </f:facet>
+                            <h:outputText value="#{locacao.dataHoraFechamento}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Status"/>
+                            </f:facet>
+                            <h:outputText value="#{locacao.status}"/>
+                        </h:column>
+                    </h:dataTable>
+                </div>
             </div>
         </div>
-
     </ui:define>
-
 </ui:composition>

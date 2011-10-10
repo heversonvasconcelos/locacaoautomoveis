@@ -10,6 +10,7 @@ public class Constantes {
     /* Constantes com o endereco das paginas (relativos a raiz) */
     public static final String PAGE_INDEX = "index";
     public static final String PAGE_LOCACOES = "locacoes";
+    public static final String PAGE_LOCACOES_FORM = "locacoesform";
     public static final String PAGE_USUARIOS = "usuarios";
     public static final String PAGE_USUARIOS_FORM = "usuarioform";
     public static final String PAGE_CLIENTES = "clientes";

@@ -29,6 +29,7 @@ public class LocacaoService {
             locacao.setCliente(cliente);
             locacao.setDataHoraAbertura(Calendar.getInstance().getTime());
             atualizaDisponibilidadeAutomoveis(itensLocacao, false);
+
             locacao.setItensLocacao(itensLocacao);
             atualizaPonteirosLocacaoItensLocacao(locacao, itensLocacao);
 

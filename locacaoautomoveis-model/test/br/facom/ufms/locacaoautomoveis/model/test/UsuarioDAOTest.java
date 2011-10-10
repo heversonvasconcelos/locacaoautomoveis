@@ -27,7 +27,7 @@ public class UsuarioDAOTest extends PrintList {
         printList(userList, "TodosUsuarios");
     }
 
-//    @Test
+    @Test
     public void testeSalvarUsuario() {
         Usuario usuario00 = new Usuario();
         usuario00.setNomeLogin("joao");

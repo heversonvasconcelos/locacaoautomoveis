@@ -33,16 +33,8 @@ public class CategoriaAutomovel implements Serializable {
     private String descricao;
     @Column(scale = 10, precision = 2, nullable = false)
     private double valorDiario;
-    @Column(scale = 10, precision = 2, nullable = false)
-    private double valorSemanal;
-    @Column(scale = 10, precision = 2, nullable = false)
-    private double valorMensal;
-    @Column(scale = 10, precision = 2, nullable = false)
-    private double valorKM;
     @OneToMany(mappedBy = "categoria")
     private List<Automovel> automoveis = new ArrayList<Automovel>();
-    @Column(nullable = false)
-    private int qtdAutomoveisDisponiveis = 0;
 
     public List<Automovel> getAutomoveis() {
         return automoveis;
@@ -68,52 +60,12 @@ public class CategoriaAutomovel implements Serializable {
         this.id = id;
     }
 
-    public int getQtdAutomoveisDisponiveis() {
-        return qtdAutomoveisDisponiveis;
-    }
-
-    public void decrementarQtdAutomoveisDisponiveis() {
-        if (qtdAutomoveisDisponiveis > 0) {
-            qtdAutomoveisDisponiveis--;
-        }
-    }
-
-    public void incrementarQtdAutomoveisDisponiveis() {
-        if (automoveis != null && qtdAutomoveisDisponiveis < automoveis.size()) {
-            qtdAutomoveisDisponiveis++;
-        }
-    }
-
     public double getValorDiario() {
         return valorDiario;
     }
 
     public void setValorDiario(double valorDiario) {
         this.valorDiario = valorDiario;
-    }
-
-    public double getValorKM() {
-        return valorKM;
-    }
-
-    public void setValorKM(double valorKM) {
-        this.valorKM = valorKM;
-    }
-
-    public double getValorMensal() {
-        return valorMensal;
-    }
-
-    public void setValorMensal(double valorMensal) {
-        this.valorMensal = valorMensal;
-    }
-
-    public double getValorSemanal() {
-        return valorSemanal;
-    }
-
-    public void setValorSemanal(double valorSemanal) {
-        this.valorSemanal = valorSemanal;
     }
 
     @Override
