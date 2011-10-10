@@ -3,11 +3,11 @@
 
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    template="/resources/template/template.xhtml" 
-    xmlns:f="http://java.sun.com/jsf/core">
-    
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		template="/resources/template/template.xhtml" 
+		xmlns:f="http://java.sun.com/jsf/core">
+
     <ui:define name="content">
         <script>
 	    $(document).ready(function() {
@@ -70,6 +70,12 @@
                             <h:outputText value="Disponibilidade"/>
                         </f:facet>
                         <h:outputText value="#{automovel.disponivel}"/>
+                    </h:column>
+		    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Categoria"/>
+                        </f:facet>
+                        <h:outputText value="#{automovel.categoria.descricao}"/>
                     </h:column>
 
                 </h:dataTable>

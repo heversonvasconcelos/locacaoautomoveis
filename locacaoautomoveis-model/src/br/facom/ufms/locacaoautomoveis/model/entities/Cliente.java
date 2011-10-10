@@ -94,7 +94,7 @@ public class Cliente implements Serializable {
             return false;
         }
         final Cliente other = (Cliente) obj;
-        if ((this.cpfcnpj == null) ? (other.cpfcnpj != null) : !this.cpfcnpj.equals(other.cpfcnpj)) {
+        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -102,8 +102,8 @@ public class Cliente implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + (this.cpfcnpj != null ? this.cpfcnpj.hashCode() : 0);
+        int hash = 5;
+        hash = 79 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 

@@ -121,21 +121,13 @@ public class Automovel implements Serializable {
         if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
-        if ((this.placa == null) ? (other.placa != null) : !this.placa.equals(other.placa)) {
-            return false;
-        }
-        if ((this.renavam == null) ? (other.renavam != null) : !this.renavam.equals(other.renavam)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 79 * hash + (this.id != null ? this.id.hashCode() : 0);
-        hash = 79 * hash + (this.placa != null ? this.placa.hashCode() : 0);
-        hash = 79 * hash + (this.renavam != null ? this.renavam.hashCode() : 0);
+        int hash = 7;
+        hash = 73 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 

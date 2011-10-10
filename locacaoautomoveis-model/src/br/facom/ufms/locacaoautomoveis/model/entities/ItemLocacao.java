@@ -114,8 +114,8 @@ public class ItemLocacao implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 11 * hash + (this.id != null ? this.id.hashCode() : 0);
+        int hash = 3;
+        hash = 17 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 
