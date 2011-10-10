@@ -47,6 +47,5 @@ public class CPFCNPJValidator implements Validator {
             throw new ValidatorException(msg);
         }
 
-
     }
 }

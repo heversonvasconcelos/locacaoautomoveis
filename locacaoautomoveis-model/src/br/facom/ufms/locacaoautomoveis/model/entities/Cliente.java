@@ -28,7 +28,7 @@ public class Cliente implements Serializable {
     protected Long id;
     @Column
     protected String nome;
-    @Column(length = 14, unique = true)
+    @Column(length = 14)
     private String cpfcnpj;
     @Column
     protected String endereco;
