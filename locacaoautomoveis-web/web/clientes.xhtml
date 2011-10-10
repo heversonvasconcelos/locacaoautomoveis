@@ -4,69 +4,59 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="/resources/template/template.xhtml"
-                xmlns:f="http://java.sun.com/jsf/core">
-
-    <ui:define name="javascriptcode">
-        <script>
-            $(document).ready(function() {
-           
-                $("#new-client-button").click(function() {
-                     $("div.new-client-dialog").dialog({
-                        height: 300,
-                        width: 350,
-                        modal: true,
-                        buttons: {},
-                        Cancel: function() {
-                            $( this ).dialog( "close" );
-                        },
-                        close: function() {
-                            $( this ).dialog( "close" );
-                        }
-                    });        
-                });
-            });  
-        </script>
-    </ui:define>
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template/template.xhtml">
 
     <ui:define name="content">
         <div id="gbox">
             <div id="page-content">
-                <h2>#{msgs.clients}</h2>
-                <br/>
-                <div name="buttons">
-                    <a href="#" id="new-client-button">Novo Cliente</a>
+                <div class="cabecalhoListagem">
+                    <h2 class="tituloListagem">#{msgs.clients}</h2>
+                    <h:commandButton styleClass="right" value="Novo cliente" action="#{clienteBean.novoCliente()}"/>
                 </div>
-                <h:dataTable border="1" var="cliente" value="#{clienteBean.listaClientes}">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="CPF/CNPJ"/>
-                        </f:facet>
-                        <h:outputText value="#{cliente.cpfcnpj}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Nome"/>
-                        </f:facet>
-                        <h:outputText value="#{cliente.nome}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Telefone"/>
-                        </f:facet>
-                        <h:outputText value="#{cliente.telefone}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Email"/>
-                        </f:facet>
-                        <h:outputText value="#{cliente.email}"/>
-                    </h:column>
-                </h:dataTable>
+                <div>
+                    <h:dataTable id="clienteDataTable" border="1" var="cliente" value="#{clienteBean.listaClientes}">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="ID"/>
+                            </f:facet>
+                            <h:outputText value="#{cliente.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="CPF/CNPJ"/>
+                            </f:facet>
+                            <h:outputText value="#{cliente.cpfcnpj}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nome"/>
+                            </f:facet>
+                            <h:outputText value="#{cliente.nome}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Telefone"/>
+                            </f:facet>
+                            <h:outputText value="#{cliente.telefone}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Email"/>
+                            </f:facet>
+                            <h:outputText value="#{cliente.email}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Ações"/>
+                            </f:facet>
+                            <h:commandButton value="Editar" action="clienteform">
+                                <f:setPropertyActionListener value="#{cliente}" target="#{clienteBean.cliente}" />
+                            </h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                </div>
             </div>
-        </div>
-        <div class="new-client-dialog hidden">
-            <ui:include src="/resources/includes/clienteform.xhtml"/>
         </div>
     </ui:define>
 

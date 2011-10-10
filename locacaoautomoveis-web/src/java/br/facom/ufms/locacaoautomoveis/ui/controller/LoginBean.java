@@ -4,7 +4,7 @@ import br.facom.ufms.locacaoautomoveis.model.dao.UsuarioDAO;
 import br.facom.ufms.locacaoautomoveis.model.daoimpl.UsuarioDAOImpl;
 import br.facom.ufms.locacaoautomoveis.model.entities.Usuario;
 import br.facom.ufms.locacaoautomoveis.model.utils.StringUtil;
-import br.facom.ufms.locacaoautomoveis.ui.util.Constants;
+import br.facom.ufms.locacaoautomoveis.ui.util.Constantes;
 import br.facom.ufms.locacaoautomoveis.ui.util.FacesUtil;
 import br.facom.ufms.locacaoautomoveis.ui.util.SessionUtil;
 import javax.annotation.PostConstruct;
@@ -90,19 +90,19 @@ public class LoginBean {
         usuarioAutenticado = verificarLogin(usuario);
 
         if (usuarioAutenticado == null) {
-            FacesUtil.mensErro(Constants.MSG_INVALID_USER);
+            FacesUtil.mensErro(Constantes.MSG_INVALID_USER);
             return null;
         } 
         
         if (!verificarSenha()) {
             usuarioAutenticado = null;
-            FacesUtil.mensErro(Constants.MSG_INVALID_PASSWORD);
+            FacesUtil.mensErro(Constantes.MSG_INVALID_PASSWORD);
             return null;
         }
 
-        SessionUtil.setAttribute(Constants.LOGGED_USER, usuarioAutenticado);
+        SessionUtil.setAttribute(Constantes.LOGGED_USER, usuarioAutenticado);
 
-        return Constants.PAGE_LOCACOES;
+        return Constantes.PAGE_LOCACOES;
     }
 
     /**
@@ -116,6 +116,6 @@ public class LoginBean {
         usuarioAutenticado = null;
         SessionUtil.destroySession();
 
-        return Constants.PAGE_INDEX;
+        return Constantes.PAGE_INDEX;
     }
 }
