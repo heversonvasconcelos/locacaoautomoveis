@@ -70,17 +70,13 @@ public class ModeloAutomovel implements Serializable {
         if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
-        if ((this.descricao == null) ? (other.descricao != null) : !this.descricao.equals(other.descricao)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + (this.id != null ? this.id.hashCode() : 0);
-        hash = 41 * hash + (this.descricao != null ? this.descricao.hashCode() : 0);
+        hash = 37 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 

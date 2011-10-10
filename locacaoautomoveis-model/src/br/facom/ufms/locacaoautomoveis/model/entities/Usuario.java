@@ -69,11 +69,6 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    /*
-     * Hashcode e equals foram sobrescritos para que um usuário possa ser
-     * comparado com outro a partir do id e nome
-     *
-     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -86,17 +81,13 @@ public class Usuario implements Serializable {
         if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
-        if ((this.nomeLogin == null) ? (other.nomeLogin != null) : !this.nomeLogin.equals(other.nomeLogin)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + (this.id != null ? this.id.hashCode() : 0);
-        hash = 97 * hash + (this.nomeLogin != null ? this.nomeLogin.hashCode() : 0);
+        hash = 83 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 
