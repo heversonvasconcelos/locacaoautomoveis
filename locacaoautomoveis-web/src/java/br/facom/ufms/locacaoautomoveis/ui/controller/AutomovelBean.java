@@ -12,23 +12,26 @@ import br.facom.ufms.locacaoautomoveis.model.daoimpl.ModeloAutomovelDAOImpl;
 import br.facom.ufms.locacaoautomoveis.model.entities.Automovel;
 import br.facom.ufms.locacaoautomoveis.model.entities.CategoriaAutomovel;
 import br.facom.ufms.locacaoautomoveis.model.entities.ModeloAutomovel;
+import br.facom.ufms.locacaoautomoveis.ui.util.Constants;
+import com.sun.corba.se.impl.orbutil.closure.Constant;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  * Interface principal para gerenciar automóveis
  */
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class AutomovelBean implements Serializable {
 
     private AutomovelDAO automovelDao;
     private Automovel automovel;
     private ModeloAutomovelDAO modelo;
     private CategoriaAutomovelDAO categoria;
+    private List<Automovel> listaAutomoveis;
 
     @PostConstruct
     public void init() {
@@ -43,22 +46,24 @@ public class AutomovelBean implements Serializable {
     }
 
     public List<Automovel> getListaAutomoveis() {
-	return automovelDao.list();
+	listaAutomoveis = automovelDao.list();
+
+	return listaAutomoveis;
     }
 
     public void salvarAutomovel() {
 	if (automovel.getId() == null) {
 	    automovelDao.create(automovel);
 	} else {
-	    automovelDao.create(automovel);
+	    automovelDao.update(automovel);
 	}
     }
 
     public List<ModeloAutomovel> getListaModelos() {
 	return modelo.list();
     }
-    
-     public List<CategoriaAutomovel> getListaCategorias() {
+
+    public List<CategoriaAutomovel> getListaCategorias() {
 	return categoria.list();
     }
 }

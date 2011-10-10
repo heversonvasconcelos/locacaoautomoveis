@@ -13,7 +13,11 @@ public class Constantes {
     public static final String PAGE_USUARIOS = "usuarios";
     public static final String PAGE_USUARIOS_FORM = "usuarioform";
     public static final String PAGE_CLIENTES = "clientes";
+<<<<<<< HEAD
+    public static final String PAGE_AUTOMOVEIS = "automoveis";
+=======
     public static final String PAGE_CLIENTES_FORM = "clienteform";
+>>>>>>> 9a9abb16956a179625b6591f10f829c4df4ac50e
     public static final String PAGE_USER_NOT_LOGGED = "usernotlogged.xhtml";
     /* Mensagens de erro */
     public static final String MSG_INVALID_USER = "Usuário inválido";

@@ -11,17 +11,17 @@ public class ModeloAutomovelConverter implements Converter {
 
     @Override
     public Object getAsObject(FacesContext arg0, UIComponent arg1, String value) {
-        ModeloAutomovel modeloAutomovel = new ModeloAutomovel();
-        modeloAutomovel.setId(Integer.parseInt(value));
+	ModeloAutomovel modeloAutomovel = new ModeloAutomovel();
+	modeloAutomovel.setId(Integer.parseInt(value));
 
-        return modeloAutomovel;
+	return modeloAutomovel;
     }
 
     @Override
     public String getAsString(FacesContext arg0, UIComponent arg1, Object object) {
-        ModeloAutomovel modeloAutomovel = (ModeloAutomovel) object;
+	ModeloAutomovel modeloAutomovel = (ModeloAutomovel) object;
 
-        return String.valueOf(modeloAutomovel.getId());
+	return modeloAutomovel.getId().toString();
 
     }
 }
