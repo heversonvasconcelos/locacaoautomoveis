@@ -8,7 +8,7 @@ package br.facom.ufms.locacaoautomoveis.model.utils;
  *
  * @author heverson
  */
-public class Constants {
+public class Constantes {
 
     public static final String CONFIG_PERSISTENCE_UNIT_NAME = "locacaoautomoveis-pu";
 }

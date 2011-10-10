@@ -197,6 +197,26 @@ body {
     margin-top: 60px;
 }
 
+/** Configuracoes de elementos **/
 .hidden {
     display: none;
+}
+.button {
+    font-size: 10px;
+}
+.cabecalhoListagem {
+    height: 30px;
+}
+.tituloListagem {
+    float: left;
+}
+.borderField{
+    border: 1px solid gainsboro;
+}
+
+.alignedField{
+    display: inline-block;
+}
+.novoRegistroButton {
+    float: right;
 }
