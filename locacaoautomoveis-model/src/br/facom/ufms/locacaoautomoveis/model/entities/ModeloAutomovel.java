@@ -70,9 +70,15 @@ public class ModeloAutomovel implements Serializable {
         if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
-        if ((this.descricao == null) ? (other.descricao != null) : !this.descricao.equals(other.descricao)) {
+        
+	if (other.descricao == null) {
             return false;
         }
+	
+	if (this.descricao != null && !this.descricao.equals(other.descricao)) {
+	    return false;
+	}
+	
         return true;
     }
 
