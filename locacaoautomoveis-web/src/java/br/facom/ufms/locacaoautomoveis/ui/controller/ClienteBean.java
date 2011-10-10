@@ -3,14 +3,15 @@ package br.facom.ufms.locacaoautomoveis.ui.controller;
 import br.facom.ufms.locacaoautomoveis.model.dao.ClienteDAO;
 import br.facom.ufms.locacaoautomoveis.model.daoimpl.ClienteDAOImpl;
 import br.facom.ufms.locacaoautomoveis.model.entities.Cliente;
+import br.facom.ufms.locacaoautomoveis.ui.util.Constantes;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class ClienteBean implements Serializable {
 
     private Cliente cliente;
@@ -34,12 +35,19 @@ public class ClienteBean implements Serializable {
         return clienteDAO.list();
     }
 
-    public void salvarCliente() {
+    public String novoCliente() {
+        cliente = new Cliente();
+
+        return Constantes.PAGE_CLIENTES_FORM;
+    }
+
+    public String salvarCliente() {
         if (cliente.getId() == null) {
             clienteDAO.create(cliente);
         } else {
             clienteDAO.update(cliente);
         }
 
+        return Constantes.PAGE_CLIENTES;
     }
 }

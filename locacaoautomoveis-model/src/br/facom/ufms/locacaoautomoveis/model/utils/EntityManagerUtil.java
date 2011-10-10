@@ -22,7 +22,7 @@ public class EntityManagerUtil {
     @PostConstruct
     public static void init() {
         if (!isOpen()) {
-            emf = Persistence.createEntityManagerFactory(Constants.CONFIG_PERSISTENCE_UNIT_NAME);
+            emf = Persistence.createEntityManagerFactory(Constantes.CONFIG_PERSISTENCE_UNIT_NAME);
             em = emf.createEntityManager();
         }
     }

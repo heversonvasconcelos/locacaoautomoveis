@@ -13,11 +13,6 @@
         <title>#{msgs.systemTitle}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="resources/css/start/jquery-ui.css" rel="stylesheet" type="text/css"/>
-        <script src="resources/js/jquery.js"/>
-        <script src="resources/js/jquery-ui.js" />
-        <script src="resources/js/jquery-ui-1.8.16.custom/development-bundle/ui/jquery.ui.dialog.js" />
-        <ui:insert name="javascriptcode"></ui:insert>
     </h:head>
 
     <h:body>
@@ -34,8 +29,10 @@
                         </div>
 
                         <!-- PAGE CONTENT -->
-                        <ui:insert name="content">
-                        </ui:insert>
+                        <h:form>
+                            <ui:insert name="content">
+                            </ui:insert>
+                        </h:form>
                     </div>
                 </div>
             </div>
