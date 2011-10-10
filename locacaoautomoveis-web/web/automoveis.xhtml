@@ -12,7 +12,7 @@
         <script>
         $(document).ready(function() {
            
-            $("#new-car-button").click(function() {  console.log("HAHAHAHA");
+            $("#new-car-button").click(function() {
                  $("div.new-car-dialog").dialog({
                     height: 300,
                     width: 350,
@@ -79,7 +79,6 @@
                     </h:selectOneMenu>>
                     <h:outputText value="Ano: "/>
                     <h:inputText required="true" requiredMessage="" value="#{automovelBean.automovel.ano}"/>
-
                 </h:panelGrid>
                 <br/>
                 <h:commandButton value="Enviar" action="#{automovelBean.create()}"/>
