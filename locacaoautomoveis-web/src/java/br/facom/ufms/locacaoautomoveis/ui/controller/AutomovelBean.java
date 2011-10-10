@@ -44,17 +44,23 @@ public class AutomovelBean implements Serializable {
 	return automovel;
     }
 
+    public void setAutomovel(Automovel automovel) {
+	this.automovel = automovel;
+    }
+
     public List<Automovel> getListaAutomoveis() {
 	listaAutomoveis = automovelDao.list();
 	return listaAutomoveis;
     }
 
-    public void salvarAutomovel() {
+    public String salvarAutomovel() {
 	if (automovel.getId() == null) {
 	    automovelDao.create(automovel);
 	} else {
 	    automovelDao.update(automovel);
 	}
+	
+	return Constantes.PAGE_AUTOMOVEIS;
     }
 
     public List<ModeloAutomovel> getListaModelos() {

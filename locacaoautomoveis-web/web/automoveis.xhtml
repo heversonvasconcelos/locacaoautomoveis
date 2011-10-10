@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:h="http://java.sun.com/jsf/html"
@@ -40,6 +39,12 @@
                         </f:facet>
                         <h:outputText value="#{automovel.cor}"/>
                     </h:column>
+		    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Renavam"/>
+                        </f:facet>
+			<h:outputText value="#{automovel.renavam}"/>
+                    </h:column>
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="Disponibilidade"/>
@@ -52,12 +57,13 @@
                         </f:facet>
                         <h:outputText value="#{automovel.categoria.descricao}"/>
                     </h:column>
-		    <h:commandButton value="Editar" action="automovelform">
-			<f:setPropertyActionListener value="#{automovel}" target="#{automovelBean.automovel}" />
-		    </h:commandButton>
+		    <h:column>
+			<h:commandButton value="Editar" action="automovelform">
+			    <f:setPropertyActionListener value="#{automovel}" target="#{automovelBean.automovel}" />
+			</h:commandButton>
+		    </h:column>
                 </h:dataTable>
             </div>
         </div>
     </ui:define>
 </ui:composition>
-

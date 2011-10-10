@@ -14,25 +14,33 @@
 		    <h3>#{msgs.newauto}</h3>
 		    <h:form>
 			<h:panelGrid columns="2">
+			   
 			    <h:outputText value="Modelo"/>
 			    <h:selectOneMenu required="true"  requiredMessage="selecione o modelo" value="#{automovelBean.automovel.modelo}" converter="modeloAutomovelConverter" >
 				<f:selectItems value="#{automovelBean.listaModelos}" var="modelo" itemValue="#{modelo}" itemLabel="#{modelo.descricao}" />
 			    </h:selectOneMenu>  
+			  
 			    <h:outputText value="Ano: "/>
 			    <h:inputText required="true" requiredMessage="informe o ano"  value="#{automovelBean.automovel.ano}"/>
+			    
 			    <h:outputText value="Cor: "/>
 			    <h:inputText required="true" requiredMessage="informe a cor" value="#{automovelBean.automovel.cor}"/>
+			    
 			    <h:outputText value="Renavam"/>
 			    <h:inputText required="true" requiredMessage="informe o renavam" value="#{automovelBean.automovel.renavam}"/>
+			    
 			    <h:outputText value="Placa"/>
 			    <h:inputText required="true" requiredMessage="informe a placa" value="#{automovelBean.automovel.placa}"/>
+			    
 			    <h:outputText value="Categoria "/>
 			    <h:selectOneMenu required="true"  requiredMessage="selecione a categoria" value="#{automovelBean.automovel.categoria}" converter="categoriaAutomovelConverter" >
 				<f:selectItems value="#{automovelBean.listaCategorias}" var="categoria" itemValue="#{categoria}" itemLabel="#{categoria.descricao}" />
 			    </h:selectOneMenu>  
+			
 			</h:panelGrid>
 			<br/>
 			<h:commandButton value="Enviar" action="#{automovelBean.salvarAutomovel()}"/>
+			<h:commandButton value="Cancelar" action="automoveis" immediate="true"/>
 			<h:messages />
 		    </h:form>
 		</div>
