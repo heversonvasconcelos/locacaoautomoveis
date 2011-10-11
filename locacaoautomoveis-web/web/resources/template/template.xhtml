@@ -19,19 +19,23 @@
         <div id="outer">
             <div id="wrapper">
                 <div id="body-bot">
-
-                    <!-- PAGE TOP -->
                     <div id="body-top">
-                        <div id="logo">
-                            <h1>#{msgs.systemTitle}</h1>
-                            <ui:insert name="menu">
-                            </ui:insert>
-                        </div>
-
-                        <!-- PAGE CONTENT -->
                         <h:form>
-                            <ui:insert name="content">
-                            </ui:insert>
+                            <!-- PAGE TOP -->
+                            <div id="logo">
+                                <h1>#{msgs.systemTitle}</h1>
+                            </div>
+                            <div id="nav">
+                                <!-- PAGE MENU -->
+                                <ui:insert name="menu">
+                                    <ui:include src="/resources/sections/menu.xhtml"/>
+                                </ui:insert>
+                            </div>
+                            <div id="gbox">
+                                <!-- PAGE CONTENT -->
+                                <ui:insert name="content">
+                                </ui:insert>
+                            </div>
                         </h:form>
                     </div>
                 </div>

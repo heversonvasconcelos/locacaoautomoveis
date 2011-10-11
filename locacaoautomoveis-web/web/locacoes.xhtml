@@ -8,62 +8,60 @@
                 template="/resources/template/template.xhtml">
 
     <ui:define name="content">
-        <div id="gbox">
-            <div id="page-content">
-                <div class="cabecalhoListagem">
-                    <h2 class="tituloListagem">#{msgs.rentals}</h2>
-                    <h:commandButton styleClass="right" value="Nova locacao" action="#{locacaoBean.novaLocacao()}"/>
-                </div>
-                <div>
-                    <h:dataTable value="#{locacaoBean.listaLocacoes}" var="locacao" border="1">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Id"/>
-                            </f:facet>
-                            <h:outputText value="#{locacao.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Cliente"/>
-                            </f:facet>
-                            <h:outputText value="#{locacao.cliente.nome}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Data/Hora Locação"/>
-                            </f:facet>
-                            <h:outputText value="#{locacao.dataHoraLocacao}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Data/Hora Locação Finalizada"/>
-                            </f:facet>
-                            <h:outputText value="#{locacao.dataHoraLocacaoFinalizada}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Status"/>
-                            </f:facet>
-                            <h:outputText value="#{locacao.status}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Ações"/>
-                            </f:facet>
-                            <h:commandButton value="Editar" action="locacaoform">
-                                <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
-                            </h:commandButton>
-                            <h:commandButton value="Fechar" action="#{locacaoBean.fecharLocacao()}">
-                                <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
-                            </h:commandButton>
-                        </h:column>
-                    </h:dataTable>
-                    <h:messages/>
-                </div>
+        <div id="page-content">
+            <div class="cabecalhoListagem">
+                <h2 class="tituloListagem">#{msgs.rentals}</h2>
+                <h:commandButton styleClass="right" value="Nova locacao" action="#{locacaoBean.novaLocacao()}"/>
+            </div>
+            <div>
+                <h:dataTable value="#{locacaoBean.listaLocacoes}" var="locacao" border="1">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Id"/>
+                        </f:facet>
+                        <h:outputText value="#{locacao.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cliente"/>
+                        </f:facet>
+                        <h:outputText value="#{locacao.cliente.nome}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Data/Hora Locação"/>
+                        </f:facet>
+                        <h:outputText value="#{locacao.dataHoraLocacao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Data/Hora Locação Finalizada"/>
+                        </f:facet>
+                        <h:outputText value="#{locacao.dataHoraLocacaoFinalizada}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Status"/>
+                        </f:facet>
+                        <h:outputText value="#{locacao.status}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Ações"/>
+                        </f:facet>
+                        <h:commandButton value="Editar" action="locacaoform">
+                            <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
+                        </h:commandButton>
+                        <h:commandButton value="Fechar" action="#{locacaoBean.fecharLocacao()}">
+                            <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+                <h:messages/>
             </div>
         </div>
     </ui:define>
