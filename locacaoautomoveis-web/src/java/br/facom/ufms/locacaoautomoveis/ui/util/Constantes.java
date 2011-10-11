@@ -18,7 +18,8 @@ public class Constantes {
     public static final String PAGE_CLIENTE_FORM = "clienteform";
     public static final String PAGE_USER_NOT_LOGGED = "usernotlogged.xhtml";
     public static final String PAGE_CATEGORIAAUTOMOVEIS = "categoriaautomoveis.xhtml";
-     public static String PAGE_MODELOAUTOMOVEIS = "modelos.xhtml";
+    public static String PAGE_MODELOAUTOMOVEIS = "modelos.xhtml";
+    public static String PAGE_MARCAAUTOMOVEIS = "marcas.xhtml";
     /* Mensagens de erro */
     public static final String MSG_ERRO_INVALID_USER = "Usuário inválido";
     public static final String MSG_ERRO_INVALID_PASSWORD = "Senha inválida";
