@@ -8,6 +8,7 @@ import br.facom.ufms.locacaoautomoveis.model.dao.LocacaoDAO;
 import br.facom.ufms.locacaoautomoveis.model.entities.Locacao;
 import br.facom.ufms.locacaoautomoveis.model.types.QueryParameter;
 import br.facom.ufms.locacaoautomoveis.model.types.Status;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -37,5 +38,43 @@ public class LocacaoDAOImpl extends GenericDAOImpl<Locacao, Long> implements Loc
         List<Locacao> resultList = executeNamedQuery(namedQuery, parameter);
 
         return resultList;
+    }
+
+    /**
+     * Método que realiza a locação propriamente dita, ou seja, cria um objeto
+     * locação com o automovel e cliente.
+     * 
+     * @param locacao Locação a ser criada
+     */
+    @Override
+    public void create(Locacao locacao) {
+
+        locacao.setDataHoraLocacao(Calendar.getInstance().getTime());
+        locacao.getAutomovel().setDisponivel(false);
+
+        super.create(locacao);
+    }
+
+    /**
+     * Método que finaliza ou fecha uma locação. Este evento ocorre quando o 
+     * cliente devolve o automóvel.
+     * 
+     * @param locacao Locação a ser finalizada ou fechada.
+     * @return true caso a locação seja finalizada com sucesso.
+     */
+    @Override
+    public boolean finalizarLocacao(Locacao locacao) {
+        if (locacao != null) {
+            locacao.getAutomovel().setDisponivel(true);
+            locacao.setDataHoraLocacaoFinalizada(Calendar.getInstance().getTime());
+            locacao.setStatus(Status.FECHADO);
+
+            Locacao locacaoFinalizada = update(locacao);
+            if (locacaoFinalizada != null && locacaoFinalizada.getStatus() == Status.FECHADO) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

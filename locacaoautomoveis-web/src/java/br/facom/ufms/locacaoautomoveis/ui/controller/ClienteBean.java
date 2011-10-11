@@ -38,7 +38,7 @@ public class ClienteBean implements Serializable {
     public String novoCliente() {
         cliente = new Cliente();
 
-        return Constantes.PAGE_CLIENTES_FORM;
+        return Constantes.PAGE_CLIENTE_FORM;
     }
 
     public String salvarCliente() {

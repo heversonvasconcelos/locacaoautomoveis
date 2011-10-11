@@ -6,18 +6,16 @@ package br.facom.ufms.locacaoautomoveis.model.entities;
 
 import br.facom.ufms.locacaoautomoveis.model.types.Status;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -49,24 +47,32 @@ public class Locacao implements Serializable {
     @JoinColumn(name = "CLIENTE_FK")
     private Cliente cliente;
     /**
-     * Representa a data e a hora do momento que a locação foi aberta
+     * Representa a data e a hora do momento que a locação foi realizada ou aberta
      */
     @Column
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dataHoraAbertura;
+    private Date dataHoraLocacao;
+    /**
+     * Representa a data prevista que o automóvel será devolvido
+     * 
+     */
+    @Column
+    @Temporal(TemporalType.DATE)
+    private Date dataPrevistaDevolucao;
     /**
      * Representa a data e a hora do momento que a locação foi finalizada
      * 
      */
     @Column
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dataHoraFechamento;
+    private Date dataHoraLocacaoFinalizada;
     @Column
     private Status status = Status.ABERTO;
     @Column
     private String observacoes;
-    @OneToMany(mappedBy = "locacao", cascade = javax.persistence.CascadeType.ALL)
-    private List<ItemLocacao> itensLocacao = new ArrayList<ItemLocacao>();
+    @ManyToOne
+    @JoinColumn(name = "AUTOMOVEL_FK")
+    private Automovel automovel;
     @Column
     private boolean pagamentoRealizado = false;
 
@@ -78,20 +84,28 @@ public class Locacao implements Serializable {
         this.cliente = cliente;
     }
 
-    public Date getDataHoraAbertura() {
-        return dataHoraAbertura;
+    public Date getDataHoraLocacao() {
+        return dataHoraLocacao;
     }
 
-    public void setDataHoraAbertura(Date dataHoraAbertura) {
-        this.dataHoraAbertura = dataHoraAbertura;
+    public void setDataHoraLocacao(Date dataHoraLocacao) {
+        this.dataHoraLocacao = dataHoraLocacao;
     }
 
-    public Date getDataHoraFechamento() {
-        return dataHoraFechamento;
+    public Date getDataPrevistaDevolucao() {
+        return dataPrevistaDevolucao;
     }
 
-    public void setDataHoraFechamento(Date dataHoraFechamento) {
-        this.dataHoraFechamento = dataHoraFechamento;
+    public void setDataPrevistaDevolucao(Date dataPrevistaDevolucao) {
+        this.dataPrevistaDevolucao = dataPrevistaDevolucao;
+    }
+
+    public Date getDataHoraLocacaoFinalizada() {
+        return dataHoraLocacaoFinalizada;
+    }
+
+    public void setDataHoraLocacaoFinalizada(Date dataHoraLocacaoFinalizada) {
+        this.dataHoraLocacaoFinalizada = dataHoraLocacaoFinalizada;
     }
 
     public Long getId() {
@@ -102,12 +116,12 @@ public class Locacao implements Serializable {
         this.id = id;
     }
 
-    public List<ItemLocacao> getItensLocacao() {
-        return itensLocacao;
+    public Automovel getAutomovel() {
+        return automovel;
     }
 
-    public void setItensLocacao(List<ItemLocacao> itensLocacao) {
-        this.itensLocacao = itensLocacao;
+    public void setAutomovel(Automovel automovel) {
+        this.automovel = automovel;
     }
 
     public String getObservacoes() {
@@ -158,6 +172,6 @@ public class Locacao implements Serializable {
 
     @Override
     public String toString() {
-        return "Locacao{" + "id=" + id + ", cliente=" + cliente + ", dataHoraAbertura=" + dataHoraAbertura + ", status=" + status + '}';
+        return "Locacao{" + "id=" + id + ", cliente=" + cliente + ", dataHoraLocacao=" + dataHoraLocacao + ", automovel=" + automovel + '}';
     }
 }
