@@ -9,10 +9,10 @@
     <ui:define name="content">
         <div id="gbox">
             <div id="page-content">
-                <h2>#{msgs.clientsInfo}</h2>
+                <h2>#{msgs.clientInfo}</h2>
                 <br/>
                 <div class="borderField">
-                    <h:panelGrid id="displayClientForm" columns="2">
+                    <h:panelGrid columns="2">
                         <h:outputLabel value="Nome:" for="nome" />
                         <h:inputText id="nome" value="#{clienteBean.cliente.nome}" title="Nome" required="true" requiredMessage="Campo Nome é obrigatório"/>
                         <h:outputLabel value="CPF/CNPJ:" for="cpfcnpj" />

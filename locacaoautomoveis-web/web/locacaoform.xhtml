@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template/template.xhtml">
+
+    <ui:define name="content">
+        <div id="gbox">
+            <div id="page-content">
+                <h2>#{msgs.rentalInfo}</h2>
+                <br/>
+                <div class="borderField">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Cliente:" for="cliente" />
+                        <h:selectOneMenu id="cliente" value="#{locacaoBean.locacao.cliente}" title="Cliente" converter="clienteConverter">
+                            <f:selectItems value="#{locacaoBean.listaClientes}" var="cliente" itemValue="#{cliente}" itemLabel="#{cliente.nome}"/>
+                        </h:selectOneMenu>
+                        <h:outputLabel value="Data prevista para devolucao:" for="dataPrevistaDevolucao" />
+                        <h:inputText id="dataPrevistaDevolucao" value="#{locacaoBean.locacao.dataPrevistaDevolucao}" title="DataPrevistaDevolucao" >
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:inputText>
+                        <h:outputLabel value="Automovel:" for="automovel" />
+                        <h:selectOneMenu id="automovel" value="#{locacaoBean.locacao.automovel}" title="Automovel" converter="automovelConverter">
+                            <f:selectItems value="#{locacaoBean.listaAutomoveis}" var="automovel" itemValue="#{automovel}" itemLabel="#{automovel.placa} - #{automovel.modelo.descricao}"/>
+                        </h:selectOneMenu>
+                        <h:outputLabel value="Observacoes:" for="observacoes" />
+                        <h:inputText id="observacoes" value="#{locacaoBean.locacao.observacoes}" title="Observacoes" />
+                    </h:panelGrid>
+                </div>
+                <h:commandButton value="Salvar" action="#{locacaoBean.salvarLocacao()}"/>
+                <h:commandButton value="Cancelar" action="locacoes" immediate="true"/>
+                <br/>
+                <h:messages />
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

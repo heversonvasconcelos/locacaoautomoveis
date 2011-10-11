@@ -27,7 +27,7 @@ public class CPFCNPJValidator implements Validator {
             try {
                 validator.assertValid(cpfcnpj);
             } catch (InvalidStateException e) {
-                FacesMessage msg = new FacesMessage(Constantes.MSG_INVALID_CPF);
+                FacesMessage msg = new FacesMessage(Constantes.MSG_ERRO_INVALID_CPF);
                 msg.setSeverity(FacesMessage.SEVERITY_ERROR);
                 throw new ValidatorException(msg);
             }
@@ -37,12 +37,12 @@ public class CPFCNPJValidator implements Validator {
             try {
                 validator.assertValid(cpfcnpj);
             } catch (InvalidStateException e) {
-                FacesMessage msg = new FacesMessage(Constantes.MSG_INVALID_CNPJ);
+                FacesMessage msg = new FacesMessage(Constantes.MSG_ERRO_INVALID_CNPJ);
                 msg.setSeverity(FacesMessage.SEVERITY_ERROR);
                 throw new ValidatorException(msg);
             }
         } else {
-            FacesMessage msg = new FacesMessage(Constantes.MSG_INVALID_CP);
+            FacesMessage msg = new FacesMessage(Constantes.MSG_ERRO_INVALID_CP);
             msg.setSeverity(FacesMessage.SEVERITY_ERROR);
             throw new ValidatorException(msg);
         }

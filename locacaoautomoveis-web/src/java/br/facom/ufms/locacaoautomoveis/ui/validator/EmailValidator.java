@@ -30,7 +30,7 @@ public class EmailValidator implements Validator {
             Object value) throws ValidatorException {
         matcher = pattern.matcher(value.toString());
         if (!matcher.matches()) {
-            FacesMessage msg = new FacesMessage(Constantes.MSG_INVALID_EMAIL);
+            FacesMessage msg = new FacesMessage(Constantes.MSG_ERRO_INVALID_EMAIL);
             msg.setSeverity(FacesMessage.SEVERITY_ERROR);
             throw new ValidatorException(msg);
         }

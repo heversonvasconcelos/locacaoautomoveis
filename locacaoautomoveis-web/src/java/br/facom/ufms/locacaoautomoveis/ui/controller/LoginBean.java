@@ -90,13 +90,13 @@ public class LoginBean {
         usuarioAutenticado = verificarLogin(usuario);
 
         if (usuarioAutenticado == null) {
-            FacesUtil.mensErro(Constantes.MSG_INVALID_USER);
+            FacesUtil.mensErro(Constantes.MSG_ERRO_INVALID_USER);
             return null;
-        } 
-        
+        }
+
         if (!verificarSenha()) {
             usuarioAutenticado = null;
-            FacesUtil.mensErro(Constantes.MSG_INVALID_PASSWORD);
+            FacesUtil.mensErro(Constantes.MSG_ERRO_INVALID_PASSWORD);
             return null;
         }
 

@@ -30,17 +30,17 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="DataHoraAbertura"/>
+                                <h:outputText value="Data/Hora Locação"/>
                             </f:facet>
-                            <h:outputText value="#{locacao.dataHoraAbertura}">
+                            <h:outputText value="#{locacao.dataHoraLocacao}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                             </h:outputText>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="DataHoraFechamento"/>
+                                <h:outputText value="Data/Hora Locação Finalizada"/>
                             </f:facet>
-                            <h:outputText value="#{locacao.dataHoraFechamento}">
+                            <h:outputText value="#{locacao.dataHoraLocacaoFinalizada}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                             </h:outputText>
                         </h:column>
@@ -50,7 +50,19 @@
                             </f:facet>
                             <h:outputText value="#{locacao.status}"/>
                         </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Ações"/>
+                            </f:facet>
+                            <h:commandButton value="Editar" action="locacaoform">
+                                <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
+                            </h:commandButton>
+                            <h:commandButton value="Fechar" action="#{locacaoBean.fecharLocacao()}">
+                                <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
+                            </h:commandButton>
+                        </h:column>
                     </h:dataTable>
+                    <h:messages/>
                 </div>
             </div>
         </div>
