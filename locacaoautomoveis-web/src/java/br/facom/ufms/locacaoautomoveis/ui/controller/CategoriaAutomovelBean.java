@@ -30,14 +30,6 @@ public class CategoriaAutomovelBean implements Serializable {
 	this.categoria = categoria;
     }
 
-    public CategoriaAutomovelDAO getCategoriaDAO() {
-	return categoriaDAO;
-    }
-
-    public void setCategoriaDAO(CategoriaAutomovelDAO categoriaDAO) {
-	this.categoriaDAO = categoriaDAO;
-    }
-    
     public String salvarCategoriaAutomovel() {
 	if (categoria.getId() == null) {
 	   categoriaDAO.create(categoria);
