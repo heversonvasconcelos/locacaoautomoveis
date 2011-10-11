@@ -7,33 +7,31 @@
                 template="/resources/template/template.xhtml">
 
     <ui:define name="content">
-        <div id="gbox">
-            <div id="page-content">
-                <h2>#{msgs.clientInfo}</h2>
-                <br/>
-                <div class="borderField">
-                    <h:panelGrid columns="2">
-                        <h:outputLabel value="Nome:" for="nome" />
-                        <h:inputText id="nome" value="#{clienteBean.cliente.nome}" title="Nome" required="true" requiredMessage="Campo Nome é obrigatório"/>
-                        <h:outputLabel value="CPF/CNPJ:" for="cpfcnpj" />
-                        <h:inputText id="cpfcnpj" value="#{clienteBean.cliente.cpfcnpj}" title="Cpfcnpj" 
-                                     required="true" requiredMessage="Campo CPF/CNPJ é obrigatório"
-                                     validator="cpfcnpjValidator"/>
-                        <h:outputLabel value="Telefone:" for="telefone" />
-                        <h:inputText id="telefone" value="#{clienteBean.cliente.telefone}" title="Telefone" required="true" requiredMessage="Campo Telefone é obrigatório"/>
-                        <h:outputLabel value="Email:" for="email" />
-                        <h:inputText id="email" value="#{clienteBean.cliente.email}" title="Email"
-                                     required="true" requiredMessage="Campo Email é obrigatório"
-                                     validator="emailValidator"/>
-                        <h:outputLabel value="Endereco:" for="endereco" />
-                        <h:inputText id="endereco" value="#{clienteBean.cliente.endereco}" title="Endereco"/>
-                    </h:panelGrid>
-                </div>
-                <h:commandButton value="Salvar" action="#{clienteBean.salvarCliente()}"/>
-                <h:commandButton value="Cancelar" action="clientes" immediate="true"/>
-                <br/>
-                <h:messages />
+        <div id="page-content">
+            <h2>#{msgs.clientInfo}</h2>
+            <br/>
+            <div class="borderField">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Nome:" for="nome" />
+                    <h:inputText id="nome" value="#{clienteBean.cliente.nome}" title="Nome" required="true" requiredMessage="Campo Nome é obrigatório"/>
+                    <h:outputLabel value="CPF/CNPJ:" for="cpfcnpj" />
+                    <h:inputText id="cpfcnpj" value="#{clienteBean.cliente.cpfcnpj}" title="Cpfcnpj" 
+                                 required="true" requiredMessage="Campo CPF/CNPJ é obrigatório"
+                                 validator="cpfcnpjValidator"/>
+                    <h:outputLabel value="Telefone:" for="telefone" />
+                    <h:inputText id="telefone" value="#{clienteBean.cliente.telefone}" title="Telefone" required="true" requiredMessage="Campo Telefone é obrigatório"/>
+                    <h:outputLabel value="Email:" for="email" />
+                    <h:inputText id="email" value="#{clienteBean.cliente.email}" title="Email"
+                                 required="true" requiredMessage="Campo Email é obrigatório"
+                                 validator="emailValidator"/>
+                    <h:outputLabel value="Endereco:" for="endereco" />
+                    <h:inputText id="endereco" value="#{clienteBean.cliente.endereco}" title="Endereco"/>
+                </h:panelGrid>
             </div>
+            <h:commandButton value="Salvar" action="#{clienteBean.salvarCliente()}"/>
+            <h:commandButton value="Cancelar" action="clientes" immediate="true"/>
+            <br/>
+            <h:messages />
         </div>
     </ui:define>
 </ui:composition>

@@ -76,6 +76,110 @@ body {
     margin: 0;
 }
 
+/** nav **/
+
+#nav{
+    margin: 0 30px;
+    margin-top: 10px;
+}
+
+#nav ul.menubar{
+    margin: 0px;
+    width:700px;
+    background-color: #FFFFFF; /* IE6 Bug */
+    font-size: 100%;
+    bottom:1px;
+}
+
+#nav ul.menubar .submenu{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
+    float:left;
+}
+
+#nav ul.menubar ul.menu{
+    display: none;
+    position: absolute;
+    margin: 0px;
+}
+
+#nav ul.menubar a{
+    padding: 5px;
+    display:block;
+    text-decoration: none;
+    color: #FFFFF;
+    padding: 5px;
+}
+
+#nav ul.menu, ul.menu ul{
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+    width: 150px; /* Width of Menu Items */
+    background-color: #FFFFFF; /* IE6 Bug */
+}
+
+#nav ul.menu li{
+    position: relative;
+    list-style: none;
+    border: 0px;
+}
+
+#nav ul.menu li a{
+    display: block;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-bottom: 0px;
+    color: #777;
+    padding: 5px 10px 5px 5px;
+}
+
+#nav ul.menu li sup{
+    font-weight:bold;
+    font-size:7px;
+    color: red;
+}
+
+/* Fix IE. Hide from IE Mac \*/
+* html #nav ul.menu li { float: left; height: 1%; }
+* html #nav ul.menu li a { height: 1%; }
+/* End */
+
+#nav ul.menu ul{
+    position: absolute;
+    display: none;
+    left: 14px; /* Set 1px less than menu width */
+    top: 0px;
+}
+
+#nav ul.menu li.submenu ul { display: none; } /* Hide sub-menus initially */
+
+#nav ul.menu li.submenu { background: transparent url(arrow.gif) right center no-repeat; }
+
+#nav ul.menu li a:hover { color: #E2144A; }
+
+
+/* Fix IE. Hide from IE Mac \*/
+
+* html #nav ul li { float: left; }
+
+* html #nav ul li a { height: 1%; }
+
+/* End */
+
+#nav li:hover ul { display: block; }
+
+#nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 150px;
+    border-bottom: 1px solid #ccc;
+}
+
 /** green box **/
 #gbox {
     width: 431px;

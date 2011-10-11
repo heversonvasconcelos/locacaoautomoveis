@@ -2,68 +2,66 @@
 
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:ui="http://java.sun.com/jsf/facelets"
-		template="/resources/template/template.xhtml" 
-		xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/resources/template/template.xhtml" 
+                xmlns:f="http://java.sun.com/jsf/core">
 
     <ui:define name="content">
-        <div id="gbox">
-            <div id="page-content">
-                <h2>Lista de Automóveis</h2>
-                <div name="buttons">
-                    <a href="/locacaoautomoveis/automovelform.xhtml" id="">Novo Veículo</a>
-                </div>
-                <h:dataTable border="1" var="automovel" value="#{automovelBean.listaAutomoveis}">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Modelo"/>
-                        </f:facet>
-                        <h:outputText value="#{automovel.modelo.descricao}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Placa"/>
-                        </f:facet>
-                        <h:outputText value="#{automovel.placa}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Ano"/>
-                        </f:facet>
-                        <h:outputText value="#{automovel.ano}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Cor"/>
-                        </f:facet>
-                        <h:outputText value="#{automovel.cor}"/>
-                    </h:column>
-		    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Renavam"/>
-                        </f:facet>
-			<h:outputText value="#{automovel.renavam}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Disponibilidade"/>
-                        </f:facet>
-                        <h:outputText value="#{automovel.disponivel}"/>
-                    </h:column>
-		    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Categoria"/>
-                        </f:facet>
-                        <h:outputText value="#{automovel.categoria.descricao}"/>
-                    </h:column>
-		    <h:column>
-			<h:commandButton value="Editar" action="automovelform">
-			    <f:setPropertyActionListener value="#{automovel}" target="#{automovelBean.automovel}" />
-			</h:commandButton>
-		    </h:column>
-                </h:dataTable>
+        <div id="page-content">
+            <h2>Lista de Automóveis</h2>
+            <div name="buttons">
+                <a href="/locacaoautomoveis/automovelform.xhtml" id="">Novo Veículo</a>
             </div>
+            <h:dataTable border="1" var="automovel" value="#{automovelBean.listaAutomoveis}">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Modelo"/>
+                    </f:facet>
+                    <h:outputText value="#{automovel.modelo.descricao}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Placa"/>
+                    </f:facet>
+                    <h:outputText value="#{automovel.placa}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Ano"/>
+                    </f:facet>
+                    <h:outputText value="#{automovel.ano}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Cor"/>
+                    </f:facet>
+                    <h:outputText value="#{automovel.cor}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Renavam"/>
+                    </f:facet>
+                    <h:outputText value="#{automovel.renavam}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Disponibilidade"/>
+                    </f:facet>
+                    <h:outputText value="#{automovel.disponivel}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Categoria"/>
+                    </f:facet>
+                    <h:outputText value="#{automovel.categoria.descricao}"/>
+                </h:column>
+                <h:column>
+                    <h:commandButton value="Editar" action="automovelform">
+                        <f:setPropertyActionListener value="#{automovel}" target="#{automovelBean.automovel}" />
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
         </div>
     </ui:define>
 </ui:composition>

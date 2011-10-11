@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:ui="http://java.sun.com/jsf/facelets"
-		template="/resources/template/template.xhtml" 
-		xmlns:f="http://java.sun.com/jsf/core">
-    <ui:define name="content">
-        <div id="gbox">
-            <div id="gbox-top"> </div>
-            <div id="gbox-bg">
-                <div id="gbox-grd"></div>
-	    </div>
-	</div>
-    </ui:define>
-</ui:composition>    
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <!--TODO: Colocar actions de cada view -->
+    <ul id="menu_dropdown" class="menubar">
+        <li class="submenu"><a href="#">INICIO</a></li>
+        <li class="submenu"><a href="#">CADASTRO</a>
+            <ul class="menu">
+                <li><a href="#">Pessoa Física</a></li>
+                <li><a href="#">Pessoa Jurídica</a></li>
+                <li><a href="#">Veículos</a></li>
+                <li><a href="#">Itens</a></li>
+            </ul>
+        </li>
+        <li class="submenu"><a href="#">BUSCA/REMOÇÃO</a>
+            <ul class="menu">
+                <li><a href="#">Cliente</a></li>
+                <li><a href="#">Veículos</a></li>
+                <li><a href="#">Aluguel</a></li>
+                <li><a href="#">Itens</a></li>
+            </ul>
+        </li>
+        <li class="submenu"><a href="#">ALUGUEL</a>
+        </li>
+        <li class="submenu"><a href="#">DEVOLUÇÕES</a>
+        </li>
+        <li class="submenu"><a href="#">AJUDA</a></li>
+        <li class="submenu"><a href="#">SAIR</a></li>
+    </ul>
+
+</ui:composition>

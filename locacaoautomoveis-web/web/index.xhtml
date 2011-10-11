@@ -10,33 +10,31 @@
     <ui:define name="menu"/>
 
     <ui:define name="content">
-        <div id="gbox">
-            <div id="gbox-top"> </div>
-            <div id="gbox-bg">
-                <div id="gbox-grd">
-                    <!-- CENTER -->
-                    <h2>#{msgs.welcome}</h2>
-                    <p>#{msgs.systemInfo} <br/> #{msgs.loginMessage}</p>
-                    <div id="features">
-                        <h3>#{msgs.login}</h3>
-                        <h:form>
-                            <h:panelGrid columns="2">
-                                <h:outputText value="#{msgs.name}: "/>
-                                <h:inputText required="true"
-                                             requiredMessage="#{msgs.nameRequired}"
-                                             value="#{loginBean.usuario.nomeLogin}" />
-                                <h:outputText value="#{msgs.password}: "/>
-                                <h:inputSecret required="true" requiredMessage="#{msgs.passRequired}"
-                                               value="#{loginBean.usuario.senha}"/>
-                            </h:panelGrid>
-                            <br/>
-                            <h:commandButton value="#{msgs.toLogin}" action="#{loginBean.login()}"/>
-                            <h:messages />
-                        </h:form>
-                    </div>
+        <div id="gbox-top"> </div>
+        <div id="gbox-bg">
+            <div id="gbox-grd">
+                <!-- CENTER -->
+                <h2>#{msgs.welcome}</h2>
+                <p>#{msgs.systemInfo} <br/> #{msgs.loginMessage}</p>
+                <div id="features">
+                    <h3>#{msgs.login}</h3>
+                    <h:form>
+                        <h:panelGrid columns="2">
+                            <h:outputText value="#{msgs.name}: "/>
+                            <h:inputText required="true"
+                                         requiredMessage="#{msgs.nameRequired}"
+                                         value="#{loginBean.usuario.nomeLogin}" />
+                            <h:outputText value="#{msgs.password}: "/>
+                            <h:inputSecret required="true" requiredMessage="#{msgs.passRequired}"
+                                           value="#{loginBean.usuario.senha}"/>
+                        </h:panelGrid>
+                        <br/>
+                        <h:commandButton value="#{msgs.toLogin}" action="#{loginBean.login()}"/>
+                        <h:messages />
+                    </h:form>
                 </div>
-                <div id="gbox-bot"> </div>
             </div>
+            <div id="gbox-bot"> </div>
         </div>
     </ui:define>
 
