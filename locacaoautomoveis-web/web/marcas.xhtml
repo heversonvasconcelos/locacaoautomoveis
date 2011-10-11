@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:ui="http://java.sun.com/jsf/facelets"
-		template="/resources/template/template.xhtml" 
-		xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/resources/template/template.xhtml" 
+                xmlns:f="http://java.sun.com/jsf/core">
 
     <ui:define name="content">
         <div id="gbox">
@@ -13,21 +13,19 @@
                 <div name="buttons">
                     <a href="/locacaoautomoveis/marcaautomovelform.xhtml" id="">Nova Marca</a>
                 </div>
-		<h:form>
-		    <h:dataTable border="1" value="#{marcaAutomovelBean.listaMarcaAutomovel}" var="item">
-			<h:column>
-			    <f:facet name="header">
-				<h:outputText value="Descricao"/>
-			    </f:facet>
-			    <h:outputText value="#{item.descricao}"/>
-			</h:column>
-			 <h:column>
-			<h:commandButton value="Editar" action="marcaautomovelform">
-			    <f:setPropertyActionListener value="#{marca}" target="#{marcaAutomovelBean.marca}" />
-			</h:commandButton>
-		    </h:column>
-		    </h:dataTable>
-		</h:form>
+                <h:dataTable border="1" value="#{marcaAutomovelBean.listaMarcaAutomovel}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Descricao"/>
+                        </f:facet>
+                        <h:outputText value="#{item.descricao}"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="Editar" action="marcaautomovelform">
+                            <f:setPropertyActionListener value="#{marca}" target="#{marcaAutomovelBean.marca}" />
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
             </div>
         </div>
     </ui:define>

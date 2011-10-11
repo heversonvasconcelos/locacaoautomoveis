@@ -8,6 +8,11 @@
         <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
         <param-value>.xhtml</param-value>
     </context-param>
+    <!-- Configuracoes do JSF2  passar na validacao da W3C -->
+    <context-param>
+        <param-name>com.sun.faces.autoCompleteOffOnViewState</param-name>
+        <param-value>false</param-value>
+    </context-param>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

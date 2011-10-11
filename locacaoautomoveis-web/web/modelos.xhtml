@@ -12,27 +12,25 @@
             <div name="buttons">
                 <a href="/locacaoautomoveis/modeloautomovelform.xhtml" id="">Novo Modelo</a>
             </div>
-            <h:form>
-                <h:dataTable border="1" value="#{modeloAutomovelBean.listaModeloAutomovel}" var="modelo">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Descricao"/>
-                        </f:facet>
-                        <h:outputText value="#{modelo.descricao}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Marca"/>
-                        </f:facet>
-                        <h:outputText value="#{modelo.marca.descricao}"/>
-                    </h:column>
-                    <h:column>
-                        <h:commandButton value="Editar" action="modeloautomovelform">
-                            <f:setPropertyActionListener value="#{modelo}" target="#{modeloAutomovelBean.modelo}" />
-                        </h:commandButton>
-                    </h:column>
-                </h:dataTable>
-            </h:form>
+            <h:dataTable border="1" value="#{modeloAutomovelBean.listaModeloAutomovel}" var="modelo">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Descricao"/>
+                    </f:facet>
+                    <h:outputText value="#{modelo.descricao}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Marca"/>
+                    </f:facet>
+                    <h:outputText value="#{modelo.marca.descricao}"/>
+                </h:column>
+                <h:column>
+                    <h:commandButton value="Editar" action="modeloautomovelform">
+                        <f:setPropertyActionListener value="#{modelo}" target="#{modeloAutomovelBean.modelo}" />
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
         </div>
     </ui:define>
 </ui:composition>

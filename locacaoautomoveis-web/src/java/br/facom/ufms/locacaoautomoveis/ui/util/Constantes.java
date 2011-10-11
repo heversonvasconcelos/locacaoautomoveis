@@ -16,10 +16,10 @@ public class Constantes {
     public static final String PAGE_CLIENTES = "clientes";
     public static final String PAGE_AUTOMOVEIS = "automoveis";
     public static final String PAGE_CLIENTE_FORM = "clienteform";
-    public static final String PAGE_USER_NOT_LOGGED = "usernotlogged.xhtml";
-    public static final String PAGE_CATEGORIAAUTOMOVEIS = "categoriaautomoveis.xhtml";
-    public static String PAGE_MODELOAUTOMOVEIS = "modelos.xhtml";
-    public static String PAGE_MARCAAUTOMOVEIS = "marcas.xhtml";
+    public static final String PAGE_USER_NOT_LOGGED = "usernotlogged";
+    public static final String PAGE_CATEGORIAAUTOMOVEIS = "categoriaautomoveis";
+    public static String PAGE_MODELOAUTOMOVEIS = "modelos";
+    public static String PAGE_MARCAAUTOMOVEIS = "marcas";
     /* Mensagens de erro */
     public static final String MSG_ERRO_INVALID_USER = "Usuário inválido";
     public static final String MSG_ERRO_INVALID_PASSWORD = "Senha inválida";

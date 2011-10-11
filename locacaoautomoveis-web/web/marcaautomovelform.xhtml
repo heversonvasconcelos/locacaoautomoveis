@@ -4,35 +4,30 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="/resources/template/template.xhtml"
-		xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core">
 
     <ui:define name="content">
         <div id="gbox">
             <div id="gbox-top"> </div>
             <div id="gbox-bg">
                 <div id="gbox-grd">
-		    <h3>Adicionar/Editar Marca</h3>
-		    <f:view>
-			<h:form>
-			    <h:panelGrid columns="2">
-				<h:outputLabel value="Descricao:" for="descricao" />
-				<h:inputText 
-				    id="descricao" 
-				    value="#{marcaAutomovelBean.marca.descricao}" 
-				    title="Descricao" 
-				    required="true" 
-				    requiredMessage="Informe uma descrição"
-				    />
-			
-			    </h:panelGrid>
-			    <h:commandButton value="Enviar" action="#{marcaAutomovelBean.salvarMarcaAutomovel()}"/>
-			    <h:commandButton value="Cancelar" action="marcas" immediate="true"/>
-			    <h:messages />
-			</h:form>
-		    </f:view>
+                    <h3>Adicionar/Editar Marca</h3>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Descricao:" for="descricao" />
+                        <h:inputText 
+                            id="descricao" 
+                            value="#{marcaAutomovelBean.marca.descricao}" 
+                            title="Descricao" 
+                            required="true" 
+                            requiredMessage="Informe uma descrição"
+                            />
 
-		</div>
-	    </div>
-	</div>
+                    </h:panelGrid>
+                    <h:commandButton value="Enviar" action="#{marcaAutomovelBean.salvarMarcaAutomovel()}"/>
+                    <h:commandButton value="Cancelar" action="marcas" immediate="true"/>
+                    <h:messages />
+                </div>
+            </div>
+        </div>
     </ui:define>
 </ui:composition>

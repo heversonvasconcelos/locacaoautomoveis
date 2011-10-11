@@ -15,11 +15,9 @@
 
     <!-- CENTER -->
     <ui:define name="content">
-        <h:form>
-            <div class="aligncenter" style="width: 70%; padding: 50px">
-                <h3> #{msgs.userIsNotLogged}</h3>
-                <h:commandButton  value="#{msgs.login}" action="index"/>
-            </div>
-        </h:form>
+        <div class="aligncenter" style="width: 70%; padding: 50px">
+            <h3> #{msgs.userIsNotLogged}</h3>
+            <h:commandButton  value="#{msgs.login}" action="index"/>
+        </div>
     </ui:define>
 </ui:composition>
