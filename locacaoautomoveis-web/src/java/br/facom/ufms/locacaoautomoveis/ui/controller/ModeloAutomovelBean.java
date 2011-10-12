@@ -44,6 +44,12 @@ public class ModeloAutomovelBean implements Serializable {
         return marcaAutomovelDAO.list();
     }
 
+    public String novoModelo() {
+        modelo = new ModeloAutomovel();
+
+        return Constantes.PAGE_MODELOAUTOMOVEL_FORM;
+    }
+
     public String salvarModeloAutomovel() {
         if (modelo.getId() == null) {
             modeloAutomovelDAO.create(modelo);
@@ -51,6 +57,6 @@ public class ModeloAutomovelBean implements Serializable {
             modeloAutomovelDAO.update(modelo);
         }
 
-        return Constantes.PAGE_MODELOAUTOMOVEIS;
+        return Constantes.PAGE_MODELOSAUTOMOVEL;
     }
 }

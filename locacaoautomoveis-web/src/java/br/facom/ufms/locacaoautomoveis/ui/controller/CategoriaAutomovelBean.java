@@ -35,6 +35,12 @@ public class CategoriaAutomovelBean implements Serializable {
         return categoriaAutomovelDAO.list();
     }
 
+    public String novaCategoria() {
+        categoria = new CategoriaAutomovel();
+
+        return Constantes.PAGE_CATEGORIAAUTOMOVEL_FORM;
+    }
+
     public String salvarCategoriaAutomovel() {
         if (categoria.getId() == null) {
             categoriaAutomovelDAO.create(categoria);
@@ -42,6 +48,6 @@ public class CategoriaAutomovelBean implements Serializable {
             categoriaAutomovelDAO.update(categoria);
         }
 
-        return Constantes.PAGE_CATEGORIAAUTOMOVEIS;
+        return Constantes.PAGE_CATEGORIASAUTOMOVEL;
     }
 }

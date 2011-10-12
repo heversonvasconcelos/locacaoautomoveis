@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="/resources/template/template.xhtml"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template/template.xhtml">
 
     <ui:define name="content">
-        <div id="gbox-top"> </div>
-        <div id="gbox-bg">
-            <div id="gbox-grd">
-                <h3>Nova Categoria</h3>
+        <div id="page-content">
+            <h2>#{msgs.categoriaInfo}</h2>
+            <br/>
+            <div class="borderField">
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="Descricao:" for="descricao" />
@@ -20,10 +21,11 @@
                     <h:inputText id="valorDiario" value="#{categoriaAutomovelBean.categoria.valorDiario}" title="ValorDiario" required="true" requiredMessage="Informe o valor diário"/>
 
                 </h:panelGrid>
-                <br/>
-                <h:commandButton value="Enviar" action="#{categoriaAutomovelBean.salvarCategoriaAutomovel()}"/>
-                <h:commandButton value="Cancelar" action="categoriaautomoveis" immediate="true"/>
             </div>
+            <h:commandButton value="Enviar" action="#{categoriaAutomovelBean.salvarCategoriaAutomovel()}"/>
+            <h:commandButton value="Cancelar/Voltar" action="categoriasautomovel" immediate="true"/>
+            <br/>
+            <h:messages />
         </div>
     </ui:define>
 </ui:composition>       

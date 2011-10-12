@@ -310,6 +310,7 @@ body {
 }
 .cabecalhoListagem {
     height: 30px;
+    border-bottom: 1px solid gainsboro;
 }
 .tituloListagem {
     float: left;

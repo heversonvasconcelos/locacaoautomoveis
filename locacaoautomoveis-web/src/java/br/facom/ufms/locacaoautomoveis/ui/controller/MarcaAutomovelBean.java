@@ -35,6 +35,12 @@ public class MarcaAutomovelBean implements Serializable {
         return marcaAutomovelDAO.list();
     }
 
+    public String novaMarca() {
+        marca = new MarcaAutomovel();
+
+        return Constantes.PAGE_MARCAAUTOMOVEL_FORM;
+    }
+
     public String salvarMarcaAutomovel() {
         if (marca.getId() == null) {
             marcaAutomovelDAO.create(marca);
@@ -42,6 +48,6 @@ public class MarcaAutomovelBean implements Serializable {
             marcaAutomovelDAO.update(marca);
         }
 
-        return Constantes.PAGE_MARCAAUTOMOVEIS;
+        return Constantes.PAGE_MARCASAUTOMOVEL;
     }
 }

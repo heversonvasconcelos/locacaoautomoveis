@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="/resources/template/template.xhtml" 
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template/template.xhtml">
 
     <ui:define name="content">
         <div id="page-content">
-            <h2>Lista de Categorias de Automóvel</h2>
-            <div name="buttons">
-                <a href="/locacaoautomoveis/categoriaautomovelform.xhtml" id="">Nova Categoria de Automóvel</a>
+            <div class="cabecalhoListagem">
+                <h2 class="tituloListagem">#{msgs.categories}</h2>
+                <h:commandButton styleClass="right" value="Nova categoria" action="#{categoriaAutomovelBean.novaCategoria()}"/>
             </div>
+            <br/>
             <h:dataTable border="1" var="categoria" value="#{categoriaAutomovelBean.listaCategorias}">
                 <h:column>
                     <f:facet name="header">

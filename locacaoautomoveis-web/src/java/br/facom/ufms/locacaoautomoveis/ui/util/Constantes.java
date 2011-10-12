@@ -17,9 +17,12 @@ public class Constantes {
     public static final String PAGE_CLIENTE_FORM = "clienteform";
     public static final String PAGE_AUTOMOVEIS = "automoveis";
     public static final String PAGE_AUTOMOVEIS_FORM = "automovelform";
-    public static final String PAGE_CATEGORIAAUTOMOVEIS = "categoriaautomoveis";
-    public static final String PAGE_MODELOAUTOMOVEIS = "modelos";
-    public static final String PAGE_MARCAAUTOMOVEIS = "marcas";
+    public static final String PAGE_CATEGORIASAUTOMOVEL = "categoriasautomovel";
+    public static final String PAGE_CATEGORIAAUTOMOVEL_FORM = "categoriaautomovelform";
+    public static final String PAGE_MARCASAUTOMOVEL = "marcasautomovel";
+    public static final String PAGE_MARCAAUTOMOVEL_FORM = "marcaautomovelform";
+    public static final String PAGE_MODELOSAUTOMOVEL = "modelosautomovel";
+    public static final String PAGE_MODELOAUTOMOVEL_FORM = "modeloautomovelform";
     public static final String PAGE_USER_NOT_LOGGED = "usernotlogged";
     /* Mensagens de erro */
     public static final String MSG_ERRO_INVALID_USER = "Usuário inválido";
