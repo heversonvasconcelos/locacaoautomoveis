@@ -2,13 +2,23 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="clientes.xhtml" x="900" y="150" zoom="true"/>
-        <Node id="index.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="automovelform.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="clienteform.xhtml" x="1150" y="150" zoom="true"/>
         <Node id="resources/template/template.xhtml" x="150" y="150" zoom="true"/>
-        <Node id="resources/sections/bottom.xhtml" x="400" y="300" zoom="true"/>
-        <Node id="resources/sections/top.xhtml" x="650" y="150" zoom="true"/>
-        <Node id="usernotlogged.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="modeloautomovelform.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="locacaoform.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="locacaoview.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="modelosautomovel.xhtml" x="900" y="300" zoom="true"/>
         <Node id="locacoes.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="usernotlogged.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="marcasautomovel.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="marcaautomovelform.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="clientes.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="categoriasautomovel.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="index.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="resources/sections/menu.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="categoriaautomovelform.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="automoveis.xhtml" x="650" y="300" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

@@ -13,10 +13,13 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="/resources/template/template.xhtml">
 
-    <!-- CENTER -->
+    <!-- Pagina de login nao tem acesso ao menu -->
+    <ui:define name="menu"/>
+
     <ui:define name="content">
-        <div class="aligncenter" style="width: 70%; padding: 50px">
+        <div id="page-content" class="aligncenter">
             <h3> #{msgs.userIsNotLogged}</h3>
+            <br/>
             <h:commandButton  value="#{msgs.login}" action="index"/>
         </div>
     </ui:define>
