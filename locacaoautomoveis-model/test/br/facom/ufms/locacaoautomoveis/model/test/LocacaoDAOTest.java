@@ -28,7 +28,7 @@ public class LocacaoDAOTest extends PrintList {
     private AutomovelDAO automovelDAO = new AutomovelDAOImpl();
     private LocacaoDAO locacaoDAO = new LocacaoDAOImpl();
     private ClienteDAO clienteDAO = new ClienteDAOImpl();
-    private List<Automovel> automoveis = automovelDAO.list();
+    private List<Automovel> automoveisDisponiveis = automovelDAO.buscarAutomoveisPelaDisponibilidade(true);
     private List<Cliente> clientes = clienteDAO.list();
 
     @Test
@@ -64,7 +64,7 @@ public class LocacaoDAOTest extends PrintList {
         /* Locacao 00 */
         Locacao locacao00 = new Locacao();
         Cliente cliente00 = clientes.get(2);
-        Automovel automovel00 = automoveis.get(0);
+        Automovel automovel00 = automoveisDisponiveis.get(0);
 
         locacao00.setCliente(cliente00);
         locacao00.setAutomovel(automovel00);
@@ -74,8 +74,8 @@ public class LocacaoDAOTest extends PrintList {
 
         /* Locacao 01 */
         Locacao locacao01 = new Locacao();
-        Cliente cliente01 = clientes.get(2);
-        Automovel automovel01 = automoveis.get(0);
+        Cliente cliente01 = clientes.get(3);
+        Automovel automovel01 = automoveisDisponiveis.get(1);
 
         locacao01.setCliente(cliente01);
         locacao01.setAutomovel(automovel01);
@@ -85,8 +85,8 @@ public class LocacaoDAOTest extends PrintList {
 
         /* Locacao 02 */
         Locacao locacao02 = new Locacao();
-        Cliente cliente02 = clientes.get(2);
-        Automovel automovel02 = automoveis.get(0);
+        Cliente cliente02 = clientes.get(1);
+        Automovel automovel02 = automoveisDisponiveis.get(2);
 
         locacao02.setCliente(cliente02);
         locacao02.setAutomovel(automovel02);
@@ -96,12 +96,12 @@ public class LocacaoDAOTest extends PrintList {
 
     }
 
-//    @Test
+    @Test
     public void testeFecharLocacao() {
         boolean locacaoSalvaComSucesso;
         List<Locacao> locacaoList = locacaoDAO.list();
 
-        Locacao locacao = locacaoList.get(1);
+        Locacao locacao = locacaoList.get(0);
         locacao.setPagamentoRealizado(true);
         locacaoSalvaComSucesso = locacaoDAO.finalizarLocacao(locacao);
         Assert.assertTrue(locacaoSalvaComSucesso);

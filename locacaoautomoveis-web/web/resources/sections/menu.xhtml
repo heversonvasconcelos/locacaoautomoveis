@@ -4,29 +4,31 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets">
-    <script>
+
+    <script type="text/javascript">
        $('document').ready(function(){
-	   $('div.menu').fixedMenu();
+           $('div.menu').fixedMenu();
        });
     </script>
+
     <div class="menu">
-	<ul id="menu_dropdown" class="menubar">
-	    <li class="submenu"><a href="#">CADASTRO</a>
-		<ul class="menu">
-		    <li><a href="clientes.xhtml">Clientes</a></li>
-		    <li><a href="automoveis.xhtml">Veículos</a></li>
-		    <li><a href="marcas.xhtml">Marcas</a></li>
-		    <li><a href="modelos.xhtml">Modelos</a></li>
-		    <li><a href="categoriaautomoveis.xhtml">Categorias</a></li>
-		</ul>
-	    </li>
-	    <li class="submenu"><a href="#">LOCAÇÕES</a>
-		<ul class="menu">
-		    <li><a href="locacoes.xhtml">Listar</a></li>
-		    <li><a href="locacaoform.xhtml">Nova</a></li>
-		</ul>
-	    </li>
-	</ul>
+        <ul id="menu_dropdown" class="menubar">
+            <li class="submenu"><a href="#">CADASTRO</a>
+                <ul class="menu">
+                    <li><a href="clientes.xhtml">Clientes</a></li>
+                    <li><a href="automoveis.xhtml">Veículos</a></li>
+                    <li><a href="marcas.xhtml">Marcas</a></li>
+                    <li><a href="modelos.xhtml">Modelos</a></li>
+                    <li><a href="categoriaautomoveis.xhtml">Categorias</a></li>
+                </ul>
+            </li>
+            <li class="submenu"><a href="#">LOCAÇÕES</a>
+                <ul class="menu">
+                    <li><a href="locacoes.xhtml">Listar</a></li>
+                    <li><a href="locacaoform.xhtml">Nova</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
 
 </ui:composition>

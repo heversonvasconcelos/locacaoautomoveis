@@ -14,26 +14,32 @@
             <div class="borderField">
                 <h:panelGrid columns="2">
                     <h:outputLabel value="Cliente:" for="cliente" />
-                    <h:selectOneMenu id="cliente" value="#{locacaoBean.locacao.cliente}" title="Cliente">
+                    <h:selectOneMenu id="cliente" value="#{locacaoBean.locacao.cliente}" title="Cliente"
+                                     required="true"  requiredMessage="Selecione o cliente">
                         <f:converter converterId="clienteConverter"/>
                         <f:selectItems value="#{locacaoBean.listaClientes}" var="cliente" itemValue="#{cliente}" itemLabel="#{cliente.nome}" />
                     </h:selectOneMenu>
                     <h:outputLabel value="Data prevista para devolucao:" for="dataPrevistaDevolucao" />
-                    <h:inputText id="dataPrevistaDevolucao" value="#{locacaoBean.locacao.dataPrevistaDevolucao}" title="DataPrevistaDevolucao" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:inputText id="dataPrevistaDevolucao" value="#{locacaoBean.locacao.dataPrevistaDevolucao}" title="DataPrevistaDevolucao">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:inputText>
                     <h:outputLabel value="Automovel:" for="automovel" />
-                    <h:selectOneMenu id="automovel" value="#{locacaoBean.locacao.automovel}" title="Automovel" converter="automovelConverter">
-                        <f:selectItems value="#{locacaoBean.listaAutomoveis}" var="automovel" itemValue="#{automovel}" itemLabel="#{automovel.placa} - #{automovel.modelo.descricao}"/>
+                    <h:selectOneMenu id="automovel" value="#{locacaoBean.locacao.automovel}" title="Automovel" converter="automovelConverter"
+                                     required="true"  requiredMessage="Selecione o automovel">
+                        <f:selectItems value="#{locacaoBean.listaAutomoveisDisponiveis}" var="automovel" itemValue="#{automovel}" itemLabel="#{automovel.placa} - #{automovel.modelo.descricao}"/>
                     </h:selectOneMenu>
                     <h:outputLabel value="Observacoes:" for="observacoes" />
-                    <h:inputText id="observacoes" value="#{locacaoBean.locacao.observacoes}" title="Observacoes" />
+                    <h:inputTextarea id="observacoes" value="#{locacaoBean.locacao.observacoes}" title="Observacoes"
+                                     cols="50" rows="5" validatorMessage="O texto do campo Observações é maior do que o máximo permitido">
+                        <f:validateLength maximum="255" />
+                    </h:inputTextarea>
                 </h:panelGrid>
             </div>
-            <h:commandButton value="Salvar" action="#{locacaoBean.salvarLocacao()}"/>
+            <h:commandButton value="Salvar" action="#{locacaoBean.salvarLocacao()}" type="submit"/>
             <h:commandButton value="Cancelar" action="locacoes" immediate="true"/>
             <br/>
             <h:messages />
         </div>
     </ui:define>
 </ui:composition>
+

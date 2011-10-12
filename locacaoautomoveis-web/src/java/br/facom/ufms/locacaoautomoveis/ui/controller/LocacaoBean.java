@@ -12,12 +12,17 @@ import br.facom.ufms.locacaoautomoveis.model.entities.Locacao;
 import br.facom.ufms.locacaoautomoveis.model.types.Status;
 import br.facom.ufms.locacaoautomoveis.ui.util.Constantes;
 import br.facom.ufms.locacaoautomoveis.ui.util.FacesUtil;
+import java.io.IOException;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletResponse;
 
 @ManagedBean
 @SessionScoped
@@ -79,8 +84,9 @@ public class LocacaoBean implements Serializable {
         return clienteDAO.list();
     }
 
-    public List<Automovel> getListaAutomoveis() {
-        return automovelDAO.list();
+    public List<Automovel> getListaAutomoveisDisponiveis() {
+        return automovelDAO.buscarAutomoveisPelaDisponibilidade(true);
+
     }
 
     public String novaLocacao() {
@@ -109,5 +115,57 @@ public class LocacaoBean implements Serializable {
         }
 
         return Constantes.PAGE_LOCACOES;
+    }
+
+    public void downloadRegistroLocacao() {
+        /*
+         * Nome do arquivo
+         */
+        String registroLocacaoFileName = "registrolocacao-" + locacao.getId() + ".txt";
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        HttpServletResponse response =
+                (HttpServletResponse) context.getExternalContext().getResponse();
+        response.setContentType("application/txt");
+        response.setHeader("Content-disposition", "attachment; filename=" + registroLocacaoFileName);
+
+        try {
+            response.getOutputStream().write(getInformacaoesRegistroLocacao());
+            response.getOutputStream().flush();
+            response.getOutputStream().close();
+            context.responseComplete();
+        } catch (IOException e) {
+        }
+    }
+
+    private byte[] getInformacaoesRegistroLocacao() {
+        /*
+         * Preparando o conteúdo do registro de locação
+         */
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        
+        StringBuilder conteudoRegistroLocacao = new StringBuilder();
+        conteudoRegistroLocacao.append("Identificação da locação: ");
+        conteudoRegistroLocacao.append(locacao.getId());
+        conteudoRegistroLocacao.append("\tData/Hora: ");
+        conteudoRegistroLocacao.append(df.format(locacao.getDataHoraLocacao()));
+        conteudoRegistroLocacao.append("\nNome cliente: ");
+        conteudoRegistroLocacao.append(locacao.getCliente().getNome());
+        conteudoRegistroLocacao.append("\tCPF/CNPJ: ");
+        conteudoRegistroLocacao.append(locacao.getCliente().getCpfcnpj());
+        conteudoRegistroLocacao.append("\nPlaca Automovel: ");
+        conteudoRegistroLocacao.append(locacao.getAutomovel().getPlaca());
+        conteudoRegistroLocacao.append("\tModelo: ");
+        conteudoRegistroLocacao.append(locacao.getAutomovel().getModelo().getDescricao());
+        conteudoRegistroLocacao.append("\nCategoria: ");
+        conteudoRegistroLocacao.append(locacao.getAutomovel().getCategoria().getDescricao());
+        conteudoRegistroLocacao.append("\tValor diária: ");
+        conteudoRegistroLocacao.append(locacao.getAutomovel().getCategoria().getValorDiario());
+        if (locacao.getDataPrevistaDevolucao() != null) {
+            conteudoRegistroLocacao.append("\tData prevista devolução: ");
+            conteudoRegistroLocacao.append(df.format(locacao.getDataPrevistaDevolucao()));
+        }
+        
+        return conteudoRegistroLocacao.toString().getBytes();
     }
 }

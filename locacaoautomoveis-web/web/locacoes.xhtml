@@ -32,7 +32,7 @@
                             <h:outputText value="Data/Hora Locação"/>
                         </f:facet>
                         <h:outputText value="#{locacao.dataHoraLocacao}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            <f:convertDateTime pattern="dd/MM/yyyy hh:mm" />
                         </h:outputText>
                     </h:column>
                     <h:column>
@@ -40,7 +40,7 @@
                             <h:outputText value="Data/Hora Locação Finalizada"/>
                         </f:facet>
                         <h:outputText value="#{locacao.dataHoraLocacaoFinalizada}">
-                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            <f:convertDateTime pattern="dd/MM/yyyy hh:mm" />
                         </h:outputText>
                     </h:column>
                     <h:column>
@@ -56,7 +56,10 @@
                         <h:commandButton value="Editar" action="locacaoform">
                             <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
                         </h:commandButton>
-                        <h:commandButton value="Fechar" action="#{locacaoBean.fecharLocacao()}">
+                        <h:commandButton value="Fechar/Visualizar" action="locacaoview">
+                            <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
+                        </h:commandButton>
+                        <h:commandButton value="Gerar registro" action="#{locacaoBean.downloadRegistroLocacao()}">
                             <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
                         </h:commandButton>
                     </h:column>

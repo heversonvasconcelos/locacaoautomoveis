@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template/template.xhtml">
+
+    <ui:define name="content">
+        <div id="page-content">
+            <h2>#{msgs.rentalInfo}</h2>
+            <br/>
+            <div class="borderField">
+                <h:panelGrid columns="2" border="1">
+                    <h:outputText value="Identificação da locação:"/>
+                    <h:outputText value="#{locacaoBean.locacao.id}" title="Id"/>
+                    <h:outputText value="Data/Hora:"/>
+                    <h:outputText value="#{locacaoBean.locacao.dataHoraLocacao}" title="DataHoraLocacao">
+                        <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
+                    </h:outputText>
+
+                    <h:outputText value="Nome cliente:"/>
+                    <h:outputText value="#{locacaoBean.locacao.cliente.nome}"/>
+                    <h:outputText value="CPF/CNPJ:"/>
+                    <h:outputText value="#{locacaoBean.locacao.cliente.cpfcnpj}"/>
+
+                    <h:outputText value="Placa automovel:"/>
+                    <h:outputText value="#{locacaoBean.locacao.automovel.placa}"/>
+                    <h:outputText value="Modelo:"/>
+                    <h:outputText value="#{locacaoBean.locacao.automovel.modelo.descricao}"/>
+
+                    <h:outputText value="Categoria:"/>
+                    <h:outputText value="#{locacaoBean.locacao.automovel.categoria.descricao}"/>
+                    <h:outputText value="Valor diário:"/>
+                    <h:outputText value="#{locacaoBean.locacao.automovel.categoria.valorDiario}"/>
+
+                    <h:outputText value="Data prevista devolucao:"/>
+                    <h:outputText value="#{locacaoBean.locacao.dataPrevistaDevolucao}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="Status:"/>
+                    <h:outputText value="#{locacaoBean.locacao.status}"/>
+                    
+                    <h:outputText value="Observacoes:"/>
+                    <h:outputText value="#{locacaoBean.locacao.observacoes}"/>
+
+                </h:panelGrid>
+            </div>
+            <h:commandButton value="Fechar" action="#{locacaoBean.fecharLocacao()}"/>
+            <h:commandButton value="Cancelar" action="locacoes"/>
+            <br/>
+            <h:messages />
+        </div>
+    </ui:define>
+</ui:composition>

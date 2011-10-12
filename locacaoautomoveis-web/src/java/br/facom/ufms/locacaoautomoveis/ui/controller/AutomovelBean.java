@@ -30,44 +30,42 @@ public class AutomovelBean implements Serializable {
     private Automovel automovel;
     private ModeloAutomovelDAO modelo;
     private CategoriaAutomovelDAO categoria;
-    private List<Automovel> listaAutomoveis;
 
     @PostConstruct
     public void init() {
-	automovelDao = new AutomovelDAOImpl();
-	automovel = new Automovel();
-	modelo = new ModeloAutomovelDAOImpl();
-	categoria = new CategoriaAutomovelDAOImpl();
+        automovelDao = new AutomovelDAOImpl();
+        automovel = new Automovel();
+        modelo = new ModeloAutomovelDAOImpl();
+        categoria = new CategoriaAutomovelDAOImpl();
     }
 
     public Automovel getAutomovel() {
-	return automovel;
+        return automovel;
     }
 
     public void setAutomovel(Automovel automovel) {
-	this.automovel = automovel;
+        this.automovel = automovel;
     }
 
     public List<Automovel> getListaAutomoveis() {
-	listaAutomoveis = automovelDao.list();
-	return listaAutomoveis;
+        return automovelDao.list();
     }
 
     public String salvarAutomovel() {
-	if (automovel.getId() == null) {
-	    automovelDao.create(automovel);
-	} else {
-	    automovelDao.update(automovel);
-	}
-	
-	return Constantes.PAGE_AUTOMOVEIS;
+        if (automovel.getId() == null) {
+            automovelDao.create(automovel);
+        } else {
+            automovelDao.update(automovel);
+        }
+
+        return Constantes.PAGE_AUTOMOVEIS;
     }
 
     public List<ModeloAutomovel> getListaModelos() {
-	return modelo.list();
+        return modelo.list();
     }
 
     public List<CategoriaAutomovel> getListaCategorias() {
-	return categoria.list();
+        return categoria.list();
     }
 }
