@@ -15,37 +15,33 @@ import javax.faces.bean.SessionScoped;
 public class MarcaAutomovelBean implements Serializable {
 
     private MarcaAutomovel marca;
-    private MarcaAutomovelDAO marcaDAO;
+    private MarcaAutomovelDAO marcaAutomovelDAO;
 
     @PostConstruct
     public void init() {
         marca = new MarcaAutomovel();
-        marcaDAO = new MarcaAutomovelDAOImpl();
+        marcaAutomovelDAO = new MarcaAutomovelDAOImpl();
     }
 
     public MarcaAutomovel getMarca() {
         return marca;
     }
 
-    public void setModelo(MarcaAutomovel marca) {
+    public void setMarca(MarcaAutomovel marca) {
         this.marca = marca;
     }
 
-    public void setMarcaDAO(MarcaAutomovelDAO marcaDAO) {
-        this.marcaDAO = marcaDAO;
+    public List<MarcaAutomovel> getListaMarcaAutomovel() {
+        return marcaAutomovelDAO.list();
     }
 
     public String salvarMarcaAutomovel() {
         if (marca.getId() == null) {
-            marcaDAO.create(marca);
+            marcaAutomovelDAO.create(marca);
         } else {
-            marcaDAO.update(marca);
+            marcaAutomovelDAO.update(marca);
         }
 
         return Constantes.PAGE_MARCAAUTOMOVEIS;
-    }
-
-    public List<MarcaAutomovel> getListaMarcaAutomovel() {
-        return marcaDAO.list();
     }
 }

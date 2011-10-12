@@ -9,9 +9,9 @@
 
     <ui:define name="content">
         <div id="page-content">
-            <h2>Lista de Automóveis</h2>
-            <div name="buttons">
-                <a href="/locacaoautomoveis/automovelform.xhtml" id="">Novo Veículo</a>
+            <div class="cabecalhoListagem">
+                <h2 class="tituloListagem">#{msgs.automobiles}</h2>
+                <h:commandButton styleClass="right" value="Novo automóvel" action="#{automovelBean.novoAutomovel()}"/>
             </div>
             <h:dataTable border="1" var="automovel" value="#{automovelBean.listaAutomoveis}">
                 <h:column>

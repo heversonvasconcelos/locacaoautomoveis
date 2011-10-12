@@ -18,14 +18,14 @@ import javax.faces.bean.SessionScoped;
 public class ModeloAutomovelBean implements Serializable {
 
     private ModeloAutomovel modelo;
-    private ModeloAutomovelDAO modeloDAO;
-    private MarcaAutomovelDAO marcaAutomovel;
+    private ModeloAutomovelDAO modeloAutomovelDAO;
+    private MarcaAutomovelDAO marcaAutomovelDAO;
 
     @PostConstruct
     public void init() {
         modelo = new ModeloAutomovel();
-        modeloDAO = new ModeloAutomovelDAOImpl();
-        marcaAutomovel = new MarcaAutomovelDAOImpl();
+        modeloAutomovelDAO = new ModeloAutomovelDAOImpl();
+        marcaAutomovelDAO = new MarcaAutomovelDAOImpl();
     }
 
     public ModeloAutomovel getModelo() {
@@ -36,25 +36,21 @@ public class ModeloAutomovelBean implements Serializable {
         this.modelo = modelo;
     }
 
-    public void setModeloDAO(ModeloAutomovelDAO modeloDAO) {
-        this.modeloDAO = modeloDAO;
+    public List<ModeloAutomovel> getListaModeloAutomovel() {
+        return modeloAutomovelDAO.list();
+    }
+
+    public List<MarcaAutomovel> getListaMarcasAutomovel() {
+        return marcaAutomovelDAO.list();
     }
 
     public String salvarModeloAutomovel() {
         if (modelo.getId() == null) {
-            modeloDAO.create(modelo);
+            modeloAutomovelDAO.create(modelo);
         } else {
-            modeloDAO.update(modelo);
+            modeloAutomovelDAO.update(modelo);
         }
 
         return Constantes.PAGE_MODELOAUTOMOVEIS;
-    }
-
-    public List<ModeloAutomovel> getListaModeloAutomovel() {
-        return modeloDAO.list();
-    }
-
-    public List<MarcaAutomovel> getListaMarcasAutomovel() {
-        return marcaAutomovel.list();
     }
 }

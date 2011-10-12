@@ -13,34 +13,35 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class CategoriaAutomovelBean implements Serializable {
-    private CategoriaAutomovelDAO categoriaDAO;
+
     private CategoriaAutomovel categoria;
-    
+    private CategoriaAutomovelDAO categoriaAutomovelDAO;
+
     @PostConstruct
     public void init() {
-	categoriaDAO = new CategoriaAutomovelDAOImpl();
-	categoria = new CategoriaAutomovel();	
+        categoria = new CategoriaAutomovel();
+        categoriaAutomovelDAO = new CategoriaAutomovelDAOImpl();
     }
 
     public CategoriaAutomovel getCategoria() {
-	return categoria;
+        return categoria;
     }
 
     public void setCategoria(CategoriaAutomovel categoria) {
-	this.categoria = categoria;
+        this.categoria = categoria;
+    }
+
+    public List<CategoriaAutomovel> getListaCategorias() {
+        return categoriaAutomovelDAO.list();
     }
 
     public String salvarCategoriaAutomovel() {
-	if (categoria.getId() == null) {
-	   categoriaDAO.create(categoria);
-	} else {
-	    categoriaDAO.update(categoria);
-	}
-	
-	return Constantes.PAGE_CATEGORIAAUTOMOVEIS;
-    }
-    
-    public List<CategoriaAutomovel> getListaCategorias() {
-	return categoriaDAO.list();
+        if (categoria.getId() == null) {
+            categoriaAutomovelDAO.create(categoria);
+        } else {
+            categoriaAutomovelDAO.update(categoria);
+        }
+
+        return Constantes.PAGE_CATEGORIAAUTOMOVEIS;
     }
 }

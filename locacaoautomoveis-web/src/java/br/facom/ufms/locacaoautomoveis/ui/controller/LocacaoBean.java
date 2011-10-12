@@ -143,7 +143,7 @@ public class LocacaoBean implements Serializable {
          * Preparando o conteúdo do registro de locação
          */
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-        
+
         StringBuilder conteudoRegistroLocacao = new StringBuilder();
         conteudoRegistroLocacao.append("Identificação da locação: ");
         conteudoRegistroLocacao.append(locacao.getId());
@@ -165,7 +165,7 @@ public class LocacaoBean implements Serializable {
             conteudoRegistroLocacao.append("\tData prevista devolução: ");
             conteudoRegistroLocacao.append(df.format(locacao.getDataPrevistaDevolucao()));
         }
-        
+
         return conteudoRegistroLocacao.toString().getBytes();
     }
 }

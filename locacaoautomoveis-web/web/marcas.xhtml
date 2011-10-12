@@ -13,12 +13,12 @@
                 <div name="buttons">
                     <a href="/locacaoautomoveis/marcaautomovelform.xhtml" id="">Nova Marca</a>
                 </div>
-                <h:dataTable border="1" value="#{marcaAutomovelBean.listaMarcaAutomovel}" var="item">
+                <h:dataTable border="1" value="#{marcaAutomovelBean.listaMarcaAutomovel}" var="marca">
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="Descricao"/>
                         </f:facet>
-                        <h:outputText value="#{item.descricao}"/>
+                        <h:outputText value="#{marca.descricao}"/>
                     </h:column>
                     <h:column>
                         <h:commandButton value="Editar" action="marcaautomovelform">

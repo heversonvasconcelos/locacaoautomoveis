@@ -26,17 +26,17 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class AutomovelBean implements Serializable {
 
-    private AutomovelDAO automovelDao;
     private Automovel automovel;
-    private ModeloAutomovelDAO modelo;
-    private CategoriaAutomovelDAO categoria;
+    private AutomovelDAO automovelDAO;
+    private ModeloAutomovelDAO modeloAutomovelDAO;
+    private CategoriaAutomovelDAO categoriaAutomovelDAO;
 
     @PostConstruct
     public void init() {
-        automovelDao = new AutomovelDAOImpl();
         automovel = new Automovel();
-        modelo = new ModeloAutomovelDAOImpl();
-        categoria = new CategoriaAutomovelDAOImpl();
+        automovelDAO = new AutomovelDAOImpl();
+        modeloAutomovelDAO = new ModeloAutomovelDAOImpl();
+        categoriaAutomovelDAO = new CategoriaAutomovelDAOImpl();
     }
 
     public Automovel getAutomovel() {
@@ -48,24 +48,30 @@ public class AutomovelBean implements Serializable {
     }
 
     public List<Automovel> getListaAutomoveis() {
-        return automovelDao.list();
+        return automovelDAO.list();
+    }
+
+    public List<ModeloAutomovel> getListaModelos() {
+        return modeloAutomovelDAO.list();
+    }
+
+    public List<CategoriaAutomovel> getListaCategorias() {
+        return categoriaAutomovelDAO.list();
+    }
+
+    public String novoAutomovel() {
+        automovel = new Automovel();
+
+        return Constantes.PAGE_AUTOMOVEIS_FORM;
     }
 
     public String salvarAutomovel() {
         if (automovel.getId() == null) {
-            automovelDao.create(automovel);
+            automovelDAO.create(automovel);
         } else {
-            automovelDao.update(automovel);
+            automovelDAO.update(automovel);
         }
 
         return Constantes.PAGE_AUTOMOVEIS;
-    }
-
-    public List<ModeloAutomovel> getListaModelos() {
-        return modelo.list();
-    }
-
-    public List<CategoriaAutomovel> getListaCategorias() {
-        return categoria.list();
     }
 }

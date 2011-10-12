@@ -14,12 +14,13 @@ public class Constantes {
     public static final String PAGE_USUARIOS = "usuarios";
     public static final String PAGE_USUARIO_FORM = "usuarioform";
     public static final String PAGE_CLIENTES = "clientes";
-    public static final String PAGE_AUTOMOVEIS = "automoveis";
     public static final String PAGE_CLIENTE_FORM = "clienteform";
-    public static final String PAGE_USER_NOT_LOGGED = "usernotlogged";
+    public static final String PAGE_AUTOMOVEIS = "automoveis";
+    public static final String PAGE_AUTOMOVEIS_FORM = "automovelform";
     public static final String PAGE_CATEGORIAAUTOMOVEIS = "categoriaautomoveis";
-    public static String PAGE_MODELOAUTOMOVEIS = "modelos";
-    public static String PAGE_MARCAAUTOMOVEIS = "marcas";
+    public static final String PAGE_MODELOAUTOMOVEIS = "modelos";
+    public static final String PAGE_MARCAAUTOMOVEIS = "marcas";
+    public static final String PAGE_USER_NOT_LOGGED = "usernotlogged";
     /* Mensagens de erro */
     public static final String MSG_ERRO_INVALID_USER = "Usuário inválido";
     public static final String MSG_ERRO_INVALID_PASSWORD = "Senha inválida";
