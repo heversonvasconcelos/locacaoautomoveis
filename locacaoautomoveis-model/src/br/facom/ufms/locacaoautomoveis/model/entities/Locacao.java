@@ -14,7 +14,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -32,12 +31,8 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "TB_LOCACAO")
-@NamedQueries({
-    @NamedQuery(name = "Locacao.buscarLocacoesPeloStatus",
-    query = "SELECT l FROM Locacao AS l WHERE l.status = :status"),
-    @NamedQuery(name = "Locacao.buscarLocacoesStatusFechadoPagamentoNaoRealizado",
-    query = "SELECT l FROM Locacao AS l WHERE l.status = :statusFechado AND l.pagamentoRealizado = false")
-})
+@NamedQuery(name = "Locacao.buscarLocacoesPeloStatus",
+query = "SELECT l FROM Locacao AS l WHERE l.status = :status")
 public class Locacao implements Serializable {
 
     @Id
@@ -66,6 +61,10 @@ public class Locacao implements Serializable {
     @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataHoraLocacaoFinalizada;
+    /**
+     * Representa o status da locação. ABERTO = Locação em andamento.
+     * FECHADO = Locação finalizada.
+     */
     @Column
     private Status status = Status.ABERTO;
     @Column
@@ -73,8 +72,11 @@ public class Locacao implements Serializable {
     @ManyToOne
     @JoinColumn(name = "AUTOMOVEL_FK")
     private Automovel automovel;
-    @Column
-    private boolean pagamentoRealizado = false;
+    /**
+     * Representa o valor da locação após ser finalizada.
+     */
+    @Column(scale = 10, precision = 2)
+    private double valor;
 
     public Cliente getCliente() {
         return cliente;
@@ -140,12 +142,12 @@ public class Locacao implements Serializable {
         this.status = status;
     }
 
-    public boolean isPagamentoRealizado() {
-        return pagamentoRealizado;
+    public double getValor() {
+        return valor;
     }
 
-    public void setPagamentoRealizado(boolean pagamentoRealizado) {
-        this.pagamentoRealizado = pagamentoRealizado;
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     @Override

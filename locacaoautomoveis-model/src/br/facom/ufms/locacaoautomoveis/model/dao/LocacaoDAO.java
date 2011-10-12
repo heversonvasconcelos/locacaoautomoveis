@@ -16,7 +16,5 @@ public interface LocacaoDAO extends GenericDAO<Locacao, Long> {
 
     public List<Locacao> buscarLocacoesPeloStatus(Status status);
 
-    public List<Locacao> buscarLocacoesStatusFechadoPagamentoNaoRealizado();
-
     public boolean finalizarLocacao(Locacao locacao);
 }

@@ -32,21 +32,21 @@ public class ClienteDAOTest extends PrintList {
         Cliente clienteFisico00 = new Cliente();
         clienteFisico00.setNome("Mario João Bandeiras");
         clienteFisico00.setEmail("mario.bandeiras@email.com.br");
-        clienteFisico00.setCpfcnpj("12345678900");
+        clienteFisico00.setCpfcnpj("17526159304");
         clienteDAO.create(clienteFisico00);
         Assert.assertNotNull(clienteFisico00);
 
         Cliente clienteFisico01 = new Cliente();
         clienteFisico01.setNome("Antônio Carlos Moura");
         clienteFisico01.setEmail("antonio.moura@email.com.br");
-        clienteFisico01.setCpfcnpj("12345678901");
+        clienteFisico01.setCpfcnpj("22023987679");
         clienteDAO.create(clienteFisico01);
         Assert.assertNotNull(clienteFisico01);
 
         Cliente clienteFisico02 = new Cliente();
         clienteFisico02.setNome("Gustavo Gomes Ferreira");
         clienteFisico02.setEmail("gustavo.ferreira@email.com.br");
-        clienteFisico02.setCpfcnpj("12345678902");
+        clienteFisico02.setCpfcnpj("01882241819");
         clienteDAO.create(clienteFisico02);
         Assert.assertNotNull(clienteFisico02);
     }
@@ -56,28 +56,28 @@ public class ClienteDAOTest extends PrintList {
         Cliente clienteJuridico00 = new Cliente();
         clienteJuridico00.setNome("Construtora Bandeiras");
         clienteJuridico00.setEmail("construtorabandeiras@construtorabandeiras.com.br");
-        clienteJuridico00.setCpfcnpj("12345678900000");
+        clienteJuridico00.setCpfcnpj("51633018000161");
         clienteDAO.create(clienteJuridico00);
         Assert.assertNotNull(clienteJuridico00);
 
         Cliente clienteJuridico01 = new Cliente();
         clienteJuridico01.setNome("Nexus Ltda");
         clienteJuridico01.setEmail("nexus@nexus.com.br");
-        clienteJuridico01.setCpfcnpj("12345678900001");
+        clienteJuridico01.setCpfcnpj("36041411000172");
         clienteDAO.create(clienteJuridico01);
         Assert.assertNotNull(clienteJuridico01);
 
         Cliente clienteJuridico02 = new Cliente();
         clienteJuridico02.setNome("Jardel AutoCentro");
         clienteJuridico02.setEmail("jardelautocentro@jardelautocentro.com.br");
-        clienteJuridico02.setCpfcnpj("12345678900002");
+        clienteJuridico02.setCpfcnpj("80373496000188");
         clienteDAO.create(clienteJuridico02);
         Assert.assertNotNull(clienteJuridico02);
     }
 
     @Test
     public void testeBuscarClienteFisico() {
-        String cpf = "12345678902";
+        String cpf = "22023987679";
         Cliente clienteFisico = clienteDAO.buscarClientePeloCPFCNPJ(cpf);
 
         System.out.println("----------------------------------------------");
@@ -87,7 +87,7 @@ public class ClienteDAOTest extends PrintList {
 
     @Test
     public void testeBuscarClienteJuridico() {
-        String cnpj = "12345678900001";
+        String cnpj = "36041411000172";
         Cliente clienteJuridico = clienteDAO.buscarClientePeloCPFCNPJ(cnpj);
 
         System.out.println("----------------------------------------------");

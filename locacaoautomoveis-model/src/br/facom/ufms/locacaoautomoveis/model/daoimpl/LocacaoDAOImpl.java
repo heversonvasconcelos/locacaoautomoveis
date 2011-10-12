@@ -9,6 +9,7 @@ import br.facom.ufms.locacaoautomoveis.model.entities.Locacao;
 import br.facom.ufms.locacaoautomoveis.model.types.QueryParameter;
 import br.facom.ufms.locacaoautomoveis.model.types.Status;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,15 +27,6 @@ public class LocacaoDAOImpl extends GenericDAOImpl<Locacao, Long> implements Loc
     public List<Locacao> buscarLocacoesPeloStatus(Status status) {
         String namedQuery = "Locacao.buscarLocacoesPeloStatus";
         QueryParameter parameter = new QueryParameter("status", status);
-        List<Locacao> resultList = executeNamedQuery(namedQuery, parameter);
-
-        return resultList;
-    }
-
-    @Override
-    public List<Locacao> buscarLocacoesStatusFechadoPagamentoNaoRealizado() {
-        String namedQuery = "Locacao.buscarLocacoesStatusFechadoPagamentoNaoRealizado";
-        QueryParameter parameter = new QueryParameter("statusFechado", Status.FECHADO);
         List<Locacao> resultList = executeNamedQuery(namedQuery, parameter);
 
         return resultList;
@@ -68,6 +60,10 @@ public class LocacaoDAOImpl extends GenericDAOImpl<Locacao, Long> implements Loc
             locacao.getAutomovel().setDisponivel(true);
             locacao.setDataHoraLocacaoFinalizada(Calendar.getInstance().getTime());
             locacao.setStatus(Status.FECHADO);
+            locacao.setValor(calcularValorLocacao(
+                    locacao.getDataHoraLocacao(),
+                    locacao.getDataHoraLocacaoFinalizada(),
+                    locacao.getAutomovel().getCategoria().getValorDiario()));
 
             Locacao locacaoFinalizada = update(locacao);
             if (locacaoFinalizada != null && locacaoFinalizada.getStatus() == Status.FECHADO) {
@@ -76,5 +72,16 @@ public class LocacaoDAOImpl extends GenericDAOImpl<Locacao, Long> implements Loc
         }
 
         return false;
+    }
+
+    private double calcularValorLocacao(Date dataLocacao, Date dataLocacaoFinalizada, double valorDiario) {
+        long ONE_HOUR = 60 * 60 * 1000L;
+        long dia1 = dataLocacao.getTime();
+        long dia2 = dataLocacaoFinalizada.getTime();
+
+        int qtdDiasLocacaoEmAndamento = (int) ((dia2 - dia1 + ONE_HOUR) / (ONE_HOUR * 24));
+        double valorLocacao = (qtdDiasLocacaoEmAndamento * valorDiario);
+
+        return valorLocacao;
     }
 }

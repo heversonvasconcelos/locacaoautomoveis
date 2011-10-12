@@ -52,13 +52,6 @@ public class LocacaoDAOTest extends PrintList {
         printList(locacaoList, "LocacoesFechadas");
     }
 
-    @Test
-    public void testeListarLocacoesFechadasPagamentoNaoRealizado() {
-        List<Locacao> locacaoList = locacaoDAO.buscarLocacoesStatusFechadoPagamentoNaoRealizado();
-
-        printList(locacaoList, "LocacoesFechadasPagamentoNaoRealizado");
-    }
-
 //    @Test
     public void testeAbrirLocacao() {
         /* Locacao 00 */
@@ -96,13 +89,12 @@ public class LocacaoDAOTest extends PrintList {
 
     }
 
-    @Test
+//    @Test
     public void testeFecharLocacao() {
         boolean locacaoSalvaComSucesso;
         List<Locacao> locacaoList = locacaoDAO.list();
 
         Locacao locacao = locacaoList.get(0);
-        locacao.setPagamentoRealizado(true);
         locacaoSalvaComSucesso = locacaoDAO.finalizarLocacao(locacao);
         Assert.assertTrue(locacaoSalvaComSucesso);
     }
