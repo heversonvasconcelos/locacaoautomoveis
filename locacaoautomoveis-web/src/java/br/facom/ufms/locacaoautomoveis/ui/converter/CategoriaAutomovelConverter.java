@@ -1,5 +1,7 @@
 package br.facom.ufms.locacaoautomoveis.ui.converter;
 
+import br.facom.ufms.locacaoautomoveis.model.dao.CategoriaAutomovelDAO;
+import br.facom.ufms.locacaoautomoveis.model.daoimpl.CategoriaAutomovelDAOImpl;
 import br.facom.ufms.locacaoautomoveis.model.entities.CategoriaAutomovel;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -9,19 +11,28 @@ import javax.faces.convert.FacesConverter;
 @FacesConverter(value = "categoriaAutomovelConverter")
 public class CategoriaAutomovelConverter implements Converter {
 
-    @Override
-    public Object getAsObject(FacesContext arg0, UIComponent arg1, String value) {
-        CategoriaAutomovel categoriaAutomovel = new CategoriaAutomovel();
-        categoriaAutomovel.setId(Integer.parseInt(value));
+    private CategoriaAutomovelDAO categoriaAutomovelDAO = new CategoriaAutomovelDAOImpl();
 
-        return categoriaAutomovel;
+    @Override
+    public Object getAsObject(FacesContext ctx, UIComponent component, String value) {
+        if (value != null && !value.equals("")) {
+            Integer id = Integer.parseInt(value);
+
+            return categoriaAutomovelDAO.retrieve(id);
+        }
+
+        return null;
+
     }
 
     @Override
-    public String getAsString(FacesContext arg0, UIComponent arg1, Object object) {
-        CategoriaAutomovel categoriaAutomovel = (CategoriaAutomovel) object;
+    public String getAsString(FacesContext ctx, UIComponent component, Object value) {
+        if (value != null && !"".equals(value)) {
+            CategoriaAutomovel categoria = (CategoriaAutomovel) value;
 
-        return String.valueOf(categoriaAutomovel.getId());
+            return categoria.getId().toString();
+        }
 
+        return (String) value;
     }
 }

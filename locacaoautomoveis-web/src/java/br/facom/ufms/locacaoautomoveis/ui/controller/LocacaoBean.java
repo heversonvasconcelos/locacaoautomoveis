@@ -29,8 +29,6 @@ import javax.servlet.http.HttpServletResponse;
 public class LocacaoBean implements Serializable {
 
     private Locacao locacao;
-    private Cliente cliente;
-    private Automovel automovel;
     private Date dataPrevistaDevolucao;
     private LocacaoDAO locacaoDAO;
     private ClienteDAO clienteDAO;
@@ -50,22 +48,6 @@ public class LocacaoBean implements Serializable {
 
     public void setLocacao(Locacao locacao) {
         this.locacao = locacao;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Automovel getAutomovel() {
-        return automovel;
-    }
-
-    public void setAutomovel(Automovel automovel) {
-        this.automovel = automovel;
     }
 
     public Date getDataPrevistaDevolucao() {
@@ -108,9 +90,7 @@ public class LocacaoBean implements Serializable {
     public String fecharLocacao() {
         if (locacao.getStatus() == Status.FECHADO) {
             FacesUtil.mensErro(Constantes.MSG_ERRO_LOCACAO_PREVIAMENTE_FECHADA);
-        }
-
-        if (!locacaoDAO.finalizarLocacao(locacao)) {
+        } else if (!locacaoDAO.finalizarLocacao(locacao)) {
             FacesUtil.mensErro(Constantes.MSG_ERRO_LOCACAO);
         }
 
@@ -142,28 +122,39 @@ public class LocacaoBean implements Serializable {
         /*
          * Preparando o conteúdo do registro de locação
          */
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        DateFormat df1 = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        DateFormat df2 = new SimpleDateFormat("dd/MM/yyyy");
 
         StringBuilder conteudoRegistroLocacao = new StringBuilder();
         conteudoRegistroLocacao.append("Identificação da locação: ");
         conteudoRegistroLocacao.append(locacao.getId());
         conteudoRegistroLocacao.append("\tData/Hora: ");
-        conteudoRegistroLocacao.append(df.format(locacao.getDataHoraLocacao()));
+        conteudoRegistroLocacao.append(df1.format(locacao.getDataHoraLocacao()));
         conteudoRegistroLocacao.append("\nNome cliente: ");
         conteudoRegistroLocacao.append(locacao.getCliente().getNome());
         conteudoRegistroLocacao.append("\tCPF/CNPJ: ");
         conteudoRegistroLocacao.append(locacao.getCliente().getCpfcnpj());
         conteudoRegistroLocacao.append("\nPlaca Automovel: ");
         conteudoRegistroLocacao.append(locacao.getAutomovel().getPlaca());
-        conteudoRegistroLocacao.append("\tModelo: ");
-        conteudoRegistroLocacao.append(locacao.getAutomovel().getModelo().getDescricao());
-        conteudoRegistroLocacao.append("\nCategoria: ");
-        conteudoRegistroLocacao.append(locacao.getAutomovel().getCategoria().getDescricao());
-        conteudoRegistroLocacao.append("\tValor diária: ");
-        conteudoRegistroLocacao.append(locacao.getAutomovel().getCategoria().getValorDiario());
+        if (locacao.getAutomovel().getModelo() != null) {
+            conteudoRegistroLocacao.append("\tModelo: ");
+            conteudoRegistroLocacao.append(locacao.getAutomovel().getModelo().getDescricao());
+        }
+        if (locacao.getAutomovel().getCategoria() != null) {
+            conteudoRegistroLocacao.append("\nCategoria: ");
+            conteudoRegistroLocacao.append(locacao.getAutomovel().getCategoria().getDescricao());
+            conteudoRegistroLocacao.append("\tValor diária: ");
+            conteudoRegistroLocacao.append(locacao.getAutomovel().getCategoria().getValorDiario());
+        }
         if (locacao.getDataPrevistaDevolucao() != null) {
-            conteudoRegistroLocacao.append("\tData prevista devolução: ");
-            conteudoRegistroLocacao.append(df.format(locacao.getDataPrevistaDevolucao()));
+            conteudoRegistroLocacao.append("\nData prevista devolução: ");
+            conteudoRegistroLocacao.append(df2.format(locacao.getDataPrevistaDevolucao()));
+        }
+        if (locacao.getStatus() == Status.FECHADO) {
+            conteudoRegistroLocacao.append("\nData locação finalizada: ");
+            conteudoRegistroLocacao.append(df1.format(locacao.getDataHoraLocacaoFinalizada()));
+            conteudoRegistroLocacao.append("\tValor locação: ");
+            conteudoRegistroLocacao.append(locacao.getValor());
         }
 
         return conteudoRegistroLocacao.toString().getBytes();

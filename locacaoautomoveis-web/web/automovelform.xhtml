@@ -15,6 +15,7 @@
                 <h:panelGrid columns="2">
                     <h:outputText value="Modelo"/>
                     <h:selectOneMenu required="true"  requiredMessage="Selecione o modelo" value="#{automovelBean.automovel.modelo}" converter="modeloAutomovelConverter" >
+                        <f:selectItem itemValue="" itemLabel="---Selecione um modelo---"/>
                         <f:selectItems value="#{automovelBean.listaModelos}" var="modelo" itemValue="#{modelo}" itemLabel="#{modelo.descricao}" />
                     </h:selectOneMenu>  
 
@@ -32,6 +33,7 @@
 
                     <h:outputText value="Categoria "/>
                     <h:selectOneMenu required="true"  requiredMessage="Selecione a categoria" value="#{automovelBean.automovel.categoria}" converter="categoriaAutomovelConverter" >
+                        <f:selectItem itemValue="" itemLabel="---Selecione uma categoria---"/>
                         <f:selectItems value="#{automovelBean.listaCategorias}" var="categoria" itemValue="#{categoria}" itemLabel="#{categoria.descricao}" />
                     </h:selectOneMenu>  
                 </h:panelGrid>

@@ -19,6 +19,7 @@
                     <h:outputLabel value="Marca:" for="marca" />
                     <h:selectOneMenu id="marca"   value="#{modeloAutomovelBean.modelo.marca}" title="Marca" converter="marcaAutomovelConverter"
                                      required="true"  requiredMessage="Selecione a marca">
+                        <f:selectItem itemValue="" itemLabel="---Selecione uma marca---"/>
                         <f:selectItems var="marca" value="#{modeloAutomovelBean.listaMarcasAutomovel}" itemLabel="#{marca.descricao}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>

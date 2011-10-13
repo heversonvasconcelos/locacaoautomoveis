@@ -50,6 +50,12 @@
                     <h:outputText value="#{locacao.status}"/>
                 </h:column>
                 <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Valor locação"/>
+                    </f:facet>
+                    <h:outputText value="#{locacao.valor}"/>
+                </h:column>
+                <h:column>
                     <h:commandButton value="Editar" action="locacaoform">
                         <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
                     </h:commandButton>

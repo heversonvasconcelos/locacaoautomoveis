@@ -82,6 +82,12 @@ public class LocacaoDAOImpl extends GenericDAOImpl<Locacao, Long> implements Loc
         int qtdDiasLocacaoEmAndamento = (int) ((dia2 - dia1 + ONE_HOUR) / (ONE_HOUR * 24));
         double valorLocacao = (qtdDiasLocacaoEmAndamento * valorDiario);
 
+        if (qtdDiasLocacaoEmAndamento > 0) {
+            valorLocacao = (qtdDiasLocacaoEmAndamento * valorDiario);
+        } else {
+            valorLocacao = valorDiario;
+        }
+
         return valorLocacao;
     }
 }

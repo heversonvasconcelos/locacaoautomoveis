@@ -1,5 +1,7 @@
 package br.facom.ufms.locacaoautomoveis.ui.converter;
 
+import br.facom.ufms.locacaoautomoveis.model.dao.ModeloAutomovelDAO;
+import br.facom.ufms.locacaoautomoveis.model.daoimpl.ModeloAutomovelDAOImpl;
 import br.facom.ufms.locacaoautomoveis.model.entities.ModeloAutomovel;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -9,19 +11,27 @@ import javax.faces.convert.FacesConverter;
 @FacesConverter(value = "modeloAutomovelConverter")
 public class ModeloAutomovelConverter implements Converter {
 
-    @Override
-    public Object getAsObject(FacesContext arg0, UIComponent arg1, String value) {
-	ModeloAutomovel modeloAutomovel = new ModeloAutomovel();
-	modeloAutomovel.setId(Integer.parseInt(value));
+    private ModeloAutomovelDAO modeloAutomovelDAO = new ModeloAutomovelDAOImpl();
 
-	return modeloAutomovel;
+    @Override
+    public Object getAsObject(FacesContext ctx, UIComponent component, String value) {
+        if (value != null && !value.equals("")) {
+            Integer id = Integer.parseInt(value);
+
+            return modeloAutomovelDAO.retrieve(id);
+        }
+
+        return null;
     }
 
     @Override
-    public String getAsString(FacesContext arg0, UIComponent arg1, Object object) {
-	ModeloAutomovel modeloAutomovel = (ModeloAutomovel) object;
+    public String getAsString(FacesContext ctx, UIComponent component, Object value) {
+        if (value != null && !"".equals(value)) {
+            ModeloAutomovel modeloAutomovel = (ModeloAutomovel) value;
 
-	return modeloAutomovel.getId().toString();
+            return modeloAutomovel.getId().toString();
+        }
 
+        return (String) value;
     }
 }

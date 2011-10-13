@@ -85,7 +85,7 @@ body {
 
 #nav ul.menubar{
     margin: 0px;
-    width:700px;
+    width: 700px;
     background-color: #FFFFFF; /* IE6 Bug */
     font-size: 100%;
     bottom:1px;
@@ -110,7 +110,6 @@ body {
     padding: 5px;
     display:block;
     text-decoration: none;
-    color: #FFFFF;
     padding: 5px;
 }
 

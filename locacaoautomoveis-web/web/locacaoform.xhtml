@@ -14,9 +14,9 @@
             <div class="borderField">
                 <h:panelGrid columns="2">
                     <h:outputLabel value="Cliente:" for="cliente" />
-                    <h:selectOneMenu id="cliente" value="#{locacaoBean.locacao.cliente}" title="Cliente"
+                    <h:selectOneMenu id="cliente" value="#{locacaoBean.locacao.cliente}" title="Cliente" converter="clienteConverter"
                                      required="true"  requiredMessage="Selecione o cliente">
-                        <f:converter converterId="clienteConverter"/>
+                        <f:selectItem itemValue="" itemLabel="---Selecione um cliente---"/>
                         <f:selectItems value="#{locacaoBean.listaClientes}" var="cliente" itemValue="#{cliente}" itemLabel="#{cliente.nome}" />
                     </h:selectOneMenu>
                     <h:outputLabel value="Data prevista para devolucao:" for="dataPrevistaDevolucao" />
@@ -26,6 +26,7 @@
                     <h:outputLabel value="Automovel:" for="automovel" />
                     <h:selectOneMenu id="automovel" value="#{locacaoBean.locacao.automovel}" title="Automovel" converter="automovelConverter"
                                      required="true"  requiredMessage="Selecione o automovel">
+                        <f:selectItem itemValue="" itemLabel="---Selecione um automovel---"/>
                         <f:selectItems value="#{locacaoBean.listaAutomoveisDisponiveis}" var="automovel" itemValue="#{automovel}" itemLabel="#{automovel.placa} - #{automovel.modelo.descricao}"/>
                     </h:selectOneMenu>
                     <h:outputLabel value="Observacoes:" for="observacoes" />
