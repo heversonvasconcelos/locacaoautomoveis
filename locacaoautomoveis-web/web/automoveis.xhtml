@@ -5,6 +5,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
                 template="/resources/template/template.xhtml">
 
     <ui:define name="content">
@@ -15,55 +16,56 @@
                 <h:commandButton styleClass="right" value="Novo automóvel" action="#{automovelBean.novoAutomovel()}"/>
             </div>
             <br/>
-            <h:dataTable border="1" var="automovel" value="#{automovelBean.listaAutomoveis}">
-                <h:column>
+            <p:dataTable var="automovel" value="#{automovelBean.listaAutomoveis}"
+                         paginator="true" rows="5">
+                <p:column sortBy="#{automovel.modelo.descricao}" filterBy="#{automovel.modelo.descricao}">
                     <f:facet name="header">
                         <h:outputText value="Modelo"/>
                     </f:facet>
                     <h:outputText value="#{automovel.modelo.descricao}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column sortBy="#{automovel.placa}" filterBy="#{automovel.placa}">
                     <f:facet name="header">
                         <h:outputText value="Placa"/>
                     </f:facet>
                     <h:outputText value="#{automovel.placa}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Ano"/>
-                    </f:facet>
-                    <h:outputText value="#{automovel.ano}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Cor"/>
-                    </f:facet>
-                    <h:outputText value="#{automovel.cor}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column sortBy="#{automovel.renavam}" filterBy="#{automovel.renavam}">
                     <f:facet name="header">
                         <h:outputText value="Renavam"/>
                     </f:facet>
                     <h:outputText value="#{automovel.renavam}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Ano"/>
+                    </f:facet>
+                    <h:outputText value="#{automovel.ano}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Cor"/>
+                    </f:facet>
+                    <h:outputText value="#{automovel.cor}"/>
+                </p:column>
+                <p:column sortBy="#{automovel.disponivel}">
                     <f:facet name="header">
                         <h:outputText value="Disponibilidade"/>
                     </f:facet>
                     <h:outputText value="#{automovel.disponivel}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column sortBy="#{automovel.categoria.descricao}" filterBy="#{automovel.categoria.descricao}">
                     <f:facet name="header">
                         <h:outputText value="Categoria"/>
                     </f:facet>
                     <h:outputText value="#{automovel.categoria.descricao}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <h:commandButton value="Editar" action="automovelform">
                         <f:setPropertyActionListener value="#{automovel}" target="#{automovelBean.automovel}" />
                     </h:commandButton>
-                </h:column>
-            </h:dataTable>
+                </p:column>
+            </p:dataTable>
         </div>
     </ui:define>
 </ui:composition>

@@ -5,6 +5,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
                 template="/resources/template/template.xhtml">
 
     <ui:define name="content">
@@ -14,19 +15,20 @@
                 <h:commandButton styleClass="right" value="Nova marca" action="#{marcaAutomovelBean.novaMarca()}"/>
             </div>
             <br/>
-            <h:dataTable border="1" value="#{marcaAutomovelBean.listaMarcaAutomovel}" var="marca">
-                <h:column>
+            <p:dataTable value="#{marcaAutomovelBean.listaMarcaAutomovel}" var="marca"
+                         paginator="true" rows="5">
+                <p:column sortBy="#{marca.descricao}" filterBy="#{marca.descricao}">
                     <f:facet name="header">
                         <h:outputText value="Descricao"/>
                     </f:facet>
                     <h:outputText value="#{marca.descricao}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <h:commandButton value="Editar" action="marcaautomovelform">
                         <f:setPropertyActionListener value="#{marca}" target="#{marcaAutomovelBean.marca}" />
                     </h:commandButton>
-                </h:column>
-            </h:dataTable>
+                </p:column>
+            </p:dataTable>
         </div>
     </ui:define>
 </ui:composition>

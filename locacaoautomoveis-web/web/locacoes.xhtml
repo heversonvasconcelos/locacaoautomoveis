@@ -5,6 +5,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
                 template="/resources/template/template.xhtml">
 
     <ui:define name="content">
@@ -14,56 +15,51 @@
                 <h:commandButton styleClass="right" value="Nova locação" action="#{locacaoBean.novaLocacao()}"/>
             </div>
             <br/>
-            <h:dataTable value="#{locacaoBean.listaLocacoes}" var="locacao" border="1">
-                <h:column>
+            <p:dataTable value="#{locacaoBean.listaLocacoes}" var="locacao"
+                         paginator="true" rows="5">
+                <p:column sortBy="#{locacao.id}" filterBy="#{locacao.id}">
                     <f:facet name="header">
                         <h:outputText value="Id"/>
                     </f:facet>
                     <h:outputText value="#{locacao.id}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column sortBy="#{locacao.cliente.nome}" filterBy="#{locacao.cliente.nome}">
                     <f:facet name="header">
                         <h:outputText value="Cliente"/>
                     </f:facet>
                     <h:outputText value="#{locacao.cliente.nome}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column sortBy="#{locacao.cliente.cpfcnpj}" filterBy="#{locacao.cliente.cpfcnpj}">
+                    <f:facet name="header">
+                        <h:outputText value="CPF/CNPJ"/>
+                    </f:facet>
+                    <h:outputText value="#{locacao.cliente.cpfcnpj}"/>
+                </p:column>
+                <p:column sortBy="#{locacao.dataHoraLocacao}" filterBy="#{locacao.dataHoraLocacao}">
                     <f:facet name="header">
                         <h:outputText value="Data/Hora Locação"/>
                     </f:facet>
                     <h:outputText value="#{locacao.dataHoraLocacao}">
                         <f:convertDateTime pattern="dd/MM/yyyy hh:mm" />
                     </h:outputText>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column sortBy="#{locacao.dataHoraLocacaoFinalizada}" filterBy="#{locacao.dataHoraLocacaoFinalizada}">
                     <f:facet name="header">
                         <h:outputText value="Data/Hora Locação Finalizada"/>
                     </f:facet>
                     <h:outputText value="#{locacao.dataHoraLocacaoFinalizada}">
                         <f:convertDateTime pattern="dd/MM/yyyy hh:mm" />
                     </h:outputText>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Status"/>
-                    </f:facet>
-                    <h:outputText value="#{locacao.status}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Valor locação"/>
-                    </f:facet>
-                    <h:outputText value="#{locacao.valor}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <h:commandButton value="Editar" action="locacaoform">
                         <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
                     </h:commandButton>
                     <h:commandButton value="Fechar/Visualizar" action="locacaoview">
                         <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
                     </h:commandButton>
-                </h:column>
-            </h:dataTable>
+                </p:column>
+            </p:dataTable>
             <h:messages/>
         </div>
     </ui:define>

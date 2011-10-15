@@ -5,6 +5,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
                 template="/resources/template/template.xhtml">
 
     <ui:define name="content">
@@ -15,43 +16,44 @@
                 <h:commandButton styleClass="right" value="Novo cliente" action="#{clienteBean.novoCliente()}"/>
             </div>
             <br/>
-            <h:dataTable id="clienteDataTable" border="1" var="cliente" value="#{clienteBean.listaClientes}">
-                <h:column>
+            <p:dataTable var="cliente" value="#{clienteBean.listaClientes}"
+                         paginator="true" rows="5">
+                <p:column sortBy="#{cliente.id}" filterBy="#{cliente.id}">
                     <f:facet name="header">
                         <h:outputText value="ID"/>
                     </f:facet>
                     <h:outputText value="#{cliente.id}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column sortBy="#{cliente.cpfcnpj}" filterBy="#{cliente.cpfcnpj}">
                     <f:facet name="header">
                         <h:outputText value="CPF/CNPJ"/>
                     </f:facet>
                     <h:outputText value="#{cliente.cpfcnpj}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column sortBy="#{cliente.nome}" filterBy="#{cliente.nome}">
                     <f:facet name="header">
                         <h:outputText value="Nome"/>
                     </f:facet>
                     <h:outputText value="#{cliente.nome}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <f:facet name="header">
                         <h:outputText value="Telefone"/>
                     </f:facet>
                     <h:outputText value="#{cliente.telefone}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <f:facet name="header">
                         <h:outputText value="Email"/>
                     </f:facet>
                     <h:outputText value="#{cliente.email}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <h:commandButton value="Editar" action="clienteform">
                         <f:setPropertyActionListener value="#{cliente}" target="#{clienteBean.cliente}" />
                     </h:commandButton>
-                </h:column>
-            </h:dataTable>
+                </p:column>
+            </p:dataTable>
         </div>
     </ui:define>
 </ui:composition>

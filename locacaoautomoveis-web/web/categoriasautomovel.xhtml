@@ -5,6 +5,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
                 template="/resources/template/template.xhtml">
 
     <ui:define name="content">
@@ -14,25 +15,26 @@
                 <h:commandButton styleClass="right" value="Nova categoria" action="#{categoriaAutomovelBean.novaCategoria()}"/>
             </div>
             <br/>
-            <h:dataTable border="1" var="categoria" value="#{categoriaAutomovelBean.listaCategorias}">
-                <h:column>
+            <p:dataTable var="categoria" value="#{categoriaAutomovelBean.listaCategorias}"
+                         paginator="true" rows="5">
+                <p:column sortBy="#{categoria.descricao}" filterBy="#{categoria.descricao}">
                     <f:facet name="header">
                         <h:outputText value="Descrição"/>
                     </f:facet>
                     <h:outputText value="#{categoria.descricao}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <f:facet name="header">
                         <h:outputText value="Valor Diário"/>
                     </f:facet>
                     <h:outputText value="#{categoria.valorDiario}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <h:commandButton value="Editar" action="categoriaautomovelform">
                         <f:setPropertyActionListener value="#{categoria}" target="#{categoriaAutomovelBean.categoria}" />
                     </h:commandButton>
-                </h:column>
-            </h:dataTable>
+                </p:column>
+            </p:dataTable>
         </div>
     </ui:define>
 </ui:composition>

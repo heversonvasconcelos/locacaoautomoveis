@@ -106,7 +106,7 @@ public class LocacaoBean implements Serializable {
         return Constantes.PAGE_LOCACOES;
     }
 
-    public void gerarPDFRegistroLocacao() {
+    public void gerarRegistroLocacao() {
         /*
          * Nome do arquivo
          */

@@ -5,6 +5,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
                 template="/resources/template/template.xhtml">
 
     <ui:define name="content">
@@ -14,25 +15,26 @@
                 <h:commandButton styleClass="right" value="Novo modelo" action="#{modeloAutomovelBean.novoModelo()}"/>
             </div>
             <br/>
-            <h:dataTable border="1" value="#{modeloAutomovelBean.listaModeloAutomovel}" var="modelo">
-                <h:column>
+            <p:dataTable value="#{modeloAutomovelBean.listaModeloAutomovel}" var="modelo"
+                         paginator="true" rows="5">
+                <p:column sortBy="#{modelo.descricao}" filterBy="#{modelo.descricao}">
                     <f:facet name="header">
                         <h:outputText value="Descricao"/>
                     </f:facet>
                     <h:outputText value="#{modelo.descricao}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column sortBy="#{modelo.marca.descricao}" filterBy="#{modelo.marca.descricao}">
                     <f:facet name="header">
                         <h:outputText value="Marca"/>
                     </f:facet>
                     <h:outputText value="#{modelo.marca.descricao}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <h:commandButton value="Editar" action="modeloautomovelform">
                         <f:setPropertyActionListener value="#{modelo}" target="#{modeloAutomovelBean.modelo}" />
                     </h:commandButton>
-                </h:column>
-            </h:dataTable>
+                </p:column>
+            </p:dataTable>
         </div>
     </ui:define>
 </ui:composition>
