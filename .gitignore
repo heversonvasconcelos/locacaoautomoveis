@@ -1,8 +1,0 @@
-locacaoautomoveis-model/dist/
-locacaoautomoveis-model/build/
-locacaoautomoveis-model/nbproject/private/
-locacaoautomoveis-model/resources/*.bak
-locacaoautomoveis-model/src/META-INF/persistence.xml
-locacaoautomoveis-web/dist/
-locacaoautomoveis-web/build/
-locacaoautomoveis-web/nbproject/private/
