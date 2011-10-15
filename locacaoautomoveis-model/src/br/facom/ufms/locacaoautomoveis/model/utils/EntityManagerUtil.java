@@ -30,7 +30,7 @@ public class EntityManagerUtil {
     /**
      * Metodo para retornar a EntityManager criada
      *
-     * @return EntityManager criada a partir da unidade de persistencia NumberQuizJSF2ModelPU
+     * @return EntityManager criada a partir da unidade de persistencia
      */
     public static EntityManager getEntityManager() {
         init();
@@ -38,7 +38,7 @@ public class EntityManagerUtil {
     }
 
     /**
-     * Metodo para iniciar uma transacao no banco. Necessaria para operacoees
+     * Metodo para iniciar uma transacao no banco. Necessaria para operacoes
      * transacionais.
      */
     public static void beginTransaction() {
@@ -94,7 +94,7 @@ public class EntityManagerUtil {
     }
 
     /**
-     * Metodo para atualizar o estado de um determinado objeto no banco.
+     * Metodo para atualizar um determinado objeto no banco.
      * 
      * @param obj Objeto a ser atualizado
      * @return Objeto atualizado
@@ -108,7 +108,7 @@ public class EntityManagerUtil {
     }
 
     /**
-     * Metodo para remover um determinado objeto.
+     * Metodo para remover um determinado objeto do banco.
      * 
      * @param obj Objeto a ser removido.
      */
@@ -130,7 +130,7 @@ public class EntityManagerUtil {
         }
     }
 
-    public static boolean isOpen() {
+    private static boolean isOpen() {
         if (emf != null) {
             return emf.isOpen();
         }

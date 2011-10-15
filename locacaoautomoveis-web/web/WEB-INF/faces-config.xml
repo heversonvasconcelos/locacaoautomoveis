@@ -19,9 +19,9 @@
         </resource-bundle>
     </application>
     
-    <!-- Listeners -->
+    <!-- Listeners 
     <lifecycle>
         <phase-listener>br.facom.ufms.locacaoautomoveis.ui.listener.LoggedInCheck</phase-listener>
     </lifecycle>
-    
+    -->
 </faces-config>

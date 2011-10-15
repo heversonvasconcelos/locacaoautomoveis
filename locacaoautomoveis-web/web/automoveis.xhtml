@@ -11,6 +11,7 @@
         <div id="page-content">
             <div class="cabecalhoListagem">
                 <h2 class="tituloListagem">#{msgs.automobiles}</h2>
+                <h:commandButton styleClass="right" value="Gerar relatório" action="#{automovelBean.gerarPDFRelatorioAutomoveis()}"/>
                 <h:commandButton styleClass="right" value="Novo automóvel" action="#{automovelBean.novoAutomovel()}"/>
             </div>
             <br/>

@@ -62,9 +62,6 @@
                     <h:commandButton value="Fechar/Visualizar" action="locacaoview">
                         <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
                     </h:commandButton>
-                    <h:commandButton value="Gerar registro" action="#{locacaoBean.downloadRegistroLocacao()}">
-                        <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
-                    </h:commandButton>
                 </h:column>
             </h:dataTable>
             <h:messages/>

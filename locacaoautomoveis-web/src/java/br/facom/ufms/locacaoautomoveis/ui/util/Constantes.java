@@ -34,6 +34,7 @@ public class Constantes {
     public static final String MSG_ERRO_USER_ALREADY_EXISTS = "Usuário já foi cadastrado";
     public static final String MSG_ERRO_LOCACAO_PREVIAMENTE_FECHADA = "A locação já foi previamente fechada";
     public static final String MSG_ERRO_LOCACAO = "A locação não pode ser fechada";
+    public static final String MSG_ERRO_GERAR_RELATORIO_RECIBO = "O relatório ou recibo não pode ser gerado";
     /* Algumas constantes de configuracoes */
     public static final String LOGGED_USER = "usuarioLogado";
 }
