@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio-clientes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="locacao.id" class="java.lang.String"/>
+	<parameter name="locacao.dataHoraLocacao" class="java.lang.String"/>
+	<parameter name="locacao.dataPrevistaDevolucao" class="java.lang.String"/>
+	<parameter name="locacao.cliente.nome" class="java.lang.String"/>
+	<parameter name="locacao.cliente.cpfcnpj" class="java.lang.String"/>
+	<parameter name="locacao.automovel.placa" class="java.lang.String"/>
+	<parameter name="locacao.automovel.marca" class="java.lang.String"/>
+	<parameter name="locacao.automovel.modelo" class="java.lang.String"/>
+	<parameter name="locacao.automovel.categoria" class="java.lang.String"/>
+	<parameter name="locacao.automovel.categoria.valorDiario" class="java.lang.String"/>
+	<parameter name="locacao.dataHoraLocacaoFinalizada" class="java.lang.String"/>
+	<parameter name="locacao.qtdDiasLocacao" class="java.lang.String"/>
+	<parameter name="locacao.valor" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="53" splitType="Stretch">
+			<line>
+				<reportElement mode="Transparent" x="0" y="52" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="32"/>
+				<textElement>
+					<font fontName="SansSerif" size="20" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Registro de Locação]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="301" splitType="Stretch">
+			<textField>
+				<reportElement x="89" y="19" width="159" height="24"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{locacao.id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="19" width="89" height="24"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Id. Locação:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="388" y="19" width="167" height="24"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{locacao.dataHoraLocacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="248" y="19" width="140" height="24"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Data/Hora locação:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="178" y="43" width="100" height="24"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{locacao.dataPrevistaDevolucao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="43" width="177" height="24"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Data prevista devolução:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="80" width="495" height="24"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{locacao.cliente.nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="80" width="59" height="24"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="104" width="74" height="24"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[CPF/CNPJ:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="75" y="104" width="203" height="24"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{locacao.cliente.cpfcnpj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="138" width="203" height="24"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{locacao.automovel.placa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="138" width="46" height="24"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Placa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="249" y="138" width="50" height="24"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Marca:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="299" y="138" width="256" height="24"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{locacao.automovel.marca}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="162" width="59" height="24"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Modelo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="162" width="495" height="24"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{locacao.automovel.modelo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="186" width="74" height="24"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Categoria:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="75" y="186" width="224" height="24"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{locacao.automovel.categoria}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="299" y="186" width="89" height="24"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Valor Diário:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="388" y="186" width="167" height="24"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{locacao.automovel.categoria.valorDiario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="225" width="214" height="24"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Data/Hora locação finalizada:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="215" y="225" width="177" height="24" isRemoveLineWhenBlank="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{locacao.dataHoraLocacaoFinalizada}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="249" width="127" height="24"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Qtd. dias locação:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="128" y="249" width="87" height="24" isRemoveLineWhenBlank="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{locacao.qtdDiasLocacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="249" width="104" height="24"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Valor locação:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="249" width="104" height="24" isRemoveLineWhenBlank="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{locacao.valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

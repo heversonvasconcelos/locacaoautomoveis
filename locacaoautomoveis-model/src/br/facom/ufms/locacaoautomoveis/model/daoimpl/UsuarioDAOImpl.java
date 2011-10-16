@@ -3,7 +3,7 @@ package br.facom.ufms.locacaoautomoveis.model.daoimpl;
 import br.facom.ufms.locacaoautomoveis.model.dao.UsuarioDAO;
 import br.facom.ufms.locacaoautomoveis.model.entities.Usuario;
 import br.facom.ufms.locacaoautomoveis.model.types.QueryParameter;
-import br.facom.ufms.locacaoautomoveis.model.utils.StringUtil;
+import br.facom.ufms.locacaoautomoveis.model.util.StringUtil;
 
 /**
  * Classe concreta que sera utilizada na execucao de todas as operacoes de

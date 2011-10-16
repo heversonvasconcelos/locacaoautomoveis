@@ -2,7 +2,7 @@ package br.facom.ufms.locacaoautomoveis.model.daoimpl;
 
 import br.facom.ufms.locacaoautomoveis.model.dao.GenericDAO;
 import br.facom.ufms.locacaoautomoveis.model.types.QueryParameter;
-import br.facom.ufms.locacaoautomoveis.model.utils.EntityManagerUtil;
+import br.facom.ufms.locacaoautomoveis.model.util.EntityManagerUtil;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PreDestroy;

@@ -3,7 +3,7 @@ package br.facom.ufms.locacaoautomoveis.ui.controller;
 import br.facom.ufms.locacaoautomoveis.model.dao.UsuarioDAO;
 import br.facom.ufms.locacaoautomoveis.model.daoimpl.UsuarioDAOImpl;
 import br.facom.ufms.locacaoautomoveis.model.entities.Usuario;
-import br.facom.ufms.locacaoautomoveis.model.utils.StringUtil;
+import br.facom.ufms.locacaoautomoveis.model.util.StringUtil;
 import br.facom.ufms.locacaoautomoveis.ui.util.Constantes;
 import br.facom.ufms.locacaoautomoveis.ui.util.FacesUtil;
 import br.facom.ufms.locacaoautomoveis.ui.util.SessionUtil;

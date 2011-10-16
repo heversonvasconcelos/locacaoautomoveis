@@ -8,6 +8,7 @@ import br.facom.ufms.locacaoautomoveis.model.dao.LocacaoDAO;
 import br.facom.ufms.locacaoautomoveis.model.entities.Locacao;
 import br.facom.ufms.locacaoautomoveis.model.types.QueryParameter;
 import br.facom.ufms.locacaoautomoveis.model.types.Status;
+import br.facom.ufms.locacaoautomoveis.model.util.DateCalculator;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -74,12 +75,9 @@ public class LocacaoDAOImpl extends GenericDAOImpl<Locacao, Long> implements Loc
         return false;
     }
 
-    private double calcularValorLocacao(Date dataLocacao, Date dataLocacaoFinalizada, double valorDiario) {
-        long ONE_HOUR = 60 * 60 * 1000L;
-        long dia1 = dataLocacao.getTime();
-        long dia2 = dataLocacaoFinalizada.getTime();
+    public double calcularValorLocacao(Date dataLocacao, Date dataLocacaoFinalizada, double valorDiario) {
 
-        int qtdDiasLocacaoEmAndamento = (int) ((dia2 - dia1 + ONE_HOUR) / (ONE_HOUR * 24));
+        int qtdDiasLocacaoEmAndamento = DateCalculator.calcularQtdDiasEntreDuasDatas(dataLocacao, dataLocacao);
         double valorLocacao = (qtdDiasLocacaoEmAndamento * valorDiario);
 
         if (qtdDiasLocacaoEmAndamento > 0) {

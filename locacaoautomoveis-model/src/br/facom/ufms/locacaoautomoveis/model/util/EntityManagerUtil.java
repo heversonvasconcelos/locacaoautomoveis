@@ -1,4 +1,4 @@
-package br.facom.ufms.locacaoautomoveis.model.utils;
+package br.facom.ufms.locacaoautomoveis.model.util;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

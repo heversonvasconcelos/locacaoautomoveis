@@ -17,12 +17,6 @@
             <br/>
             <p:dataTable value="#{locacaoBean.listaLocacoes}" var="locacao" 
                          paginator="true" rows="5">
-                <p:column sortBy="#{locacao.id}" filterBy="#{locacao.id}">
-                    <f:facet name="header">
-                        <h:outputText value="Id"/>
-                    </f:facet>
-                    <h:outputText value="#{locacao.id}"/>
-                </p:column>
                 <p:column sortBy="#{locacao.cliente.nome}" filterBy="#{locacao.cliente.nome}">
                     <f:facet name="header">
                         <h:outputText value="Cliente"/>
@@ -40,6 +34,14 @@
                         <h:outputText value="Data/Hora Locação"/>
                     </f:facet>
                     <h:outputText value="#{locacao.dataHoraLocacao}">
+                        <f:convertDateTime pattern="dd/MM/yyyy hh:mm" />
+                    </h:outputText>
+                </p:column>
+                <p:column sortBy="#{locacao.dataHoraLocacaoFinalizada}" filterBy="#{locacao.dataHoraLocacaoFinalizada}">
+                    <f:facet name="header">
+                        <h:outputText value="Data/Hora Locação Finalizada"/>
+                    </f:facet>
+                    <h:outputText value="#{locacao.dataHoraLocacaoFinalizada}">
                         <f:convertDateTime pattern="dd/MM/yyyy hh:mm" />
                     </h:outputText>
                 </p:column>
