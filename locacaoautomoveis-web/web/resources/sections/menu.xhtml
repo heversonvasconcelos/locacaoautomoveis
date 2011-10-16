@@ -23,8 +23,8 @@
     </p:menubar>
 
     <p:confirmDialog widgetVar="confirmation" message="#{msgs.quitConfirmQuestion}" modal="true" draggable="false">
-        <p:commandButton value="#{msgs.no}" onclick="quitConfirmModalDialog.hide()" />
         <p:commandButton value="#{msgs.yes}" action="#{loginBean.logout()}" oncomplete="quitConfirmModalDialog.hide()" ajax="false"/>
+        <p:commandButton value="#{msgs.no}" onclick="quitConfirmModalDialog.hide()" />
     </p:confirmDialog>
 
 </ui:composition>

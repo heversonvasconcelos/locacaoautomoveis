@@ -1,0 +1,35 @@
+--Ferramentas utilizadas no desenvolvimento da webapp
+	IDE: NetBeans IDE 7.0.1
+	Application Server: GlassFish 3.1
+	Database: MySQL 5.1.41
+	
+--Frameworks: JSF2 e Hibernate JPA 1.0
+
+--A aplicação está dividida em dois projetos:
+	locacaoautomoveis-model
+	locacaoautomoveis-web
+	
+--As configurações de acesso ao banco estão no arquivo: locacaoautomoveis-model/src/META-INF/persistence.xml
+	Os valores(atributo "value") das propriedades listadas deverão ser 
+	configuradas de acordo com o banco que deseja acessar
+	
+	<property name="hibernate.connection.username" value="loginQueDeveraSerConfigurado"/>
+	<property name="hibernate.connection.password" value="senhaQueDeveraSerConfigurada"/>
+	<property name="hibernate.connection.url" value="urlDoBancoQueDeveraSerConfigurada"/>
+	
+	Ex.: 
+	
+	<property name="hibernate.connection.username" value="root"/>
+        <property name="hibernate.connection.password" value="mysql"/>
+        <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/locacaoautomoveis"/>
+
+--Existe um arquivo com o script para criação das tabelas e inserção de dados de teste
+	locacaoautomoveis-model/resources/locacaoautomoveis.sql
+
+-- Após execução do script locacaoautomoveis.sql será criado um usuário de teste para login na aplicação
+	login: joao
+	senha: joao
+
+
+
+	
