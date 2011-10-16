@@ -15,6 +15,11 @@ import br.facom.ufms.locacaoautomoveis.model.entities.Cliente;
 import br.facom.ufms.locacaoautomoveis.model.entities.Locacao;
 import br.facom.ufms.locacaoautomoveis.model.test.utils.PrintList;
 import br.facom.ufms.locacaoautomoveis.model.types.Status;
+import br.facom.ufms.locacaoautomoveis.model.util.DateCalculator;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import junit.framework.Assert;
 import org.junit.Test;
@@ -98,4 +103,25 @@ public class LocacaoDAOTest extends PrintList {
         locacaoSalvaComSucesso = locacaoDAO.finalizarLocacao(locacao);
         Assert.assertTrue(locacaoSalvaComSucesso);
     }
+
+    @Test
+    public void testeCalcularValorLocacao() {
+        System.out.println("-------------------QtdDiasEntreDuasDatas---------------------------");
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+
+        Calendar cal = Calendar.getInstance();
+        Date now = cal.getTime();
+        cal.add(Calendar.DAY_OF_MONTH, 1);
+        cal.add(Calendar.HOUR_OF_DAY, 24);
+        Date after = cal.getTime();
+
+        System.out.println("Agora: " + df.format(now) + " Depois: " + df.format(after));
+        long deltaDays = DateCalculator.calcularQtdDiasEntreDuasDatas(now, after);
+        System.out.println("QtdDiasEntreAsDuasDatas: " + deltaDays);
+        System.out.println("ValorLocacao: " + locacaoDAO.calcularValorLocacao(now, after, 82.00));
+    }
+    
+    
+    
+    
 }

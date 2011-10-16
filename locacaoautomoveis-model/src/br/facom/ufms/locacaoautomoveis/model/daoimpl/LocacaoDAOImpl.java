@@ -75,9 +75,10 @@ public class LocacaoDAOImpl extends GenericDAOImpl<Locacao, Long> implements Loc
         return false;
     }
 
+    @Override
     public double calcularValorLocacao(Date dataLocacao, Date dataLocacaoFinalizada, double valorDiario) {
 
-        int qtdDiasLocacaoEmAndamento = DateCalculator.calcularQtdDiasEntreDuasDatas(dataLocacao, dataLocacao);
+        int qtdDiasLocacaoEmAndamento = DateCalculator.calcularQtdDiasEntreDuasDatas(dataLocacao, dataLocacaoFinalizada);
         double valorLocacao = (qtdDiasLocacaoEmAndamento * valorDiario);
 
         if (qtdDiasLocacaoEmAndamento > 0) {

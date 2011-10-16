@@ -79,7 +79,13 @@ public class LocacaoBean implements Serializable {
     }
 
     public List<Automovel> getListaAutomoveisDisponiveis() {
-        return automovelDAO.buscarAutomoveisPelaDisponibilidade(true);
+        List<Automovel> listaAutomoveisDisponiveis = automovelDAO.buscarAutomoveisPelaDisponibilidade(true);
+
+        if (listaAutomoveisDisponiveis.isEmpty()) {
+            FacesUtil.mensInfo(Constantes.MSG_INFO_NAO_EXISTEM_AUTOMOVEIS_DISPONIVEIS);
+        }
+
+        return listaAutomoveisDisponiveis;
 
     }
 
@@ -154,12 +160,12 @@ public class LocacaoBean implements Serializable {
 
     private Map<String, Object> getInformacaoesRegistroLocacao() {
         Map<String, Object> parametros = new HashMap<String, Object>();
-        Locale.setDefault(new Locale("pt","BR"));
-        
+        Locale.setDefault(new Locale("pt", "BR"));
+
         DateFormat df1 = new SimpleDateFormat("dd/MM/yyyy hh:mm");
         DateFormat df2 = new SimpleDateFormat("dd/MM/yyyy");
         NumberFormat nf = NumberFormat.getCurrencyInstance();
-        
+
         parametros.put("locacao.id", locacao.getId());
         parametros.put("locacao.dataHoraLocacao", df1.format(locacao.getDataHoraLocacao()));
         parametros.put("locacao.dataPrevistaDevolucao", df2.format(locacao.getDataPrevistaDevolucao()));
@@ -172,7 +178,7 @@ public class LocacaoBean implements Serializable {
         parametros.put("locacao.automovel.modelo", locacao.getAutomovel().getModelo().getDescricao());
 
         parametros.put("locacao.automovel.categoria", locacao.getAutomovel().getCategoria().getDescricao());
-        parametros.put("locacao.automovel.categoria.valorDiario",  nf.format(locacao.getAutomovel().getCategoria().getValorDiario()));
+        parametros.put("locacao.automovel.categoria.valorDiario", nf.format(locacao.getAutomovel().getCategoria().getValorDiario()));
 
         if (locacao.getDataHoraLocacaoFinalizada() != null) {
             parametros.put("locacao.dataHoraLocacaoFinalizada", df1.format(locacao.getDataHoraLocacaoFinalizada()));

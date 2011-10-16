@@ -24,12 +24,15 @@
                     <p:calendar id="dataPrevistaDevolucao" value="#{locacaoBean.locacao.dataPrevistaDevolucao}" title="DataPrevistaDevolucao">
                         <f:convertDateTime pattern="dd/MM/yyyy" />
                     </p:calendar>
-                    <h:outputLabel value="Automovel:" for="automovel" />
-                    <h:selectOneMenu id="automovel" value="#{locacaoBean.locacao.automovel}" title="Automovel" converter="automovelConverter"
-                                     required="true"  requiredMessage="Selecione o automovel">
+                    <h:outputLabel value="Automovel:" />
+                    <h:selectOneMenu value="#{locacaoBean.locacao.automovel}" title="Automovel" converter="automovelConverter"
+                                     required="true"  requiredMessage="Selecione o automovel" rendered="#{locacaoBean.locacao.automovel == null}">
                         <f:selectItem itemValue="" itemLabel="---Selecione um automovel---"/>
                         <f:selectItems value="#{locacaoBean.listaAutomoveisDisponiveis}" var="automovel" itemValue="#{automovel}" itemLabel="#{automovel.placa} - #{automovel.modelo.descricao}"/>
                     </h:selectOneMenu>
+                    <h:outputText value="#{locacaoBean.locacao.automovel.placa} - #{locacaoBean.locacao.automovel.modelo.descricao}"
+                                  rendered="#{locacaoBean.locacao.automovel != null}"/>
+
                     <h:outputLabel value="Observacoes:" for="observacoes" />
                     <h:inputTextarea id="observacoes" value="#{locacaoBean.locacao.observacoes}" title="Observacoes"
                                      cols="50" rows="5" validatorMessage="O texto do campo Observações é maior do que o máximo permitido">

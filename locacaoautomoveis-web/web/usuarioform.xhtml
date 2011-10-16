@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template/template.xhtml">
+
+    <ui:define name="content">
+        <div id="page-content">
+            <h2>#{msgs.userInfo}</h2>
+            <br/>
+            <div class="borderField">
+                <h:panelGrid columns="2">
+
+                    <h:outputLabel value="Login: " for="login" />
+                    <h:inputText id="login" value="#{usuarioBean.usuarioLogado}" title="Descricao" required="true" requiredMessage="Informe uma descrição"/>
+
+                    <h:outputLabel value="Valor Diario:" for="valorDiario" />
+                    <h:inputText id="valorDiario" value="#{categoriaAutomovelBean.categoria.valorDiario}" title="ValorDiario" required="true" requiredMessage="Informe o valor diário"/>
+
+                </h:panelGrid>
+            </div>
+            <h:commandButton value="Salvar" action="#{categoriaAutomovelBean.salvarCategoriaAutomovel()}"/>
+            <h:commandButton value="Cancelar/Voltar" action="categoriasautomovel" immediate="true"/>
+            <br/>
+            <h:messages />
+        </div>
+    </ui:define>
+</ui:composition>       
