@@ -16,7 +16,7 @@
 			<staticText>
 				<reportElement x="0" y="0" width="555" height="32"/>
 				<textElement markup="none">
-					<font fontName="Arial Black" size="20" isBold="true" isItalic="true" isStrikeThrough="false"/>
+					<font fontName="SansSerif" size="20" isBold="true" isItalic="true" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[Relatório de Clientes]]></text>
 			</staticText>

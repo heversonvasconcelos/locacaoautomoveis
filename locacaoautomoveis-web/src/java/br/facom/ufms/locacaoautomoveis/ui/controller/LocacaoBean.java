@@ -13,25 +13,16 @@ import br.facom.ufms.locacaoautomoveis.model.types.Status;
 import br.facom.ufms.locacaoautomoveis.ui.util.Constantes;
 import br.facom.ufms.locacaoautomoveis.ui.util.FacesUtil;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperRunManager;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 @ManagedBean
 @SessionScoped

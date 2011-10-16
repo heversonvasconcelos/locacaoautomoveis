@@ -34,7 +34,7 @@
 			<staticText>
 				<reportElement x="0" y="0" width="555" height="32"/>
 				<textElement>
-					<font fontName="Arial Black" size="20" isBold="true" isItalic="true"/>
+					<font fontName="SansSerif" size="20" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Relatório de Automóveis]]></text>
 			</staticText>
