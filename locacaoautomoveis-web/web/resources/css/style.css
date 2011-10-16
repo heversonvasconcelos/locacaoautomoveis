@@ -30,7 +30,7 @@ a:hover {
 body {
     background: url(../images/layout/page_bg.gif);
     text-align: center;
-    font: 12px arial, sans-serif;
+    font: 12px Arial, sans-serif;
     color: #464544;
     padding-bottom: 10px;
 }
@@ -323,4 +323,8 @@ body {
 }
 .novoRegistroButton {
     float: right;
+}
+
+.ui-widget {
+    font-size: 95% !important;
 }

@@ -14,41 +14,42 @@
                 <h:commandButton styleClass="right" value="Gerar registro" action="#{locacaoBean.gerarRegistroLocacao()}"/>
             </div>
             <br/>
-            <h:panelGrid columns="2" border="1">
-                <h:outputText value="Identificação da locação:"/>
-                <h:outputText value="#{locacaoBean.locacao.id}" title="Id"/>
-                <h:outputText value="Data/Hora:"/>
-                <h:outputText value="#{locacaoBean.locacao.dataHoraLocacao}" title="DataHoraLocacao">
-                    <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
-                </h:outputText>
+            <div class="borderField">
+                <h:panelGrid columns="2">
+                    <h:outputText value="Identificação da locação:"/>
+                    <h:outputText value="#{locacaoBean.locacao.id}" title="Id"/>
+                    <h:outputText value="Data/Hora:"/>
+                    <h:outputText value="#{locacaoBean.locacao.dataHoraLocacao}" title="DataHoraLocacao">
+                        <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
+                    </h:outputText>
 
-                <h:outputText value="Nome cliente:"/>
-                <h:outputText value="#{locacaoBean.locacao.cliente.nome}"/>
-                <h:outputText value="CPF/CNPJ:"/>
-                <h:outputText value="#{locacaoBean.locacao.cliente.cpfcnpj}"/>
+                    <h:outputText value="Nome cliente:"/>
+                    <h:outputText value="#{locacaoBean.locacao.cliente.nome}"/>
+                    <h:outputText value="CPF/CNPJ:"/>
+                    <h:outputText value="#{locacaoBean.locacao.cliente.cpfcnpj}"/>
 
-                <h:outputText value="Placa automovel:"/>
-                <h:outputText value="#{locacaoBean.locacao.automovel.placa}"/>
-                <h:outputText value="Modelo:"/>
-                <h:outputText value="#{locacaoBean.locacao.automovel.modelo.descricao}"/>
+                    <h:outputText value="Placa automovel:"/>
+                    <h:outputText value="#{locacaoBean.locacao.automovel.placa}"/>
+                    <h:outputText value="Modelo:"/>
+                    <h:outputText value="#{locacaoBean.locacao.automovel.modelo.descricao}"/>
 
-                <h:outputText value="Categoria:"/>
-                <h:outputText value="#{locacaoBean.locacao.automovel.categoria.descricao}"/>
-                <h:outputText value="Valor diário:"/>
-                <h:outputText value="#{locacaoBean.locacao.automovel.categoria.valorDiario}"/>
+                    <h:outputText value="Categoria:"/>
+                    <h:outputText value="#{locacaoBean.locacao.automovel.categoria.descricao}"/>
+                    <h:outputText value="Valor diário:"/>
+                    <h:outputText value="#{locacaoBean.locacao.automovel.categoria.valorDiario}"/>
 
-                <h:outputText value="Data prevista devolucao:"/>
-                <h:outputText value="#{locacaoBean.locacao.dataPrevistaDevolucao}">
-                    <f:convertDateTime pattern="dd/MM/yyyy" />
-                </h:outputText>
-                <h:outputText value="Status:"/>
-                <h:outputText value="#{locacaoBean.locacao.status}"/>
-                <h:outputText value="Valor:"/>
-                <h:outputText value="#{locacaoBean.locacao.valor}"/>
-                <h:outputText value="Observacoes:"/>
-                <h:outputText value="#{locacaoBean.locacao.observacoes}"/>
-
-            </h:panelGrid>
+                    <h:outputText value="Data prevista devolucao:"/>
+                    <h:outputText value="#{locacaoBean.locacao.dataPrevistaDevolucao}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="Status:"/>
+                    <h:outputText value="#{locacaoBean.locacao.status}"/>
+                    <h:outputText value="Valor:"/>
+                    <h:outputText value="#{locacaoBean.locacao.valor}"/>
+                    <h:outputText value="Observacoes:"/>
+                    <h:outputText value="#{locacaoBean.locacao.observacoes}"/>
+                </h:panelGrid>
+            </div>
             <h:commandButton value="Fechar" action="#{locacaoBean.fecharLocacao()}"/>
             <h:commandButton value="Cancelar/Voltar" action="locacoes"/>
             <br/>
