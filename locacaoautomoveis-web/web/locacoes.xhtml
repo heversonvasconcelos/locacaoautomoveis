@@ -43,21 +43,13 @@
                         <f:convertDateTime pattern="dd/MM/yyyy hh:mm" />
                     </h:outputText>
                 </p:column>
-                <p:column sortBy="#{locacao.dataHoraLocacaoFinalizada}" filterBy="#{locacao.dataHoraLocacaoFinalizada}">
-                    <f:facet name="header">
-                        <h:outputText value="Data/Hora Locação Finalizada"/>
-                    </f:facet>
-                    <h:outputText value="#{locacao.dataHoraLocacaoFinalizada}">
-                        <f:convertDateTime pattern="dd/MM/yyyy hh:mm" />
-                    </h:outputText>
-                </p:column>
                 <p:column>
-                    <h:commandButton value="Editar" action="locacaoform">
+                    <p:commandButton title="Editar" action="locacaoform" image="ui-icon-pencil" ajax="false">
                         <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
-                    </h:commandButton>
-                    <h:commandButton value="Fechar/Visualizar" action="locacaoview">
+                    </p:commandButton>
+                    <p:commandButton title="Fechar/Visualizar" action="locacaoview" image="ui-icon-zoomin" ajax="false">
                         <f:setPropertyActionListener value="#{locacao}" target="#{locacaoBean.locacao}" />
-                    </h:commandButton>
+                    </p:commandButton>
                 </p:column>
             </p:dataTable>
             <h:messages/>

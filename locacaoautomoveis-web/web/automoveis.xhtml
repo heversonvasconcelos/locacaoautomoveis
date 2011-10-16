@@ -49,9 +49,9 @@
                     <h:outputText value="#{automovel.categoria.descricao}"/>
                 </p:column>
                 <p:column>
-                    <h:commandButton value="Editar" action="automovelform">
+                    <p:commandButton title="Editar" action="automovelform" image="ui-icon-pencil" ajax="false">
                         <f:setPropertyActionListener value="#{automovel}" target="#{automovelBean.automovel}" />
-                    </h:commandButton>
+                    </p:commandButton>
                 </p:column>
             </p:dataTable>
         </div>

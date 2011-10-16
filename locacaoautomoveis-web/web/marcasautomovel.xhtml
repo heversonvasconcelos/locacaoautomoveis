@@ -24,9 +24,9 @@
                     <h:outputText value="#{marca.descricao}"/>
                 </p:column>
                 <p:column>
-                    <h:commandButton value="Editar" action="marcaautomovelform">
+                    <p:commandButton title="Editar" action="marcaautomovelform" image="ui-icon-pencil" ajax="false">
                         <f:setPropertyActionListener value="#{marca}" target="#{marcaAutomovelBean.marca}" />
-                    </h:commandButton>
+                    </p:commandButton>
                 </p:column>
             </p:dataTable>
         </div>

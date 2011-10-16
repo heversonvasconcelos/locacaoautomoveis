@@ -43,9 +43,9 @@
                     <h:outputText value="#{cliente.telefone}"/>
                 </p:column>
                 <p:column>
-                    <h:commandButton value="Editar" action="clienteform">
+                    <p:commandButton title="Editar" action="clienteform" image="ui-icon-pencil" ajax="false">
                         <f:setPropertyActionListener value="#{cliente}" target="#{clienteBean.cliente}" />
-                    </h:commandButton>
+                    </p:commandButton>
                 </p:column>
             </p:dataTable>
         </div>

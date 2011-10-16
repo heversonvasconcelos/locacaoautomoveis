@@ -30,9 +30,9 @@
                     <h:outputText value="#{modelo.marca.descricao}"/>
                 </p:column>
                 <p:column>
-                    <h:commandButton value="Editar" action="modeloautomovelform">
+                    <p:commandButton title="Editar" action="modeloautomovelform" image="ui-icon-pencil" ajax="false">
                         <f:setPropertyActionListener value="#{modelo}" target="#{modeloAutomovelBean.modelo}" />
-                    </h:commandButton>
+                    </p:commandButton>
                 </p:column>
             </p:dataTable>
         </div>

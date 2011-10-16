@@ -30,9 +30,9 @@
                     <h:outputText value="#{categoria.valorDiario}"/>
                 </p:column>
                 <p:column>
-                    <h:commandButton value="Editar" action="categoriaautomovelform">
+                    <p:commandButton title="Editar" action="categoriaautomovelform" image="ui-icon-pencil" ajax="false">
                         <f:setPropertyActionListener value="#{categoria}" target="#{categoriaAutomovelBean.categoria}" />
-                    </h:commandButton>
+                    </p:commandButton>
                 </p:column>
             </p:dataTable>
         </div>
