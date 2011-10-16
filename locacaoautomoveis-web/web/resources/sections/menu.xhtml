@@ -3,30 +3,28 @@
 
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:ui="http://java.sun.com/jsf/facelets">
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.prime.com.tr/ui">
 
-    <script type="text/javascript">
-       $('document').ready(function(){
-           $('div.menu').fixedMenu();
-       });
-    </script>
+    <ui:remove>
+        <h:commandLink action="#{loginBean.logout()}" value="LOGOUT"/>
+    </ui:remove>
 
-    <div class="menu">
-        <ul id="menu_dropdown" class="menubar">
-            <li class="submenu"><a href="#">CADASTRO</a>
-                <ul class="menu">
-                    <li><a href="clientes.xhtml">Clientes</a></li>
-                    <li><a href="automoveis.xhtml">Automóveis</a></li>
-                    <li><a href="marcasautomovel.xhtml">Marcas</a></li>
-                    <li><a href="modelosautomovel.xhtml">Modelos</a></li>
-                    <li><a href="categoriasautomovel.xhtml">Categorias</a></li>
-                </ul>
-            </li>
-            <li class="submenu"><a href="locacoes.xhtml">LOCAÇÕES</a></li>
-            <li class="submenu">
-                <h:commandLink action="#{loginBean.logout()}" value="LOGOUT"/>
-            </li>
-        </ul>
-    </div>
+    <p:menubar>
+        <p:submenu label="CADASTRO">
+            <p:menuitem value="Automóveis" url="automoveis.xhtml"/>
+            <p:menuitem value="Categorias" url="categoriasautomovel.xhtml"/>
+            <p:menuitem value="Clientes" url="clientes.xhtml"/>
+            <p:menuitem value="Marcas" url="marcasautomovel.xhtml"/>
+            <p:menuitem value="Modelos" url="modelosautomovel.xhtml"/>
+        </p:submenu>
+        <p:menuitem value="LOCAÇÕES" url="locacoes.xhtml"/>
+        <p:menuitem value="LOGOUT" onclick="confirmation.show()"/>
+    </p:menubar>
+
+    <p:confirmDialog widgetVar="confirmation" message="#{msgs.quitConfirmQuestion}" modal="true" draggable="false">
+        <p:commandButton value="#{msgs.no}" onclick="quitConfirmModalDialog.hide()" />
+        <p:commandButton value="#{msgs.yes}" action="#{loginBean.logout()}" oncomplete="quitConfirmModalDialog.hide()" ajax="false"/>
+    </p:confirmDialog>
 
 </ui:composition>

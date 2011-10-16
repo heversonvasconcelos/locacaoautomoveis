@@ -15,7 +15,7 @@
                 <h:commandButton styleClass="right" value="Nova locação" action="#{locacaoBean.novaLocacao()}"/>
             </div>
             <br/>
-            <p:dataTable value="#{locacaoBean.listaLocacoes}" var="locacao"
+            <p:dataTable value="#{locacaoBean.listaLocacoes}" var="locacao" 
                          paginator="true" rows="5">
                 <p:column sortBy="#{locacao.id}" filterBy="#{locacao.id}">
                     <f:facet name="header">

@@ -5,9 +5,10 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
                 template="/resources/template/template.xhtml">
+
     <ui:define name="content">
-	<script src="resources/js/datepicker.js" type="text/javascript" />
         <div id="page-content">
             <h2>#{msgs.rentalInfo}</h2>
             <br/>
@@ -20,9 +21,9 @@
                         <f:selectItems value="#{locacaoBean.listaClientes}" var="cliente" itemValue="#{cliente}" itemLabel="#{cliente.nome}" />
                     </h:selectOneMenu>
                     <h:outputLabel value="Data prevista para devolucao:" for="dataPrevistaDevolucao" />
-                    <h:inputText id="dataPrevistaDevolucao" value="#{locacaoBean.locacao.dataPrevistaDevolucao}" title="DataPrevistaDevolucao" styleClass="term">
+                    <p:calendar id="dataPrevistaDevolucao" value="#{locacaoBean.locacao.dataPrevistaDevolucao}" title="DataPrevistaDevolucao">
                         <f:convertDateTime pattern="dd/MM/yyyy" />
-                    </h:inputText>
+                    </p:calendar>
                     <h:outputLabel value="Automovel:" for="automovel" />
                     <h:selectOneMenu id="automovel" value="#{locacaoBean.locacao.automovel}" title="Automovel" converter="automovelConverter"
                                      required="true"  requiredMessage="Selecione o automovel">

@@ -43,12 +43,6 @@
                     <h:outputText value="#{cliente.telefone}"/>
                 </p:column>
                 <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="Email"/>
-                    </f:facet>
-                    <h:outputText value="#{cliente.email}"/>
-                </p:column>
-                <p:column>
                     <h:commandButton value="Editar" action="clienteform">
                         <f:setPropertyActionListener value="#{cliente}" target="#{clienteBean.cliente}" />
                     </h:commandButton>
