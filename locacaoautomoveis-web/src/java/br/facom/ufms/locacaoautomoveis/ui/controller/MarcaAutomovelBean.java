@@ -4,6 +4,7 @@ import br.facom.ufms.locacaoautomoveis.model.dao.MarcaAutomovelDAO;
 import br.facom.ufms.locacaoautomoveis.model.daoimpl.MarcaAutomovelDAOImpl;
 import br.facom.ufms.locacaoautomoveis.model.entities.MarcaAutomovel;
 import br.facom.ufms.locacaoautomoveis.ui.util.Constantes;
+import br.facom.ufms.locacaoautomoveis.ui.util.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -41,13 +42,13 @@ public class MarcaAutomovelBean implements Serializable {
         return Constantes.PAGE_MARCAAUTOMOVEL_FORM;
     }
 
-    public String salvarMarcaAutomovel() {
+    public void salvarMarcaAutomovel() {
         if (marca.getId() == null) {
             marcaAutomovelDAO.create(marca);
         } else {
             marcaAutomovelDAO.update(marca);
         }
 
-        return Constantes.PAGE_MARCASAUTOMOVEL;
+        FacesUtil.mensInfo(Constantes.MSG_INFO_MARCA_SALVA);
     }
 }

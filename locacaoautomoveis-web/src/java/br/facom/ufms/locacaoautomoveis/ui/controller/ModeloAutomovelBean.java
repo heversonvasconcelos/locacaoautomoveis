@@ -7,6 +7,7 @@ import br.facom.ufms.locacaoautomoveis.model.daoimpl.ModeloAutomovelDAOImpl;
 import br.facom.ufms.locacaoautomoveis.model.entities.MarcaAutomovel;
 import br.facom.ufms.locacaoautomoveis.model.entities.ModeloAutomovel;
 import br.facom.ufms.locacaoautomoveis.ui.util.Constantes;
+import br.facom.ufms.locacaoautomoveis.ui.util.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -50,13 +51,13 @@ public class ModeloAutomovelBean implements Serializable {
         return Constantes.PAGE_MODELOAUTOMOVEL_FORM;
     }
 
-    public String salvarModeloAutomovel() {
+    public void salvarModeloAutomovel() {
         if (modelo.getId() == null) {
             modeloAutomovelDAO.create(modelo);
         } else {
             modeloAutomovelDAO.update(modelo);
         }
 
-        return Constantes.PAGE_MODELOSAUTOMOVEL;
+        FacesUtil.mensInfo(Constantes.MSG_INFO_MODELO_SALVO);
     }
 }

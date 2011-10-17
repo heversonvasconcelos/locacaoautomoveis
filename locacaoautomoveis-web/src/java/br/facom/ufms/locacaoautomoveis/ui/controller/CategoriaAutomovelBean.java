@@ -4,6 +4,7 @@ import br.facom.ufms.locacaoautomoveis.model.dao.CategoriaAutomovelDAO;
 import br.facom.ufms.locacaoautomoveis.model.entities.CategoriaAutomovel;
 import br.facom.ufms.locacaoautomoveis.model.daoimpl.CategoriaAutomovelDAOImpl;
 import br.facom.ufms.locacaoautomoveis.ui.util.Constantes;
+import br.facom.ufms.locacaoautomoveis.ui.util.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -41,13 +42,13 @@ public class CategoriaAutomovelBean implements Serializable {
         return Constantes.PAGE_CATEGORIAAUTOMOVEL_FORM;
     }
 
-    public String salvarCategoriaAutomovel() {
+    public void salvarCategoriaAutomovel() {
         if (categoria.getId() == null) {
             categoriaAutomovelDAO.create(categoria);
         } else {
             categoriaAutomovelDAO.update(categoria);
         }
 
-        return Constantes.PAGE_CATEGORIASAUTOMOVEL;
+        FacesUtil.mensInfo(Constantes.MSG_INFO_CATEGORIA_SALVA);
     }
 }

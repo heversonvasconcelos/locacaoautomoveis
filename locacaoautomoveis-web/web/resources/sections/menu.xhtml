@@ -6,10 +6,6 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.prime.com.tr/ui">
 
-    <ui:remove>
-        <h:commandLink action="#{loginBean.logout()}" value="LOGOUT"/>
-    </ui:remove>
-
     <p:menubar>
         <p:submenu label="CADASTRO">
             <p:menuitem value="Automóveis" url="automoveis.xhtml"/>
@@ -19,12 +15,14 @@
             <p:menuitem value="Modelos" url="modelosautomovel.xhtml"/>
         </p:submenu>
         <p:menuitem value="LOCAÇÕES" url="locacoes.xhtml"/>
+        <p:menuitem value="MEUS DADOS" url="usuarioform.xhtml"/>
         <p:menuitem value="LOGOUT" onclick="confirmation.show()"/>
+
     </p:menubar>
 
     <p:confirmDialog widgetVar="confirmation" message="#{msgs.quitConfirmQuestion}" modal="true" draggable="false">
-        <p:commandButton value="#{msgs.yes}" action="#{loginBean.logout()}" oncomplete="quitConfirmModalDialog.hide()" ajax="false"/>
-        <p:commandButton value="#{msgs.no}" onclick="quitConfirmModalDialog.hide()" />
+        <p:commandButton value="#{msgs.yes}" action="#{loginBean.logout()}" oncomplete="quitConfirmModalDialog.hide()" ajax="false" immediate="true"/>
+        <p:commandButton value="#{msgs.no}" onclick="quitConfirmModalDialog.hide()"/>
     </p:confirmDialog>
 
 </ui:composition>

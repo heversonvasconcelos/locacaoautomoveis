@@ -5,6 +5,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
                 template="/resources/template/template.xhtml">
 
     <ui:define name="content">
@@ -15,17 +16,16 @@
                 <h:panelGrid columns="2">
 
                     <h:outputLabel value="Login: " for="login" />
-                    <h:inputText id="login" value="#{usuarioBean.usuarioLogado}" title="Descricao" required="true" requiredMessage="Informe uma descrição"/>
+                    <h:outputText id="login" value="#{usuarioBean.usuarioLogado.nomeLogin}"/>
 
-                    <h:outputLabel value="Valor Diario:" for="valorDiario" />
-                    <h:inputText id="valorDiario" value="#{categoriaAutomovelBean.categoria.valorDiario}" title="ValorDiario" required="true" requiredMessage="Informe o valor diário"/>
+                    <h:outputLabel value="Senha:" for="senha" />
+                    <h:inputSecret id="senha" value="#{usuarioBean.usuarioLogado.senha}" required="true" requiredMessage="Informe a senha"/>
 
                 </h:panelGrid>
             </div>
-            <h:commandButton value="Salvar" action="#{categoriaAutomovelBean.salvarCategoriaAutomovel()}"/>
-            <h:commandButton value="Cancelar/Voltar" action="categoriasautomovel" immediate="true"/>
-            <br/>
-            <h:messages />
+            <h:commandButton value="Salvar" action="#{usuarioBean.salvarUsuario()}"/>
+            <h:commandButton value="Cancelar/Voltar" action="locacoes" immediate="true"/>
+            <p:growl />
         </div>
     </ui:define>
 </ui:composition>       

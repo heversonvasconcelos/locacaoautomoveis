@@ -95,14 +95,14 @@ public class LocacaoBean implements Serializable {
         return Constantes.PAGE_LOCACAO_FORM;
     }
 
-    public String salvarLocacao() {
+    public void salvarLocacao() {
         if (locacao.getId() == null) {
             locacaoDAO.create(locacao);
         } else {
             locacaoDAO.update(locacao);
         }
 
-        return Constantes.PAGE_LOCACOES;
+        FacesUtil.mensInfo(Constantes.MSG_INFO_LOCACAO_SALVA);
     }
 
     public String fecharLocacao() {

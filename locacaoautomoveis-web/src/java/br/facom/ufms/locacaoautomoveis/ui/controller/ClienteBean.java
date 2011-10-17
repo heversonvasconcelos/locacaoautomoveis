@@ -4,6 +4,7 @@ import br.facom.ufms.locacaoautomoveis.model.dao.ClienteDAO;
 import br.facom.ufms.locacaoautomoveis.model.daoimpl.ClienteDAOImpl;
 import br.facom.ufms.locacaoautomoveis.model.entities.Cliente;
 import br.facom.ufms.locacaoautomoveis.ui.util.Constantes;
+import br.facom.ufms.locacaoautomoveis.ui.util.FacesUtil;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
@@ -53,14 +54,14 @@ public class ClienteBean implements Serializable {
         return Constantes.PAGE_CLIENTE_FORM;
     }
 
-    public String salvarCliente() {
+    public void salvarCliente() {
         if (cliente.getId() == null) {
             clienteDAO.create(cliente);
         } else {
             clienteDAO.update(cliente);
         }
 
-        return Constantes.PAGE_CLIENTES;
+        FacesUtil.mensInfo(Constantes.MSG_INFO_CLIENTE_SALVO);
     }
 
     public void gerarPDFRelatorioClientes() throws IOException, JRException {

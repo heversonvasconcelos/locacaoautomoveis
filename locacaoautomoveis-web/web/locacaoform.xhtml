@@ -40,10 +40,9 @@
                     </h:inputTextarea>
                 </h:panelGrid>
             </div>
-            <h:commandButton value="Salvar" action="#{locacaoBean.salvarLocacao()}" type="submit"/>
+            <h:commandButton value="Salvar" action="#{locacaoBean.salvarLocacao()}"/>
             <h:commandButton value="Cancelar/Voltar" action="locacoes" immediate="true"/>
-            <br/>
-            <h:messages />
+            <p:growl />
         </div>
     </ui:define>
 </ui:composition>

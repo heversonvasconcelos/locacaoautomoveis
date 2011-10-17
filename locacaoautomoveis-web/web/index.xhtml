@@ -4,6 +4,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
                 template="/resources/template/template.xhtml">
 
     <!-- Pagina de login nao tem acesso ao menu -->
@@ -29,7 +30,7 @@
                     </h:panelGrid>
                     <br/>
                     <h:commandButton value="#{msgs.toLogin}" action="#{loginBean.login()}"/>
-                    <h:messages />
+                    <p:growl />
                 </div>
             </div>
             <div id="gbox-bot"> </div>

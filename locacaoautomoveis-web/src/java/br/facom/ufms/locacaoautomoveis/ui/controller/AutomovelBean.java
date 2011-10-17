@@ -78,14 +78,14 @@ public class AutomovelBean implements Serializable {
         return Constantes.PAGE_AUTOMOVEIS_FORM;
     }
 
-    public String salvarAutomovel() {
+    public void salvarAutomovel() {
         if (automovel.getId() == null) {
             automovelDAO.create(automovel);
         } else {
             automovelDAO.update(automovel);
         }
 
-        return Constantes.PAGE_AUTOMOVEIS;
+        FacesUtil.mensInfo(Constantes.MSG_INFO_AUTOMOVEL_SALVO);
     }
 
     public void gerarPDFRelatorioAutomoveis() throws IOException, JRException {
