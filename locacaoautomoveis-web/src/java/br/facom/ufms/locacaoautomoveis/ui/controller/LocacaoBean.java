@@ -105,14 +105,14 @@ public class LocacaoBean implements Serializable {
         FacesUtil.mensInfo(Constantes.MSG_INFO_LOCACAO_SALVA);
     }
 
-    public String fecharLocacao() {
+    public void fecharLocacao() {
         if (locacao.getStatus() == Status.FECHADO) {
             FacesUtil.mensErro(Constantes.MSG_ERRO_LOCACAO_PREVIAMENTE_FECHADA);
         } else if (!locacaoDAO.finalizarLocacao(locacao)) {
             FacesUtil.mensErro(Constantes.MSG_ERRO_LOCACAO);
+        } else {
+            FacesUtil.mensInfo(Constantes.MSG_INFO_LOCACAO_FINALIZADA);
         }
-
-        return Constantes.PAGE_LOCACOES;
     }
 
     public void gerarPDFRelatorioAutomoveis() throws IOException, JRException {

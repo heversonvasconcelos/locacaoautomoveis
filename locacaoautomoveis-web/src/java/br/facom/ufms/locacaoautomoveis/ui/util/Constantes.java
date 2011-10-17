@@ -32,13 +32,14 @@ public class Constantes {
     public static final String MSG_ERRO_INVALID_CNPJ = "CNPJ inválido";
     public static final String MSG_ERRO_INVALID_CP = "Tipo CPF/CNPJ inválido";
     public static final String MSG_ERRO_USER_ALREADY_EXISTS = "Usuário já foi cadastrado";
-    public static final String MSG_ERRO_LOCACAO_PREVIAMENTE_FECHADA = "A locação já foi previamente fechada";
-    public static final String MSG_ERRO_LOCACAO = "A locação não pode ser fechada";
+    public static final String MSG_ERRO_LOCACAO_PREVIAMENTE_FECHADA = "A locação já foi previamente finalizada";
+    public static final String MSG_ERRO_LOCACAO = "A locação não pode ser finalizada";
     public static final String MSG_ERRO_GERAR_RELATORIO_RECIBO = "O relatório ou recibo não pode ser gerado";
     /* Mensagens informativas */
     public static final String MSG_INFO_NAO_EXISTEM_AUTOMOVEIS_DISPONIVEIS = "ATENÇÂO: Não existem automóveis disponíveis";
     public static final String MSG_INFO_USUARIO_SALVO = "Informações do usuário foram salvas";
     public static final String MSG_INFO_LOCACAO_SALVA = "Informações da locação foram salvas";
+    public static final String MSG_INFO_LOCACAO_FINALIZADA = "Locação finalizada com sucesso";
     public static final String MSG_INFO_CLIENTE_SALVO = "Informações do cliente foram salvas";
     public static final String MSG_INFO_AUTOMOVEL_SALVO = "Informações do automóvel foram salvas";
     public static final String MSG_INFO_CATEGORIA_SALVA = "Informações da categoria foram salvas";
