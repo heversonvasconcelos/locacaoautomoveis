@@ -17,31 +17,47 @@ html {
     padding: 0;
 }
 
+h2{
+    font-family: Verdana, Arial, sans-serif;
+    color: #222;
+    font-weight: normal;
+    font-variant: small-caps; 
+}
 body {
-    background-color: White;
+    /*background-color: rgb(237, 242, 248);*/
+    background-color: rgb(222, 231, 242);
     width: 900px;
     margin: 0 auto;
 }
 
+td{
+     font-family: Verdana, Arial, sans-serif;
+    color: #222;
+    font-weight: normal;
+    font-variant: small-caps;
+}
 #cabecalho{
     margin-top: 20px;
     height: 120px;
-    border: 1px solid silver;
+    background: url(../images/layout/logo.png) no-repeat;
 }
 
+
+
 #menu {
-    margin-top: 50px;
-    width: 450px;
+    margin-top: 10px;
+    width: 400px;
 }
 
 #rodape {
     margin-top: 50px;
-    border: 1px solid silver;
-   text-align: center;
+    text-align: center;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: smaller;
 }
 
 #page-content{
-    background: #FFFFFF;
+    background-color: rgb(222, 231, 242);
     margin-top: 20px;
 
 }
@@ -64,8 +80,11 @@ body {
     height: 30px;
 }
 .tituloListagem {
-    font-family: Arial;
-    float: left;
+    font-family: Verdana, Arial, sans-serif;
+    color: #222;
+    font-weight: normal;
+    font-variant: small-caps;
+    float:left;
 }
 .borderField{
     border: 1px solid gainsboro;
