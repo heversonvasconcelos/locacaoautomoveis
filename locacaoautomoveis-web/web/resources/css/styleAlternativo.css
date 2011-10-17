@@ -1,0 +1,100 @@
+/* 
+    Document   : styleAlternativo
+    Created on : 16/10/2011, 22:25:06
+    Author     : Leo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/* Elementos gerais da página */
+html { 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: White;
+    width: 900px;
+    margin: 0 auto;
+}
+
+#cabecalho{
+    margin-top: 20px;
+    height: 120px;
+    border: 1px solid silver;
+}
+
+#menu {
+    margin-top: 50px;
+    width: 450px;
+}
+
+#rodape {
+    margin-top: 50px;
+    border: 1px solid silver;
+   text-align: center;
+}
+
+#page-content{
+    background: #FFFFFF;
+    margin-top: 20px;
+
+}
+
+
+#logo {
+    width: 25em;
+    text-align: center;
+}
+
+
+/** Configuracoes de elementos **/
+.hidden {
+    display: none;
+}
+.button {
+    font-size: 10px;
+}
+.cabecalhoListagem {
+    height: 30px;
+}
+.tituloListagem {
+    font-family: Arial;
+    float: left;
+}
+.borderField{
+    border: 1px solid gainsboro;
+}
+
+.alignedField{
+    display: inline-block;
+}
+.novoRegistroButton {
+    float: right;
+}
+
+.ui-widget {
+    font-size: 90% !important;
+}
+
+a:hover {
+    color: #666666;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.more {
+    text-align: right;
+}
+.clear {
+    clear: both;
+}
+

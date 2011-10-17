@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <!--
+        @author heverson.vasconcelos
+
+        Template de definicao do layout padrao das paginas da aplicacao.
+    -->
+    <f:view contentType="text/html" encoding="utf-8">
+        <h:head>
+            <title>#{msgs.systemTitle}</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
+        </h:head>
+
+        <h:body>
+            <div id="outer">
+                <div id="wrapper">
+                    <div id="body-bot">
+                        <div id="body-top">
+                            <h:form>
+                                <!-- PAGE TOP -->
+                                <div id="logo">
+                                    <h1>#{msgs.systemTitle}</h1>
+                                </div>
+                                <div id="menu">
+                                    <!-- PAGE MENU -->
+                                    <ui:insert name="menu">
+                                        <ui:include src="/resources/sections/menu.xhtml"/>
+                                    </ui:insert>
+                                </div>
+                                <div id="gbox">
+                                    <!-- PAGE CONTENT -->
+                                    <ui:insert name="content">
+                                    </ui:insert>
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="copyright"><p>#{msgs.copyright}</p></div>
+        </h:body>
+    </f:view>
+
+</html>

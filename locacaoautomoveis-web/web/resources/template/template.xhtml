@@ -6,7 +6,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core">
     <!--
-        @author heverson.vasconcelos
+        @author Leo
 
         Template de definicao do layout padrao das paginas da aplicacao.
     -->
@@ -14,36 +14,31 @@
         <h:head>
             <title>#{msgs.systemTitle}</title>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-            <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
+            <link href="resources/css/styleAlternativo.css" rel="stylesheet" type="text/css"/>
         </h:head>
 
         <h:body>
-            <div id="outer">
-                <div id="wrapper">
-                    <div id="body-bot">
-                        <div id="body-top">
-                            <h:form>
-                                <!-- PAGE TOP -->
-                                <div id="logo">
-                                    <h1>#{msgs.systemTitle}</h1>
-                                </div>
-                                <div id="menu">
+            <div id="cabecalho">
+                <div id="logo">
+                    
+                </div>
+            </div>
+
+            <div id="conteudo">
+                <h:form>
+                       <div id="menu">
                                     <!-- PAGE MENU -->
                                     <ui:insert name="menu">
                                         <ui:include src="/resources/sections/menu.xhtml"/>
                                     </ui:insert>
-                                </div>
-                                <div id="gbox">
-                                    <!-- PAGE CONTENT -->
-                                    <ui:insert name="content">
-                                    </ui:insert>
-                                </div>
-                            </h:form>
                         </div>
-                    </div>
-                </div>
+                          <!-- PAGE CONTENT -->
+                          <ui:insert name="content">
+                          </ui:insert>
+                      </h:form>
             </div>
-            <div id="copyright"><p>#{msgs.copyright}</p></div>
+            
+            <div id="rodape"><span>Designed by Ariranha - 2011</span></div>
         </h:body>
     </f:view>
 
