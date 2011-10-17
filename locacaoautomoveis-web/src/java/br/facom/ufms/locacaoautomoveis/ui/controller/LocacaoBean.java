@@ -168,7 +168,9 @@ public class LocacaoBean implements Serializable {
 
         parametros.put("locacao.id", locacao.getId());
         parametros.put("locacao.dataHoraLocacao", df1.format(locacao.getDataHoraLocacao()));
-        parametros.put("locacao.dataPrevistaDevolucao", df2.format(locacao.getDataPrevistaDevolucao()));
+        if (locacao.getDataPrevistaDevolucao() != null) {
+            parametros.put("locacao.dataPrevistaDevolucao", df2.format(locacao.getDataPrevistaDevolucao()));
+        }
 
         parametros.put("locacao.cliente.nome", locacao.getCliente().getNome());
         parametros.put("locacao.cliente.cpfcnpj", locacao.getCliente().getCpfcnpj());
