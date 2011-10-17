@@ -17,6 +17,12 @@
             <br/>
             <p:dataTable value="#{marcaAutomovelBean.listaMarcaAutomovel}" var="marca"
                          paginator="true" rows="5">
+                <p:column sortBy="#{marca.id}" filterBy="#{marca.id}">
+                    <f:facet name="header">
+                        <h:outputText value="Id"/>
+                    </f:facet>
+                    <h:outputText value="#{marca.id}"/>
+                </p:column>
                 <p:column sortBy="#{marca.descricao}" filterBy="#{marca.descricao}">
                     <f:facet name="header">
                         <h:outputText value="Descricao"/>

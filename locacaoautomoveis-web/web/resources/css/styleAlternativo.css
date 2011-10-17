@@ -31,7 +31,7 @@ body {
 }
 
 td{
-     font-family: Verdana, Arial, sans-serif;
+    font-family: Verdana, Arial, sans-serif;
     color: #222;
     font-weight: normal;
     font-variant: small-caps;
@@ -117,3 +117,6 @@ a:hover {
     clear: both;
 }
 
+.ui-widget {
+    font-size: 85% !important;
+}
