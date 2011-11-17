@@ -32,7 +32,7 @@ public class Usuario implements Serializable {
     /**
      * Nome de login do usuário
      */
-    @Column(length = 20, nullable = false, unique = true)
+    @Column(length = 20, nullable = false)
     private String nomeLogin;
     /**
      * Senha do usuário

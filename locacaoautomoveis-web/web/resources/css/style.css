@@ -1,16 +1,113 @@
-html, body, h1, h2, h3, h4 {
+
+/* Elementos gerais da página */
+html { 
     margin: 0;
     padding: 0;
 }
-h1 img {
-    display: block;
+
+h1 {
+    font-family: Verdana, Arial, sans-serif;
+    color: #222;
+    font-weight: normal;
+    font-variant: small-caps;
 }
-img {
-    border: 0;
+
+body {
+    width: 1000px;
+    margin: 0 auto;
+    background-color: rgb(250, 250, 250);
+    font-size: 14px;
 }
-a {
-    color: #464544;
+
+td {
+    font-family: Verdana, Arial, sans-serif;
+    color: #222;
+    font-weight: normal;
+    font-variant: small-caps;
 }
+
+#site {
+    background-color: white;
+    margin-top: 30px;
+    width: 980px;
+    border: 1px solid black;
+
+}
+
+#cabecalho {
+    margin: 20px;
+    height: 120px;
+    background: url(../images/layout/logo.png) no-repeat;
+}
+
+#menu {
+    margin: 20px;
+    width: 400px;
+}
+
+#rodape {
+    margin-top: 50px;
+    text-align: center;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: smaller;
+}
+
+#page-content {
+    background-color: white;
+    margin: 20px;
+
+}
+
+#login {
+    width: 300px;
+    border: 1px solid white;
+    padding: 10px; 
+}
+
+#boasvindas {
+    font-family: Verdana;
+    font-size: large;
+}
+
+#loginmessage {
+    font-family: Verdana;
+    font-size: smaller;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/** Configuracoes de elementos **/
+.hidden {
+    display: none;
+}
+.button {
+    font-size: 10px;
+}
+.cabecalhoListagem {
+    height: 30px;
+}
+.tituloListagem {
+    font-family: Verdana, Arial, sans-serif;
+    color: #222;
+    font-weight: normal;
+    font-variant: small-caps;
+    float:left;
+}
+.borderField{
+    border: 1px solid white;
+}
+
+.alignedField{
+    display: inline-block;
+}
+.novoRegistroButton {
+    float: right;
+}
+
+.ui-widget {
+    font-size: 90% !important;
+}
+
 a:hover {
     color: #666666;
 }
@@ -25,209 +122,6 @@ a:hover {
 }
 .clear {
     clear: both;
-}
-
-body {
-    background: url(../images/layout/page_bg.gif);
-    text-align: center;
-    font: 12px Arial, sans-serif;
-    color: #464544;
-    padding-bottom: 10px;
-}
-
-#outer {
-    background: top left  url(../images/layout/page_bg_top.gif) repeat-x;
-    padding-top: 20px;
-}
-
-/** layout **/
-#wrapper {
-    text-align: left;
-    margin: auto;
-    width: 798px;
-    position: relative;
-    background:  url(../images/layout/body_bg.gif) repeat-y;
-}
-#body-bot {
-    background: bottom left  url(../images/layout/body_bg_bot.jpg) no-repeat;
-}
-#body-top {
-    background:  url(../images/layout/body_bg_top.gif) no-repeat;
-    min-height: 800px;
-    _height: 800px;
-    padding-bottom: 14px;
-}
-
-/** logo **/
-
-#logo {
-    width: 25em;
-    text-align: center;
-}
-#logo h1 {
-    color: #6F7033;
-    font: 22px sans-serif;
-    line-height: 1;
-    padding-top: 0.8em;
-}
-#logo p {
-    color: #464544;
-    font: 16px "Arial narrow", arial, sans-serif;
-    margin: 0;
-}
-
-/** nav **/
-
-#menu {
-    margin: 0 20px;
-    margin-top: 50px;
-    width: 343px;
-}
-
-/** green box **/
-#gbox {
-    width: 431px;
-    margin-top: 82px;
-    margin-left: 22px;
-}
-
-#gbox-bg  { background:  url(../images/layout/green_bg.gif) repeat-y; }
-#gbox-grd { background: bottom  url(../images/layout/green_grad_bot.jpg) repeat-x; }
-#gbox-top { background:  url(../images/layout/green_top.gif) no-repeat; height: 24px; }
-#gbox-bot { background: bottom left  url(../images/layout/green_bot.gif) no-repeat; height: 23px; }
-
-#gbox-grd {
-    min-height: 300px;
-    padding: 2px 24px;
-}
-
-#gbox h2 {
-    font: bold 14px arial, sans-serif;
-    color: #000;
-    margin: 0;
-}
-
-#gbox p {
-    margin: 1em 0;
-}
-
-#features {
-    background: #EDF0C4;
-    padding: 14px;
-    margin: 0 -14px;
-}
-#features h2 {
-    position: relative;
-}
-#features p{ padding-left:20px;}
-#features a{ float:right;}
-#features img{ float:right;}
-
-/** page content **/
-#page-content{
-    background: #FFFFFF;
-    padding: 14px;
-    width: 680px;
-    margin-top: 82px;
-    margin-left: 22px;
-
-}
-
-
-/** footer **/
-
-#newsletter, #events {
-    float: left;
-    width: 49%;
-    margin-top: 1em;
-}
-#newsletter h2, #events h2 {
-    color: #fff;
-}
-#newsletter .text {
-    width: 125px;
-}
-#newsletter form {
-    margin: 0.3em 0 0.6em 0;
-}
-#newsletter p {
-    margin: 0.3em 0;
-    font-size: 10px;
-}
-#newsletter a {
-    color: #000;
-}
-
-#events {
-    margin-left: 6%;
-    width: 38%;
-}
-#events ul {
-    margin: 0.3em 0;
-    padding: 0;
-}
-#events li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-/** grey box **/
-
-#greybox {
-    background:  url(../images/layout/grey_bg.gif) repeat-y;
-    width: 326px;
-    position: absolute;
-    top: 292px;
-    left: 457px;
-}
-#greybox-top {
-    background:  url(../images/layout/grey_img.jpg) no-repeat;
-    padding-left: 165px;
-    padding-top: 18px;
-}
-#greybox-bot {
-    background: bottom left  url(../images/layout/grey_bot.gif) no-repeat;
-    padding-bottom: 4px;
-}
-#greybox h2 {
-    font: bold 12px arial, sans-serif;
-    color: #E4EE6A;
-    line-height: 1.5;
-}
-#greybox a {
-    color: #fff;
-}
-
-#copyright {
-    font-size: 9px;
-    color: #fff;
-    margin-top: 60px;
-}
-
-/** Configuracoes de elementos **/
-.hidden {
-    display: none;
-}
-.button {
-    font-size: 10px;
-}
-.cabecalhoListagem {
-    height: 30px;
-    border-bottom: 1px solid gainsboro;
-}
-.tituloListagem {
-    float: left;
-}
-.borderField{
-    border: 1px solid gainsboro;
-}
-
-.alignedField{
-    display: inline-block;
-}
-.novoRegistroButton {
-    float: right;
 }
 
 .ui-widget {

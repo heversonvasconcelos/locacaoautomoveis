@@ -29,7 +29,7 @@ public class MarcaAutomovel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String descricao;
     @OneToMany(mappedBy = "marca")
     private List<ModeloAutomovel> modelos = new ArrayList<ModeloAutomovel>();

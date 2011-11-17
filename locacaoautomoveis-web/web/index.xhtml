@@ -11,24 +11,25 @@
     <ui:define name="menu"/>
 
     <ui:define name="content">
-                <!-- CENTER -->
-                <span id="boasvindas">#{msgs.welcome}</span>
-                <span id="login">#{msgs.systemInfo} #{msgs.loginMessage}</span>
-                <div id="features">
-                    <span id="lblLogin">#{msgs.login}</span>
-                    <h:panelGrid columns="2">
-                        <h:outputText value="#{msgs.name}: "/>
-                        <h:inputText required="true"
-                                     requiredMessage="#{msgs.nameRequired}"
-                                     value="#{loginBean.usuario.nomeLogin}" />
-                        <h:outputText value="#{msgs.password}: "/>
-                        <h:inputSecret required="true" requiredMessage="#{msgs.passRequired}"
-                                       value="#{loginBean.usuario.senha}"/>
-                    </h:panelGrid>
-                    <br/>
-                    <h:commandButton value="#{msgs.toLogin}" action="#{loginBean.login()}"/>
-                    <p:growl />
-                </div>
+        <div id="page-content">
+            <p id="boasvindas">#{msgs.welcome}</p>
+            <p class="loginmessage">#{msgs.systemInfo} #{msgs.loginMessage}</p>
+            <div id="login">
+                <h1>#{msgs.login}</h1>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{msgs.name}: "/>
+                    <h:inputText required="true"
+                                 requiredMessage="#{msgs.nameRequired}"
+                                 value="#{loginBean.usuario.nomeLogin}" />
+                    <h:outputText value="#{msgs.password}: "/>
+                    <h:inputSecret required="true" requiredMessage="#{msgs.passRequired}"
+                                   value="#{loginBean.usuario.senha}"/>
+                </h:panelGrid>
+                <br/>
+                <h:commandButton value="#{msgs.toLogin}" action="#{loginBean.login()}"/>
+                <p:growl />
+            </div>
+        </div>
     </ui:define>
 
 </ui:composition>

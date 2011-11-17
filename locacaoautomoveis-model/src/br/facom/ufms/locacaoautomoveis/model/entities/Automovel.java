@@ -28,9 +28,9 @@ public class Automovel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(nullable = false, unique = true, length = 7)
+    @Column(nullable = false, length = 7)
     private String placa;
-    @Column(nullable = false, unique = true, length = 9)
+    @Column(nullable = false, length = 9)
     private String renavam;
     @ManyToOne
     @JoinColumn(name = "MODELO_FK")

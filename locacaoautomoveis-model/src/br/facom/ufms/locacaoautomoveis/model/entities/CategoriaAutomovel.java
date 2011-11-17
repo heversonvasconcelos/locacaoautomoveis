@@ -29,7 +29,7 @@ public class CategoriaAutomovel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String descricao;
     @Column(scale = 10, precision = 2, nullable = false)
     private double valorDiario;

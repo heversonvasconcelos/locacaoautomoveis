@@ -1,7 +1,6 @@
 package br.facom.ufms.locacaoautomoveis.ui.validator;
 
 import br.facom.ufms.locacaoautomoveis.ui.util.Constantes;
-import br.facom.ufms.locacaoautomoveis.ui.util.FacesUtil;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
